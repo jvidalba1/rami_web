@@ -5,6 +5,7 @@ gem 'jquery-ui-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'devise'
 
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
