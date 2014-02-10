@@ -6,6 +6,7 @@
 development:
   adapter: postgresql
   database: rami_db
+  host: localhost
   pool: 5
   timeout: 5000
   username: rami_db
