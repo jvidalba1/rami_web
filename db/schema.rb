@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140119194103) do
+ActiveRecord::Schema.define(:version => 20140210163340) do
+
+  create_table "ciudades", :force => true do |t|
+    t.string   "nombre"
+    t.string   "departamento"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "inmuebles", :force => true do |t|
     t.integer  "codigo_inmueble"
@@ -56,6 +63,24 @@ ActiveRecord::Schema.define(:version => 20140119194103) do
     t.integer  "nro_pisos_permitidos"
     t.datetime "created_at",                                             :null => false
     t.datetime "updated_at",                                             :null => false
+  end
+
+  create_table "interesados", :force => true do |t|
+    t.string   "nombre"
+    t.string   "telefono"
+    t.string   "celular"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "propietarios", :force => true do |t|
+    t.string   "telefono"
+    t.string   "direccion"
+    t.string   "celular"
+    t.string   "email"
+    t.string   "nombre"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
