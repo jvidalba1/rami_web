@@ -45,4 +45,8 @@ class CreateInmuebles < ActiveRecord::Migration
       t.timestamps
     end
   end
+  
+  def down
+    drop_table :inmuebles
+  end
 end
