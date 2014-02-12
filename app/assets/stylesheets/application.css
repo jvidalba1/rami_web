@@ -745,6 +745,25 @@ pre code {
   max-height: 340px;
   overflow-y: scroll;
 }
+
+.alert {
+  padding: 8px 35px 8px 14px;
+  margin-bottom: 20px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  background-color: #fcf8e3;
+  border: 1px solid #fbeed5;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+
+.alert-danger,
+.alert-error {
+  color: #b94a48;
+  background-color: #f2dede;
+  border-color: #eed3d7;
+}
+
 .container {
   margin-right: auto;
   margin-left: auto;
@@ -4473,8 +4492,8 @@ a.thumbnail.active {
   color: inherit;
 }
 .alert-success {
-  background-color: #28b62c;
-  border-color: #24a528;
+  background-color: #04B404;
+  border-color: #04B404;
   color: #ffffff;
 }
 .alert-success hr {
