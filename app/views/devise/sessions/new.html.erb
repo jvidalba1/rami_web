@@ -9,7 +9,7 @@
 				  <div><%= f.label :email %><br />
 				  <%= f.email_field :email, :autofocus => true, :class => "form-control" %></div>
 				
-				  <div><%= f.label :password %><br />
+				  <div><%= f.label :password, "Contraseña" %><br />
 				  <%= f.password_field :password, :id => "inputPassword", :class => "form-control"%></div>
 				
 				  <% if devise_mapping.rememberable? -%>
