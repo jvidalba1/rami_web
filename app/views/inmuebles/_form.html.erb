@@ -1,17 +1,179 @@
 <%= form_for(@inmueble) do |f| %>
-  <% if @inmueble.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@inmueble.errors.count, "error") %> prohibited this inmueble from being saved:</h2>
-
-      <ul>
-      <% @inmueble.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<% if @inmueble.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@inmueble.errors.count, "error") %> prohibited this inmueble from being saved:</h2>
+			<ul>
+				<% @inmueble.errors.full_messages.each do |msg| %>
+		        	<li><%= msg %></li>
+		      	<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<table>
+		<tr>
+			<td><%= f.label :codigo_inmueble %></td>
+			<td><%= f.text_field :codigo_inmueble, :class => "form-control"%></td>
+			
+			<td><%= f.label :clase_inmueble %></td>
+			<td><%= f.text_field :clase_inmueble, :class => "form-control"%></td>
+			
+			<td><%= f.label :ciudad_id %></td>
+			<td><%= f.text_field :ciudad_id, :class => "form-control"%></td>
+		</tr>
+		<tr>
+			<td><%= f.label :zona %></td>
+			<td><%= f.text_field :zona, :class => "form-control" %></td>
+			
+			<td><%= f.label :tipo_negocio %></td>
+			<td><%= f.text_field :tipo_negocio, :class => "form-control"%></td>
+			
+			<td><%= f.label :direccion %></td>
+			<td><%= f.text_field :direccion, :class => "form-control"%></td>
+		</tr>
+		
+		<tr>
+			<td><%= f.label :area_disponible%></td>
+			<td><%= f.text_field :area_disponible, :class => "form-control"%></td>
+			
+			<td><%= f.label :area_disponible_desc %></td>
+			<td><%= f.text_field :area_disponible_desc, :class => "form-control" %></td>
+			
+			<td><%= f.label :valor_mt2 %></td>
+			<td><%= f.text_field :valor_mt2, :class => "form-control" %></td>
+		</tr>	
+		
+		<tr>
+			<td><%= f.label :valor_total%></td>
+			<td><%= f.text_field :valor_total , :class => "form-control"%></td>
+			
+			<td><%= f.label :planos %></td>
+			<td><%= f.text_field :planos , :class => "form-control"%></td>
+			
+			<td><%= f.label :valor_admin %></td>
+			<td><%= f.text_field :valor_admin , :class => "form-control"%></td>
+		</tr>			
+		<tr>
+			<td><%= f.label :predial %></td>
+			<td><%= f.text_field :predial , :class => "form-control"%></td>
+			
+			<td><%= f.label :frente %></td>
+			<td><%= f.text_field :frente , :class => "form-control"%></td>
+			
+			<td><%= f.label :fondo %></td>
+			<td><%= f.text_field :fondo , :class => "form-control"%></td>
+		</tr>
+		
+		<tr>
+			<td><%= f.label :otras_caracteristicas %></td>
+			<td><%= f.text_field :otras_caracteristicas , :class => "form-control"%></td>
+			
+			<td><%= f.label :entorno %></td>
+			<td><%= f.text_field :entorno , :class => "form-control"%></td>
+			
+			<td><%= f.label :info_adicional %></td>
+			<td><%= f.text_field :info_adicional , :class => "form-control"%></td>
+		</tr>
+		
+		<tr>
+			<td><%= f.label :fecha_disponibilidad %></td>
+			<td><%= f.text_field :fecha_disponibilidad , :class => "form-control"%></td>
+			
+			<td><%= f.label :fecha_salida_inventario %></td>
+			<td><%= f.text_field :fecha_salida_inventario , :class => "form-control"%></td>
+			
+			<td><%= f.label :anio_construccion, "Año construcción" %></td>
+			<td><%= f.text_field :anio_construccion , :class => "form-control"%></td>
+		</tr>
+		
+		<tr>
+			<td><%= f.label :normas_de_uso %></td>
+			<td><%= f.text_field :normas_de_uso , :class => "form-control"%></td>
+			
+			<td><%= f.label :indice_ocupacion %></td>
+			<td><%= f.text_field :indice_ocupacion , :class => "form-control"%></td>
+			
+			<td><%= f.label :indice_construccion %></td>
+			<td><%= f.text_field :indice_construccion , :class => "form-control"%></td>
+		</tr>
+		
+		<tr>
+			<td><%= f.label :nro_pisos %></td>
+			<td><%= f.text_field :nro_pisos , :class => "form-control"%></td>
+			
+			<td><%= f.label :parqueadores %></td>
+			<td><%= f.text_field :parqueadores , :class => "form-control"%></td>
+			
+			<td><%= f.label :densidad %></td>
+			<td><%= f.text_field :densidad , :class => "form-control"%></td>
+		</tr>
+		<tr>
+			<td colspan="6"><strong><hr></strong></td>
+		</tr>
+		<tr>
+			<td colspan="6"><span class="lead">Información de agente y quién refiere</span></td>
+		</tr>
+		<tr>
+			<td><%= f.label :nombre_agente %></td>
+			<td><%= f.text_field :nombre_agente , :class => "form-control"%></td>
+			
+			<td><%= f.label :quien_refiere %></td>
+			<td><%= f.text_field :quien_refiere , :class => "form-control"%></td>
+		</tr>
+		
+		<tr>
+			<td><%= f.label :telefono %></td>
+			<td><%= f.text_field :telefono , :class => "form-control"%></td>
+			
+			<td><%= f.label :celular %></td>
+			<td><%= f.text_field :celular , :class => "form-control"%></td>
+			
+			<td><%= f.label :email %></td>
+			<td><%= f.text_field :email , :class => "form-control"%></td>
+		</tr>
+		<tr>
+			<td colspan="6"><strong><hr></strong></td>
+		</tr>
+		<tr>
+			<td colspan="6"><span class="lead">Propietario</span></td>
+		</tr>
+		<tr>
+			<td><%= f.label :propietario_id %></td>
+			<td><%= f.text_field :propietario_id , :class => "form-control"%></td>
+		</tr>
+		<tr>
+			<td colspan="6"><strong><hr></strong></td>
+		</tr>
+		<tr>
+			<td><%= f.label :porcentaje_comision %></td>
+			<td><%= f.text_field :porcentaje_comision , :class => "form-control"%></td>
+			
+			<td><%= f.label :valor_inmueble %></td>
+			<td><%= f.text_field :valor_inmueble , :class => "form-control"%></td>
+			
+			<td><%= f.label :altura %></td>
+			<td><%= f.text_field :altura , :class => "form-control"%></td>
+		</tr>	
+		
+		<tr>
+			<td><%= f.label :interesado_id %></td>
+			<td><%= f.text_field :interesado_id , :class => "form-control"%></td>
+			
+			<td><%= f.label :fecha_captado %></td>
+			<td><%= f.text_field :fecha_captado , :class => "form-control"%></td>
+			
+			<td><%= f.label :transporte %></td>
+			<td><%= f.text_field :transporte , :class => "form-control"%></td>
+		</tr>	
+		
+		<tr>
+			<td><%= f.label :nro_pisos_permitidos %></td>
+			<td><%= f.text_field :nro_pisos_permitidos , :class => "form-control"%></td>
+		</tr>	
+						
+	</table>
+	<div class="actions">
+		<%= f.submit "Aceptar", :class => "btn btn-primary" %>
+	</div>
 <% end %>
+			
+		
