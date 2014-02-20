@@ -16,6 +16,7 @@ group :test, :development do
 end
 
 group :production do
+  gem 'rails_12factor'
   gem 'pg'
 end
 
@@ -33,3 +34,4 @@ group :assets do
 end
 
 gem 'jquery-rails'
+ruby "2.0.0"
