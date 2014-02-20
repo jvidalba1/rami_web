@@ -2,7 +2,7 @@ RamiWeb::Application.routes.draw do
 
   resources :inmuebles
 
-
+  resources :usuarios
   get "pages/home"
 
   devise_for :users
