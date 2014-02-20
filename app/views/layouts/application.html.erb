@@ -78,7 +78,7 @@
             	<li><p>Inicio de sesión como: <strong><%= current_user.email %></strong></p></li>
             	<li><%= link_to 'Editar datos', edit_user_registration_path, :class => 'navbar-link' %> </li>
             	<li><%= link_to "Salir", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
-                <li><%= link_to "Crear usuario", new_user_registration_path, :class => 'navbar-link'  %></li>
+                <li><%# link_to "Crear usuario", new_user_registration_path, :class => 'navbar-link'  %></li>
            	<% else %>
            		<li><%= link_to "Iniciar sesión", new_user_session_path, :class => 'navbar-link'  %></li>
            	<% end%>
