@@ -10,6 +10,8 @@ gem 'omniauth-twitter'
 gem 'devise'
 
 group :test, :development do
+  gem 'better_errors'
+  gem "binding_of_caller"
   gem "rspec-rails", "~> 2.0"
   gem 'capybara', '1.1.2'
   gem 'sqlite3'
