@@ -14,6 +14,9 @@
 
         <% @inmuebles.each do |inmueble| %>
           <tr>
+          	<td><%= inmueble.codigo_inmueble %></td>
+          	<td><%= inmueble.clase_inmueble %></td>
+          	<td><%= inmueble.zona %></td>
             <td><%= link_to 'Ver', inmueble %></td>
             <td><%= link_to 'Editar', edit_inmueble_path(inmueble) %></td>
             <td><%= link_to 'Eliminar', inmueble, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
