@@ -10,22 +10,36 @@
 		</div>
 	<% end %>
 	<table>
+        <tr>
+            <td colspan="6"><span class="lead">Información de inmueble</span></td>
+        </tr>
 		<tr>
 			<td><%= f.label :codigo_inmueble %></td>
 			<td><%= f.text_field :codigo_inmueble, :class => "form-control"%></td>
 			
 			<td><%= f.label :clase_inmueble %></td>
-			<td><%= f.text_field :clase_inmueble, :class => "form-control"%></td>
+			<td><%= f.select(:clase_inmueble,
+                             options_for_select(select_clase_inmueble, @inmueble.clase_inmueble),
+                             {:prompt => "Seleccione una opción"},
+                             { :class => "form-control"}) %></td>
 			
 			<td><%= f.label :ciudad_id %></td>
-			<td><%= f.text_field :ciudad_id, :class => "form-control"%></td>
+			<td>
+              <%= f.select(:ciudad_id,
+                           options_from_collection_for_select(Ciudad.all, "id", "nombre", @inmueble.ciudad_id),
+                           { :prompt => "Seleccione una opción"},
+                           {:class => "form-control"}) %>
+            </td>
 		</tr>
 		<tr>
 			<td><%= f.label :zona %></td>
 			<td><%= f.text_field :zona, :class => "form-control" %></td>
 			
 			<td><%= f.label :tipo_negocio %></td>
-			<td><%= f.text_field :tipo_negocio, :class => "form-control"%></td>
+			<td><%= f.select(:tipo_negocio,
+                             options_for_select(select_tipo_negocio, @inmueble.tipo_negocio),
+                             {:prompt => "Seleccione una opción"},
+                             {:class => "form-control" } )%></td>
 			
 			<td><%= f.label :direccion %></td>
 			<td><%= f.text_field :direccion, :class => "form-control"%></td>
@@ -35,7 +49,7 @@
 			<td><%= f.label :area_disponible%></td>
 			<td><%= f.text_field :area_disponible, :class => "form-control"%></td>
 			
-			<td><%= f.label :area_disponible_desc %></td>
+			<td><%= f.label :area_disponible_desc, "Descripción area disponible" %></td>
 			<td><%= f.text_field :area_disponible_desc, :class => "form-control" %></td>
 			
 			<td><%= f.label :valor_mt2 %></td>
@@ -62,50 +76,67 @@
 			<td><%= f.label :fondo %></td>
 			<td><%= f.text_field :fondo , :class => "form-control"%></td>
 		</tr>
-		
+      <tr>
+        <td><%= f.label :fecha_disponibilidad %></td>
+        <td><%= f.text_field :fecha_disponibilidad , :class => "form-control"%></td>
+
+        <td><%= f.label :fecha_salida_inventario %></td>
+        <td><%= f.text_field :fecha_salida_inventario , :class => "form-control"%></td>
+
+        <td><%= f.label :anio_construccion, "Año construcción" %></td>
+        <td><%= f.text_field :anio_construccion , :class => "form-control"%></td>
+      </tr>
+      <tr>
+        <td><%= f.label :nro_pisos %></td>
+        <td><%= f.text_field :nro_pisos , :class => "form-control"%></td>
+
+        <td><%= f.label :parqueadores %></td>
+        <td><%= f.text_field :parqueadores , :class => "form-control"%></td>
+
+        <td><%= f.label :densidad %></td>
+        <td><%= f.text_field :densidad , :class => "form-control"%></td>
+      </tr>
+      <tr>
+        <td><%= f.label :porcentaje_comision %></td>
+        <td><%= f.text_field :porcentaje_comision , :class => "form-control"%></td>
+
+        <td><%= f.label :valor_inmueble %></td>
+        <td><%= f.text_field :valor_inmueble , :class => "form-control"%></td>
+
+        <td><%= f.label :altura %></td>
+        <td><%= f.text_field :altura , :class => "form-control"%></td>
+      </tr>
+      <tr>
+        <td><%= f.label :nro_pisos_permitidos %></td>
+        <td><%= f.text_field :nro_pisos_permitidos , :class => "form-control"%></td>
+
+        <td><%= f.label :indice_ocupacion %></td>
+        <td><%= f.text_field :indice_ocupacion , :class => "form-control"%></td>
+
+        <td><%= f.label :indice_construccion %></td>
+        <td><%= f.text_field :indice_construccion , :class => "form-control"%></td>
+      </tr>
+      <tr>
+        <td><%= f.label :fecha_captado %></td>
+        <td><%= f.text_field :fecha_captado , :class => "form-control"%></td>
+      </tr>
 		<tr>
-			<td><%= f.label :otras_caracteristicas %></td>
-			<td><%= f.text_field :otras_caracteristicas , :class => "form-control"%></td>
-			
-			<td><%= f.label :entorno %></td>
-			<td><%= f.text_field :entorno , :class => "form-control"%></td>
-			
-			<td><%= f.label :info_adicional %></td>
-			<td><%= f.text_field :info_adicional , :class => "form-control"%></td>
+            <td><%= f.label :entorno %></td>
+            <td colspan="3"><%= f.text_area :entorno, :cols => "20", :rows => "10", :class => "form-control"%></td>
 		</tr>
-		
+        <tr>
+            <td><%= f.label :otras_caracteristicas %></td>
+            <td colspan="3"><%= f.text_area :otras_caracteristicas, :cols => "10", :rows => "10", :class => "form-control"%></td>
+        </tr>
+        <tr>
+            <td><%= f.label :normas_de_uso %></td>
+            <td colspan="3"><%= f.text_area :normas_de_uso ,:rows => "10", :class => "form-control"%></td>
+        </tr>
 		<tr>
-			<td><%= f.label :fecha_disponibilidad %></td>
-			<td><%= f.text_field :fecha_disponibilidad , :class => "form-control"%></td>
-			
-			<td><%= f.label :fecha_salida_inventario %></td>
-			<td><%= f.text_field :fecha_salida_inventario , :class => "form-control"%></td>
-			
-			<td><%= f.label :anio_construccion, "Año construcción" %></td>
-			<td><%= f.text_field :anio_construccion , :class => "form-control"%></td>
+            <td><%= f.label :transporte %></td>
+            <td colspan="3"><%= f.text_area :transporte, :rows => "10", :class => "form-control"%></td>
 		</tr>
-		
-		<tr>
-			<td><%= f.label :normas_de_uso %></td>
-			<td><%= f.text_field :normas_de_uso , :class => "form-control"%></td>
-			
-			<td><%= f.label :indice_ocupacion %></td>
-			<td><%= f.text_field :indice_ocupacion , :class => "form-control"%></td>
-			
-			<td><%= f.label :indice_construccion %></td>
-			<td><%= f.text_field :indice_construccion , :class => "form-control"%></td>
-		</tr>
-		
-		<tr>
-			<td><%= f.label :nro_pisos %></td>
-			<td><%= f.text_field :nro_pisos , :class => "form-control"%></td>
-			
-			<td><%= f.label :parqueadores %></td>
-			<td><%= f.text_field :parqueadores , :class => "form-control"%></td>
-			
-			<td><%= f.label :densidad %></td>
-			<td><%= f.text_field :densidad , :class => "form-control"%></td>
-		</tr>
+
 		<tr>
 			<td colspan="6"><strong><hr></strong></td>
 		</tr>
@@ -134,7 +165,7 @@
 			<td colspan="6"><strong><hr></strong></td>
 		</tr>
 		<tr>
-			<td colspan="6"><span class="lead">Propietario</span></td>
+			<td colspan="6"><span class="lead">Propietarios</span></td>
 		</tr>
 		<tr>
 			<td><%= f.label :propietario_id %></td>
@@ -143,36 +174,20 @@
 		<tr>
 			<td colspan="6"><strong><hr></strong></td>
 		</tr>
-		<tr>
-			<td><%= f.label :porcentaje_comision %></td>
-			<td><%= f.text_field :porcentaje_comision , :class => "form-control"%></td>
-			
-			<td><%= f.label :valor_inmueble %></td>
-			<td><%= f.text_field :valor_inmueble , :class => "form-control"%></td>
-			
-			<td><%= f.label :altura %></td>
-			<td><%= f.text_field :altura , :class => "form-control"%></td>
-		</tr>	
-		
-		<tr>
-			<td><%= f.label :interesado_id %></td>
-			<td><%= f.text_field :interesado_id , :class => "form-control"%></td>
-			
-			<td><%= f.label :fecha_captado %></td>
-			<td><%= f.text_field :fecha_captado , :class => "form-control"%></td>
-			
-			<td><%= f.label :transporte %></td>
-			<td><%= f.text_field :transporte , :class => "form-control"%></td>
-		</tr>	
-		
-		<tr>
-			<td><%= f.label :nro_pisos_permitidos %></td>
-			<td><%= f.text_field :nro_pisos_permitidos , :class => "form-control"%></td>
-		</tr>	
-						
+        <tr>
+            <td colspan="6"><span class="lead">Interesados</span></td>
+        </tr>
+        <tr>
+            <td><%= f.label :interesado_id %></td>
+            <td><%= f.text_field :interesado_id , :class => "form-control"%></td>
+        </tr>
+      <tr>
+        <td colspan="6"><strong><hr></strong></td>
+      </tr>
 	</table>
 	<div class="actions">
-		<%= f.submit "Aceptar", :class => "btn btn-primary" %>
+        <%= link_to 'Atrás', :back, :class => "btn btn-default" %>
+		<%= f.submit "Guardar datos", :class => "btn btn-primary" %>
 	</div>
 <% end %>
 			
