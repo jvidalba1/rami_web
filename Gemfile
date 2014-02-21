@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'seedbank', '0.3.0'
+gem 'colorize', '~> 0.6.0'
 gem 'rails', '3.2.13'
 gem 'jquery-ui-rails'
 gem 'omniauth'
