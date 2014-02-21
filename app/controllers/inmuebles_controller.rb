@@ -44,16 +44,43 @@ class InmueblesController < ApplicationController
   # POST /inmuebles.json
   def create
     @inmueble = Inmueble.new(params[:inmueble])
-
-    respond_to do |format|
-      if @inmueble.save
-        format.html { redirect_to @inmueble, notice: 'Inmueble was successfully created.' }
-        format.json { render json: @inmueble, status: :created, location: @inmueble }
+    
+    if @inmueble.propietario_id.nil?
+      @propietario = @inmueble.propietarios.build(params[:propietario])
+      raise "oelo"
+      @paso = []
+      if @propietario.save
+        @paso << true
+        @inmueble.propietario_id = @propietario.id
+        if @inmueble.save
+          @paso << true
+        else
+          @paso << false
+        end
       else
-        format.html { render action: "new" }
-        format.json { render json: @inmueble.errors, status: :unprocessable_entity }
+        @paso << false
       end
+      
+      if (@paso[0].eql? true) && (@paso[1].eql? true)
+        flash[:notice] = "Inmueble creado exitosamente"
+        redirect_to inmuebles_path
+      elsif (@paso[0].eql? true) && (@paso[1].eql? false)
+        flash[:alert] = "Error creando inmueble, por favor verifique los datos de ingreso"
+        render 'new'
+      elsif (@paso[0].eql? false)
+        flash[:alert] = "Error creando propietario, por favor verifique los datos de ingreso"
+        render 'new'
+      end
+    else
+      if @inmueble.save
+        flash[:notice] = "Inmueble creado exitosamente"
+        redirect_to inmuebles_path
+      else
+        flash[:alert] = "Error creando inmueble, por favor verifique los datos de ingreso"
+        render 'new'
+      end    
     end
+    
   end
 
   # PUT /inmuebles/1
