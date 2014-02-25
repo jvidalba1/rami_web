@@ -190,15 +190,28 @@
             <td colspan="6"><span class="lead">Interesados</span></td>
         </tr>
         <tr>
-            <td><%= f.label :interesado_id %></td>
-            <td><%= f.text_field :interesado_id , :class => "form-control"%></td>
+            <td><%= f.label :nombre_interesado, "Nombre" %></td>
+            <td><%= f.text_field :nombre_interesado , :class => "form-control"%></td>
+            
+            <td><%= f.label :telefono_interesado, "Teléfono" %></td>
+            <td><%= f.text_field :telefono_interesado , :class => "form-control"%></td>
+        </tr>
+        <tr>    
+            <td><%= f.label :celular_interesado, "Celular" %></td>
+            <td><%= f.text_field :celular_interesado , :class => "form-control"%></td>
+            
+            <td><%= f.label :email_interesado, "Email" %></td>
+            <td><%= f.text_field :email_interesado , :class => "form-control"%></td>
+        </tr>
+        <tr>
+        	<td><%= f.label :observaciones_interesado, "Observaciones" %></td>
+            <td colspan="3"><%= f.text_area :observaciones_interesado ,:rows => "10", :class => "form-control"%></td>
         </tr>
       <tr>
         <td colspan="6"><strong><hr></strong></td>
       </tr>
 	</table>
 	<div class="actions">
-        <%= link_to 'Atrás', :back, :class => "btn btn-default" %>
 		<%= f.submit "Guardar datos", :class => "btn btn-primary" %>
 	</div>
 <% end %>

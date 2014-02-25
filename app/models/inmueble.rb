@@ -13,8 +13,10 @@ class Inmueble < ActiveRecord::Base
                   :fecha_salida_inventario, :anio_construccion, :normas_de_uso, :indice_ocupacion,
                   :indice_construccion, :nro_pisos, :parqueadores, :densidad, :nombre_agente,
                   :quien_refiere, :telefono, :celular, :email, :propietario_id, :porcentaje_comision,
-                  :valor_inmueble, :altura, :interesado_id, :fecha_captado, :transporte, 
-                  :nro_pisos_permitidos, :created_at, :updated_at
+                  :valor_inmueble, :altura, :fecha_captado, :transporte, 
+                  :nro_pisos_permitidos, :created_at, :updated_at,
+                  :nombre_interesado, :telefono_interesado, :celular_interesado, :email_interesado,
+                  :observaciones_interesado
 
   validates :codigo_inmueble, :presence => true 
 end

@@ -4,28 +4,52 @@
       <div class="well">
         <%= link_to 'Nuevo inmueble', new_inmueble_path, :class => "btn btn-primary" %>
         <h1>Listado de inmuebles</h1>
-
-        <table>
-          <tr>
-            <th>codigo de inmueble</th>
-            <th>clase inmueble</th>
-            <th>zona</th>
-          </tr>
-
-        <% @inmuebles.each do |inmueble| %>
-          <tr>
-          	<td><%= inmueble.codigo_inmueble %></td>
-          	<td><%= inmueble.clase_inmueble %></td>
-          	<td><%= inmueble.zona %></td>
-            <td><%= link_to 'Ver', inmueble %></td>
-            <td><%= link_to 'Editar', edit_inmueble_path(inmueble) %></td>
-            <td><%= link_to 'Eliminar', inmueble, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
-          </tr>
-        <% end %>
-        </table>
-
-        <br />
-
+		<div class="bs-example table-responsive">
+			<table class="table table-striped table-hover ">
+				<thead>
+		          <tr>
+		          	<th>Ciudad</th>
+		          	<th>Dirección</th>
+		          	<th>Zona</th>
+		            <th>Código</th>
+		            <th>Clase</th>
+		            <th>Negocio</th>
+		            <th>Agente</th>
+		            <th>Valor</th>
+		            <th>Fecha captado</th>
+		            <th>Interesado</th>
+		            <th colspan="2">Opciones</th>
+		          </tr>
+		      	</thead>
+					
+		        <% @inmuebles.each do |inmueble| %>
+		        <tbody>	
+		        	<tr>
+		          		<td><%= inmueble.ciudad_id %></td>
+		          		<td><%= inmueble.direccion %></td>
+		          		<td><%= inmueble.zona %></td>
+			          	<td><%= inmueble.codigo_inmueble %></td>
+			          	<td><%= inmueble.clase_inmueble %></td>
+			          	<td><%= inmueble.tipo_negocio %></td>
+			          	<td><%= inmueble.nombre_agente %></td>
+			          	<td><%= inmueble.valor_inmueble %></td>
+			          	<td><%= inmueble.fecha_captado %></td>
+			          	<td><%= inmueble.nombre_interesado %></td>
+			          	<td>
+				          	<div class="bs-example style="margin-bottom: 15px;">
+					          <div class="btn-group btn-group-justified">
+					            <%= link_to 'Ver', inmueble, :class => "btn btn-link" %>
+					            <%= link_to 'Editar', edit_inmueble_path(inmueble), :class => "btn btn-link" %>
+					            <%= link_to 'Eliminar', inmueble, method: :delete, data: { confirm: '¿Está seguro?' }, :class => "btn btn-link" %>
+					          </div>
+					        </div>
+				        </td>
+		            </tr>
+		            </tbody>
+		        <% end %>
+		        
+		 	</table>
+		</div>
       </div>
     </div>
   </div>

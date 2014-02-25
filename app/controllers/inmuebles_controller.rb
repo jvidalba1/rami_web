@@ -47,7 +47,6 @@ class InmueblesController < ApplicationController
     
     if @inmueble.propietario_id.nil?
       @propietario = @inmueble.propietarios.build(params[:propietario])
-      raise "oelo"
       @paso = []
       if @propietario.save
         @paso << true
