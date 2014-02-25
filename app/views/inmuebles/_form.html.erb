@@ -170,7 +170,7 @@
 		<tr>
 			<td><%= f.label :propietario_id %></td>
 			<td><%= f.select(:propietario_id,
-							 options_from_collection_for_select(Propietario.all, "id", "nombre"),
+							 options_from_collection_for_select(Propietario.all, "id", "nombre", @inmueble.propietario_id),
 							 {:prompt => "Seleccione una opción"},
 							 {:class => "form-control"})%>
 				</td>

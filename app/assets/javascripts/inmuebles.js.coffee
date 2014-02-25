@@ -10,3 +10,25 @@ $ ->
 $ ->
   $(".cancel_propietario_form").click ->
     $(".propietarios_form").hide()
+
+$ ->
+  $("#tab_datos").click ->
+    active = $("#myTabContent").find(".active.in")
+    active.removeClass("active in")
+    $(".nav-tabs").find(".active").removeClass("active")
+    $(this).parent("li").addClass("active")
+    $("#datos").addClass("active in")
+  $("#tab_propietario").click ->
+    active = $("#myTabContent").find(".active.in")
+    active.removeClass("active in")
+    $(".nav-tabs").find(".active").removeClass("active")
+    $(this).parent("li").addClass("active")
+    $("#propietario").addClass("active in")
+  $("#tab_interesado").click ->
+    active = $("#myTabContent").find(".active.in")
+    active.removeClass("active in")
+    $(".nav-tabs").find(".active").removeClass("active")
+    $(this).parent("li").addClass("active")
+    $("#interesado").addClass("active in")
+    
+    

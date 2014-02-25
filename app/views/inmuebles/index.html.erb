@@ -18,6 +18,8 @@
 		            <th>Valor</th>
 		            <th>Fecha captado</th>
 		            <th>Interesado</th>
+		            <th>Valor mt2</th>
+		            <th>Valor total</th>
 		            <th colspan="2">Opciones</th>
 		          </tr>
 		      	</thead>
@@ -35,12 +37,14 @@
 			          	<td><%= inmueble.valor_inmueble %></td>
 			          	<td><%= inmueble.fecha_captado %></td>
 			          	<td><%= inmueble.nombre_interesado %></td>
+			          	<td><%= inmueble.valor_mt2 %></td>
+			          	<td><%= inmueble.valor_total %></td>
 			          	<td>
 				          	<div class="bs-example style="margin-bottom: 15px;">
 					          <div class="btn-group btn-group-justified">
-					            <%= link_to 'Ver', inmueble, :class => "btn btn-link" %>
-					            <%= link_to 'Editar', edit_inmueble_path(inmueble), :class => "btn btn-link" %>
-					            <%= link_to 'Eliminar', inmueble, method: :delete, data: { confirm: '¿Está seguro?' }, :class => "btn btn-link" %>
+					            <%= link_to 'Ver', inmueble, :class => "btn btn-default" %>
+					            <%= link_to 'Editar', edit_inmueble_path(inmueble), :class => "btn btn-default" %>
+					            <%= link_to 'Eliminar', inmueble, method: :delete, data: { confirm: '¿Está seguro?' }, :class => "btn btn-default" %>
 					          </div>
 					        </div>
 				        </td>

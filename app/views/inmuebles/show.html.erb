@@ -1,5 +1,35 @@
-<p id="notice"><%= notice %></p>
-
-
-<%= link_to 'Edit', edit_inmueble_path(@inmueble) %> |
-<%= link_to 'Back', inmuebles_path %>
+<div class="bs-docs-section">
+	<div class="col-lg-12">
+		<h2 id="nav-tabs">Información de inmueble</h2>
+		<div class="bs-example">
+		  <ul class="nav nav-tabs" style="margin-bottom: 15px;">
+		    <li class="active">
+		    	<a href="#datos" id="tab_datos" data-toggle="tab">Datos</a>
+		    </li>
+		    <li class="">
+		    	<a href="#propietario" id="tab_propietario" data-toggle="tab">Propietario</a>
+		    </li>
+		    <li class="">
+		    	<a href="#interesado" id="tab_interesado" data-toggle="tab">Interesado</a>
+		    </li>
+		  </ul>		  
+		  <div id="myTabContent" class="tab-content">
+		    <div class="tab-pane fade active in" id="datos">
+		      <p>
+		      	Datos
+		      </p>
+		    </div>
+		    <div class="tab-pane fade" id="propietario">
+		      <p>
+				Propietarios
+		      </p>
+		    </div>
+		    <div class="tab-pane fade" id="interesado">
+		      <p>
+		      	Interesado
+		      </p>
+		    </div>		    
+		  </div>
+		</div>
+	</div>
+</div>
