@@ -87,14 +87,12 @@ class InmueblesController < ApplicationController
   def update
     @inmueble = Inmueble.find(params[:id])
 
-    respond_to do |format|
-      if @inmueble.update_attributes(params[:inmueble])
-        format.html { redirect_to @inmueble, notice: 'Inmueble was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @inmueble.errors, status: :unprocessable_entity }
-      end
+    if @inmueble.update_attributes(params[:inmueble])
+      flash[:notice] = "Inmueble fue actualizado exitosamente."
+      redirect_to @inmueble
+    else
+      flash[:alert] = "Error en los datos"
+      render 'edit'
     end
   end
 
@@ -103,8 +101,9 @@ class InmueblesController < ApplicationController
   def destroy
     @inmueble = Inmueble.find(params[:id])
     @inmueble.destroy
-
+    
     respond_to do |format|
+      flash[:notice] = "Inmueble eliminado exitosamente"
       format.html { redirect_to inmuebles_url }
       format.json { head :no_content }
     end

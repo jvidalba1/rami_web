@@ -198,7 +198,8 @@ table {
 }
 td,
 th {
-  padding: 15px;
+  padding: 20px;
+  padding-right: 80px;
 }
 @media print {
   * {
