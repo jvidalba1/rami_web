@@ -1,0 +1,46 @@
+<div class="bs-docs-section">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="well">
+        <%= link_to 'Nuevo propietario', new_propietario_path, :class => "btn btn-primary" %>
+        <h1>Listado de propietarios(<%= @propietarios.count %>)</h1>
+		<div class="bs-example table-responsive">
+			<table class="table table-striped table-hover ">
+				<thead>
+		          <tr>
+		          	<th>Nombre</th>
+		          	<th>Teléfono</th>
+		          	<th>Celular</th>
+		            <th>Email</th>
+		            <th>Dirección</th>
+		            <th colspan="2">Opciones</th>
+		          </tr>
+		      	</thead>
+					
+		        <% @propietarios.each do |propietario| %>
+		        <tbody>	
+		        	<tr>
+		          		<td><%= propietario.nombre %></td>
+		          		<td><%= propietario.telefono %></td>
+		          		<td><%= propietario.celular %></td>
+			          	<td><%= propietario.email %></td>
+			          	<td><%= propietario.direccion %></td>
+			          	<td>
+				          	<div class="bs-example style="margin-bottom: 15px;">
+					          <div class="btn-group">
+					            <%= link_to 'Ver', propietario, :class => "btn btn-default" %>
+					            <%= link_to 'Editar', edit_propietario_path(propietario), :class => "btn btn-default" %>
+					            <%= link_to 'Eliminar', propietario, method: :delete, data: { confirm: '¿Está seguro?' }, :class => "btn btn-default" %>
+					          </div>
+					        </div>
+				        </td>
+		            </tr>
+		            </tbody>
+		        <% end %>
+		        
+		 	</table>
+		</div>
+      </div>
+    </div>
+  </div>
+</div>
