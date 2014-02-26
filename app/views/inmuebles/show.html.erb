@@ -1,35 +1,217 @@
 <div class="bs-docs-section">
-	<div class="col-lg-12">
-		<h2 id="nav-tabs">Información de inmueble</h2>
-		<div class="bs-example">
-		  <ul class="nav nav-tabs" style="margin-bottom: 15px;">
-		    <li class="active">
-		    	<a href="#datos" id="tab_datos" data-toggle="tab">Datos</a>
-		    </li>
-		    <li class="">
-		    	<a href="#propietario" id="tab_propietario" data-toggle="tab">Propietario</a>
-		    </li>
-		    <li class="">
-		    	<a href="#interesado" id="tab_interesado" data-toggle="tab">Interesado</a>
-		    </li>
-		  </ul>		  
-		  <div id="myTabContent" class="tab-content">
-		    <div class="tab-pane fade active in" id="datos">
-		      <p>
-		      	Datos
-		      </p>
-		    </div>
-		    <div class="tab-pane fade" id="propietario">
-		      <p>
-				Propietarios
-		      </p>
-		    </div>
-		    <div class="tab-pane fade" id="interesado">
-		      <p>
-		      	Interesado
-		      </p>
-		    </div>		    
-		  </div>
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="well">
+				<%= link_to "Editar", edit_inmueble_path(@inmueble), :class => "btn btn-primary"%>
+				<%= link_to "Atrás", :back, :class => "btn btn-default"%>
+				<h2 id="nav-tabs">Información de inmueble</h2>
+				<div class="bs-example">
+				  <ul class="nav nav-tabs" style="margin-bottom: 15px;">
+				    <li class="active">
+				    	<a href="#datos" id="tab_datos" data-toggle="tab">Datos</a>
+				    </li>
+				    <li class="">
+				    	<a href="#propietario" id="tab_propietario" data-toggle="tab">Propietario</a>
+				    </li>
+				    <li class="">
+				    	<a href="#interesado" id="tab_interesado" data-toggle="tab">Interesado</a>
+				    </li>
+				  </ul>		  
+				  <div id="myTabContent" class="tab-content">
+				    <div class="tab-pane fade active in" id="datos">
+				      <table>
+				      	<tr>
+				      		<td><strong>Código producto</strong></td>
+				      		<td><%= @inmueble.codigo_inmueble %></td>
+				      		
+				      		<td><strong>Clase de inmueble</strong></td>
+				      		<td><%= @inmueble.clase_inmueble%></td>
+				      		
+				      		<td><strong>Tipo de negocio</strong></td>
+				      		<td><%= @inmueble.tipo_negocio %></td>
+				      		
+				      	</tr>
+				      	<tr>
+				      		<td><strong>Ciudad</strong></td>
+				      		<td><%= @inmueble.ciudad_id%></td>
+				      		
+				      		<td><strong>Zona</strong></td>
+				      		<td><%= @inmueble.zona %></td>
+				      		
+				      		<td><strong>Dirección</strong></td>
+				      		<td><%= @inmueble.direccion %></td>
+				      	</tr>
+				      	<tr>
+				      		<td><strong>Área disponible</strong></td>
+				      		<td><%= @inmueble.area_disponible %></td>
+				      	</tr>
+				      	<tr>
+				      		<td><strong>Descripción área disponible</strong></td>
+				      		<td colspan="6"><%= @inmueble.area_disponible_desc %></td>
+				      	</tr>
+				      	<tr>	
+				      		<td><strong>Planos</strong></td>
+				      		<td><%= @inmueble.planos %></td>
+				      		
+				      		<td><strong>Valor mt2</strong></td>
+				      		<td><%= @inmueble.valor_mt2 %></td>
+				      		
+				      		<td><strong>Valor total</strong></td>
+				      		<td><%= @inmueble.valor_total %></td>
+				      	</tr>
+				      	<tr>
+				      		<td><strong>Valor administración</strong></td>
+				      		<td><%= @inmueble.valor_admin %></td>
+				      		
+				      		<td><strong>Predial</strong></td>
+				      		<td><%= @inmueble.predial %></td>
+				      		
+				      		<td><strong>Frente</strong></td>
+				      		<td><%= @inmueble.frente %></td>
+				      	</tr>
+				      	<tr>
+				      		<td><strong>Fondo</strong></td>
+				      		<td><%= @inmueble.fondo %></td>
+				      		
+				      		<td><strong>Fecha disponibilidad</strong></td>
+				      		<td><%= @inmueble.fecha_disponibilidad %></td>
+				      		
+				      		<td><strong>Fecha salida inventario</strong></td>
+				      		<td><%= @inmueble.fecha_salida_inventario %></td>
+				      	</tr>
+				      	<tr>
+				      		<td><strong>Año construcción</strong></td>
+				      		<td><%= @inmueble.anio_construccion %></td>
+				      		
+				      		<td><strong>Número de pisos</strong></td>
+				      		<td><%= @inmueble.nro_pisos %></td>
+				      		
+				      		<td><strong>Parqueaderos</strong></td>
+				      		<td><%= @inmueble.parqueadores %></td>
+				      	</tr>
+				      	<tr>
+				      		<td><strong>Densidad</strong></td>
+				      		<td><%= @inmueble.densidad %></td>
+				      		
+				      		<td><strong>Porcentaje comisión</strong></td>
+				      		<td><%= @inmueble.porcentaje_comision%></td>
+				      		
+				      		<td><strong>Valor inmueble</strong></td>
+				      		<td><%= @inmueble.valor_inmueble %></td>
+				      	</tr>
+				      	<tr>
+				      		<td><strong>Altura</strong></td>
+				      		<td><%= @inmueble.altura %></td>
+				      		
+				      		<td><strong>Número pisos permitidos</strong></td>
+				      		<td><%= @inmueble.nro_pisos_permitidos %></td>
+				      		
+				      		<td><strong>Índice ocupación</strong></td>
+				      		<td><%= @inmueble.indice_ocupacion %></td>
+				      	</tr>
+				      	<tr>
+				      		<td><strong>Índice construcción</strong></td>
+				      		<td><%= @inmueble.indice_construccion %></td>
+				      		
+				      		<td><strong>Fecha captado</strong></td>
+				      		<td><%= @inmueble.fecha_captado %></td>
+				      	</tr>
+				      	<tr>
+				      		<td><strong>Entorno</strong></td>
+				      		<td colspan="6"><%= @inmueble.entorno %></td>
+				      	</tr>
+				      	<tr>
+				      		<td><strong>Otras características</strong></td>
+				      		<td colspan="6"><%= @inmueble.otras_caracteristicas %></td>
+				      	</tr>
+				      	<tr>
+				      		<td><strong>Transporte</strong></td>
+				      		<td colspan="6"><%= @inmueble.transporte %></td>
+				      	</tr>
+				      	<tr>
+				      		<td><strong>Nombre agente</strong></td>
+				      		<td><%= @inmueble.nombre_agente %></td>
+				      		
+				      		<td><strong>Quien refiere</strong></td>
+				      		<td><%= @inmueble.quien_refiere %></td>
+				      	</tr>
+				      	<tr>
+				      		<td><strong>Teléfono</strong></td>
+				      		<td><%= @inmueble.telefono %></td>
+				      		
+				      		<td><strong>Celular</strong></td>
+				      		<td><%= @inmueble.celular %></td>
+				      		
+				      		<td><strong>Email</strong></td>
+				      		<td><%= @inmueble.email %></td>
+				      	</tr>
+				      </table>
+				    </div>
+				    <div class="tab-pane fade" id="propietario">
+				      <div class="bs-example table-responsive">
+						<table class="table table-striped table-hover ">
+							<thead>
+						      	<tr>
+						      		<th>Nombre propietario</th>
+						      		<th>Telégono</th>
+						      		<th>Celular</th>
+						      		<th>Email</th>
+						      		<th>Dirección</th>
+						      		<th colspan="2">Opciones</th>
+						      	</tr>
+							</thead>
+					      	<% @inmueble.propietarios.each do |propietario| %>
+						      	<tbody>
+						      		<tr>
+						      			<td><%= propietario.nombre %></td>
+						      			<td><%= propietario.telefono %></td>
+						      			<td><%= propietario.celular %></td>
+						      			<td><%= propietario.email %></td>
+						      			<td><%= propietario.direccion %></td>
+						      			<td>
+								          	<div class="bs-example>
+									          <div class="btn-group">
+									            <%= link_to 'Editar', "#", :class => "btn btn-default" %>
+									          </div>
+									        </div>
+								        </td>
+						      		</tr>
+						      	</tbody>
+					      	<% end %>
+					  	</table>
+					  </div>
+				    </div>
+				    <div class="tab-pane fade" id="interesado">
+				    	<div class="bs-example table-responsive">
+							<table class="table table-striped table-hover ">
+								<thead>
+							      	<tr>
+							      		<th>Nombre interesado</th>
+							      		<th>Telégono</th>
+							      		<th>Celular</th>
+							      		<th>Email</th>
+							      	</tr>
+								</thead>
+						      	<tbody>
+						      		<tr>
+						      			<td><%= @inmueble.nombre_interesado %></td>
+						      			<td><%= @inmueble.telefono_interesado %></td>
+						      			<td><%= @inmueble.celular_interesado %></td>
+						      			<td><%= @inmueble.email_interesado %></td>						      			
+						      		</tr>
+						      		<tr>
+						      			<th>Observaciones</th>
+						      		</tr>
+						      		<tr>
+						      			<td><%= @inmueble.observaciones_interesado %></td>
+						      		</tr>
+						      	</tbody>
+					  		</table>
+					  	</div>
+				    </div>		    
+				  </div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

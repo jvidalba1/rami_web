@@ -48,20 +48,21 @@
 		<tr>
 			<td><%= f.label :area_disponible%></td>
 			<td><%= f.text_field :area_disponible, :class => "form-control"%></td>
-			
-			<td><%= f.label :area_disponible_desc, "Descripción area disponible" %></td>
-			<td><%= f.text_field :area_disponible_desc, :class => "form-control" %></td>
-			
-			<td><%= f.label :valor_mt2 %></td>
-			<td><%= f.text_field :valor_mt2, :class => "form-control" %></td>
-		</tr>	
-		
+		</tr>
 		<tr>
-			<td><%= f.label :valor_total%></td>
-			<td><%= f.text_field :valor_total , :class => "form-control"%></td>
-			
+            <td><%= f.label :area_disponible_desc, "Descripción área disponible" %></td>
+            <td colspan="3"><%= f.text_area :area_disponible_desc, :rows => "10", :class => "form-control"%></td>
+		</tr>	
+		<tr>
 			<td><%= f.label :planos %></td>
 			<td><%= f.text_field :planos , :class => "form-control"%></td>
+		</tr>
+		<tr>
+			<td><%= f.label :valor_mt2 %></td>
+			<td><%= f.text_field :valor_mt2, :class => "form-control" %></td>
+			
+			<td><%= f.label :valor_total%></td>
+			<td><%= f.text_field :valor_total , :class => "form-control"%></td>
 			
 			<td><%= f.label :valor_admin %></td>
 			<td><%= f.text_field :valor_admin , :class => "form-control"%></td>

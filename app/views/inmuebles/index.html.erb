@@ -3,7 +3,7 @@
     <div class="col-lg-12">
       <div class="well">
         <%= link_to 'Nuevo inmueble', new_inmueble_path, :class => "btn btn-primary" %>
-        <h1>Listado de inmuebles</h1>
+        <h1>Listado de inmuebles(<%= @inmuebles.count %>)</h1>
 		<div class="bs-example table-responsive">
 			<table class="table table-striped table-hover ">
 				<thead>
