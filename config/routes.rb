@@ -1,7 +1,7 @@
 RamiWeb::Application.routes.draw do
 
   resources :inmuebles
-
+  resources :propietarios
   resources :usuarios
   get "pages/home"
 
