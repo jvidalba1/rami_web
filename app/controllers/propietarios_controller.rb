@@ -60,7 +60,7 @@ class PropietariosController < ApplicationController
 
     if @propietario.update_attributes(params[:propietario])
       flash[:notice] = "Propietario fue actualizado exitosamente."
-      redirect_to @propietario
+      redirect_to propietarios_path
     else
       flash[:alert] = "Error en los datos"
       render 'edit'

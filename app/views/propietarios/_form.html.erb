@@ -1,0 +1,35 @@
+<%= form_for(@propietario) do |f| %>
+	<% if @propietario.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@propietario.errors.count, "error") %> prohibited this inmueble from being saved:</h2>
+			<ul>
+				<% @propietario.errors.full_messages.each do |msg| %>
+		        	<li><%= msg %></li>
+		      	<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<table>
+		<tr>
+			<td><%= f.label :nombre%></td>
+			<td><%= f.text_field :nombre, :class => "form-control"%></td>
+			
+			<td><%= f.label :telefono %></td>
+			<td><%= f.text_field :telefono, :class => "form-control"%></td>
+		</tr>
+		<tr>
+			<td><%= f.label :celular %></td>
+			<td><%= f.text_field :celular, :class => "form-control" %></td>
+			
+			<td><%= f.label :direccion %></td>
+			<td><%= f.text_field :direccion, :class => "form-control" %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :email %></td>
+			<td><%= f.text_field :email, :class => "form-control" %></td>
+		</tr>
+	</table>
+	<div class="actions">
+		<%= f.submit "Guardar datos", :class => "btn btn-primary" %>
+	</div>
+<% end %>
