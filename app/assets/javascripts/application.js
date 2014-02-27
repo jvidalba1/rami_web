@@ -13,3 +13,33 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require jquery.ui.datepicker
+
+$(function() {
+    $( ".datepicker" ).datepicker({
+        changeMonth: true,
+        changeYear: true,
+        yearRange: '-100:+0',
+        //minDate: '-100y',
+        maxDate: '0',
+        dateFormat: 'yy-mm-dd',
+        showOtherMonths: true,
+        dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+        monthNamesShort: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"]
+    });
+});
+
+$(function() {
+    $( ".datepicker_fut" ).datepicker({
+        changeMonth: true,
+        changeYear: true,
+        yearRange: '-0:+20',
+        minDate: 0,
+        maxDate: "+1Y",
+        dateFormat: 'yy-mm-dd',
+        showOtherMonths: true,
+        dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+        monthNamesShort: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"]
+    });
+    $(".datepicker_fut").attr("readonly", "true");
+});

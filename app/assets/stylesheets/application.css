@@ -10,6 +10,7 @@
  *
  *= require_self
  *= require_tree .
+ *= require jquery.ui.datepicker
  */
 
 @import url("//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic");
@@ -6119,3 +6120,11 @@ label {
 .affix {
   position: fixed;
 }
+
+.datepicker, .datepicker:hover, .datepicker:active, .datepicker_fut, .datepicker_fut:hover, .datepicker_fut:active, .date_timepicker, .date_timepicker:hover, .date_timepicker:active{
+    background-image: url("calendar.png");
+    background-position: 200px 8px;
+    background-repeat: no-repeat;
+    background-size: 15px;
+    padding: 0 0 0 20px;
+  }
