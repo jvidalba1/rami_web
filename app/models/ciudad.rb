@@ -1,4 +1,5 @@
 class Ciudad < ActiveRecord::Base
   self.primary_key = :id
-  attr_accessible :id, :departamento, :nombre
+  has_many :inmuebles
+  attr_accessible :departamento, :nombre
 end

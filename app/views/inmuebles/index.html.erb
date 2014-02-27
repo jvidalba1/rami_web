@@ -21,12 +21,12 @@
 		        <% @inmuebles.each do |inmueble| %>
 		        <tbody>	
 		        	<tr>
-		          		<td><%= inmueble.ciudad_id %></td>
+		          		<td><%= inmueble.ciudad.nombre %></td>
 		          		<td><%= inmueble.direccion %></td>
 		          		<td><%= inmueble.zona %></td>
 			          	<td><%= inmueble.codigo_inmueble %></td>
-			          	<td><%= inmueble.clase_inmueble %></td>
-			          	<td><%= inmueble.tipo_negocio %></td>			          	
+			          	<td><%= get_clase_inmueble inmueble.clase_inmueble %></td>
+			          	<td><%= get_tipo_negocio inmueble.tipo_negocio %></td>			          	
 			          	<td>
 				          	<div class="bs-example style="margin-bottom: 15px;">
 					          <div class="btn-group">

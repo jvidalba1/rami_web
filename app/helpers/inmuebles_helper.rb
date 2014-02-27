@@ -16,4 +16,17 @@ module InmueblesHelper
         ["Compra",    2]
     ]
   end
+  
+  def get_clase_inmueble(cod)
+    select_clase_inmueble.each do |desc, id|
+      return desc if id.eql? cod
+    end  
+  end
+  
+  def get_tipo_negocio(cod)
+    select_tipo_negocio.each do |desc, id|
+      return desc if id.eql? cod
+    end
+  end
+  
 end

@@ -3,6 +3,7 @@ class Inmueble < ActiveRecord::Base
   self.primary_key = :id
   
   has_many :propietarios
+  belongs_to :ciudad
   
   accepts_nested_attributes_for :propietarios
   

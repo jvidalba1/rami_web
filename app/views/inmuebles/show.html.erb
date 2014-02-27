@@ -25,15 +25,15 @@
 				      		<td><%= @inmueble.codigo_inmueble %></td>
 				      		
 				      		<td><strong>Clase de inmueble</strong></td>
-				      		<td><%= @inmueble.clase_inmueble%></td>
+				      		<td><%= get_clase_inmueble @inmueble.clase_inmueble%></td>
 				      		
 				      		<td><strong>Tipo de negocio</strong></td>
-				      		<td><%= @inmueble.tipo_negocio %></td>
+				      		<td><%= get_tipo_negocio @inmueble.tipo_negocio %></td>
 				      		
 				      	</tr>
 				      	<tr>
 				      		<td><strong>Ciudad</strong></td>
-				      		<td><%= @inmueble.ciudad_id%></td>
+				      		<td><%= @inmueble.ciudad.nombre %></td>
 				      		
 				      		<td><strong>Zona</strong></td>
 				      		<td><%= @inmueble.zona %></td>
