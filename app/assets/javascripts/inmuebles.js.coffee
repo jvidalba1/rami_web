@@ -3,8 +3,14 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
+  $("#inmueble_propietario_id").change ->
+    if $(".propietarios_form").is(":visible")
+      $(".propietarios_form").hide()      
+
+$ ->
   $(".propietarios_form").hide()
   $(".add_new_propietario").click ->
+    $("#inmueble_propietario_id").val("")
     $(".propietarios_form").show()
     
 $ ->
