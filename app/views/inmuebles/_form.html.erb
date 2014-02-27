@@ -26,7 +26,7 @@
 			<td><%= f.label :ciudad_id %></td>
 			<td>
               <%= f.select(:ciudad_id,
-                           options_from_collection_for_select(Ciudad.all, "id", "nombre", @inmueble.ciudad_id),
+                           options_from_collection_for_select(Ciudad.where(:departamento => "Antioquia"), "id", "nombre", @inmueble.ciudad_id),
                            { :prompt => "Seleccione una opción"},
                            {:class => "form-control"}) %>
             </td>
