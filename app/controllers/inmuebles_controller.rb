@@ -44,7 +44,6 @@ class InmueblesController < ApplicationController
   # POST /inmuebles.json
   def create
     @inmueble = Inmueble.new(params[:inmueble])
-    
     if @inmueble.propietario_id.nil?
       @propietario = @inmueble.propietarios.build(params[:propietario])
       @paso = []
@@ -53,6 +52,7 @@ class InmueblesController < ApplicationController
         @inmueble.propietario_id = @propietario.id
         if @inmueble.save
           @paso << true
+          @propietario.update_attributes(:inmueble_id => @inmueble.id)
         else
           @paso << false
         end
@@ -61,7 +61,7 @@ class InmueblesController < ApplicationController
       end
       
       if (@paso[0].eql? true) && (@paso[1].eql? true)
-        flash[:notice] = "Inmueble creado exitosamente"
+        flash[:notice] = "Inmueble y propietario creados exitosamente"
         redirect_to inmuebles_path
       elsif (@paso[0].eql? true) && (@paso[1].eql? false)
         flash[:alert] = "Error creando inmueble, por favor verifique los datos de ingreso"
@@ -72,6 +72,8 @@ class InmueblesController < ApplicationController
       end
     else
       if @inmueble.save
+        @propietario = Propietario.find(@inmueble.propietario_id)
+        @propietario.update_attributes(:inmueble_id => @inmueble.id)
         flash[:notice] = "Inmueble creado exitosamente"
         redirect_to inmuebles_path
       else

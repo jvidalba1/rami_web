@@ -1,6 +1,6 @@
 class Propietario < ActiveRecord::Base
   self.primary_key = :id
   
-  belongs_to :inmueble
+  has_many :inmuebles
   attr_accessible :id, :nombre, :telefono, :celular, :direccion, :email, :inmueble_id
 end
