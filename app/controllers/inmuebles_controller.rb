@@ -88,13 +88,48 @@ class InmueblesController < ApplicationController
   # PUT /inmuebles/1.json
   def update
     @inmueble = Inmueble.find(params[:id])
-
-    if @inmueble.update_attributes(params[:inmueble])
-      flash[:notice] = "Inmueble fue actualizado exitosamente."
-      redirect_to @inmueble
+    
+    if params[:inmueble][:propietario_id].nil?
+      
+      @propietario = @inmueble.propietarios.build(params[:propietario])
+      @paso = []
+      if @propietario.save
+        @paso << true
+        @last_propietario = Propietario.find(@inmueble.propietario_id)
+        params[:inmueble][:propietario_id] = @propietario.id
+        if @inmueble.update_attributes(params[:inmueble])
+          @paso << true
+          @last_propietario.update_attributes(:inmueble_id => -1)
+          @propietario.update_attributes(:inmueble_id => @inmueble.id)
+        else
+          @paso << false
+        end
+      else
+        @paso << false
+      end
+      
+      if (@paso[0].eql? true) && (@paso[1].eql? true)
+        flash[:notice] = "Inmueble y propietario actualizados exitosamente"
+        redirect_to inmuebles_path
+      elsif (@paso[0].eql? true) && (@paso[1].eql? false)
+        flash[:alert] = "Error actualizando inmueble, por favor verifique los datos de ingreso"
+        render 'new'
+      elsif (@paso[0].eql? false)
+        flash[:alert] = "Error actualizando propietario, por favor verifique los datos de ingreso"
+        render 'new'
+      end
     else
-      flash[:alert] = "Error en los datos"
-      render 'edit'
+      @last_propietario = Propietario.find(@inmueble.propietario_id)
+      if @inmueble.update_attributes(params[:inmueble])
+        @propietario = Propietario.find(@inmueble.propietario_id)
+        @propietario.update_attributes(:inmueble_id => @inmueble.id)
+        @last_propietario.update_attributes(:inmueble_id => -1)
+        flash[:notice] = "Inmueble fue actualizado exitosamente."
+        redirect_to @inmueble
+      else
+        flash[:alert] = "Error en los datos"
+        render 'edit'
+      end
     end
   end
 
