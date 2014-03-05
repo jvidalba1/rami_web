@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'wicked_pdf'
 gem 'seedbank', '0.3.0'
 gem 'colorize', '~> 0.6.0'
 gem 'rails', '3.2.13'

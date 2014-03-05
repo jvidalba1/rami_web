@@ -1,0 +1,29 @@
+<h2>Listado de usuarios</h2>
+<div class="bs-example table-responsive">
+  <table class="table table-striped table-hover ">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Email</th>
+      <th>Ingresos al sistema</th>
+      <th>Actual inicio de sesión</th>
+      <th>Último inicio de sesión</th>
+      <th>Dirección ip actual</th>
+      <th>Última dir ip</th>
+      <th>Fecha creación</th>
+    </tr>
+    </thead>
+    <% @users.each do |user| %>
+        <tbody>
+        <td><%= user.id %></td>
+        <td><%= user.email %></td>
+        <td><%= user.sign_in_count %></td>
+        <td><%= user.current_sign_in_at %></td>
+        <td><%= user.last_sign_in_at %></td>
+        <td><%= user.current_sign_in_ip %></td>
+        <td><%= user.last_sign_in_ip %></td>
+        <td><%= user.created_at %></td>
+        </tbody>
+    <% end %>
+  </table>
+</div>
