@@ -9,12 +9,12 @@ class ApplicationController < ActionController::Base
         :orientation  => 'Landscape',
         :exe_path => '/usr/local/bin/wkhtmltopdf',
         :layout => "pdf.html",
-        :footer => {
-            :left => "Visionamos - SPS",
-            #:left => "#{Entidad.find(@current_user.entidad).nombre}",
-            :right => "#{Time.now}",
-            :font_size => 5
-        }
+        #:footer => {
+        #    :left => "Visionamos - SPS",
+        #    #:left => "#{Entidad.find(@current_user.entidad).nombre}",
+        #    :right => "#{Time.now}",
+        #    :font_size => 5
+        #}
     }
   end
 end
