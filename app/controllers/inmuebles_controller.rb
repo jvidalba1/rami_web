@@ -50,9 +50,12 @@ class InmueblesController < ApplicationController
     if @inmueble.propietario_id.nil?
       @propietario = @inmueble.propietarios.build(params[:propietario])
       @paso = []
+
       if @propietario.save
         @paso << true
         @inmueble.propietario_id = @propietario.id
+
+        @inmueble.documentos.map {|documento| documento.inmueble_id = @inmueble.id}
         if @inmueble.save
           @paso << true
           @propietario.update_attributes(:inmueble_id => @inmueble.id)
