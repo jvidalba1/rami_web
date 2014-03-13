@@ -11,18 +11,18 @@ class ApplicationController < ActionController::Base
         :layout => "pdf.html",
         #:no_background => false,
         #:image => true,
-        #:header => {
-        #              :html => {
-        #                  :template=> 'layouts/pdf_header.html.erb',
-        #                          :layout   => "pdf_header.html",
-        #                        }
-        #}
-        #:footer => {
-        #    :left => "Visionamos - SPS",
-        #    #:left => "#{Entidad.find(@current_user.entidad).nombre}",
-        #    :right => "#{Time.now}",
-        #    :font_size => 5
-        #}
+        :header => {
+                      :html => {
+                          :template=> 'pdf/header.pdf.erb'
+                          },
+                      :spacing => -35
+                   },
+        :footer =>  {
+                      :html =>  {
+                                  :template => 'pdf/footer.pdf.erb'
+                                },
+                      :spacing => -40
+                    }
     }
   end
 end
