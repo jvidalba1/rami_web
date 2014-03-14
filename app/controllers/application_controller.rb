@@ -9,18 +9,10 @@ class ApplicationController < ActionController::Base
         :orientation  => 'Landscape',
         :exe_path => '/usr/local/bin/wkhtmltopdf',
         :layout => "pdf.html",
-        #:no_background => false,
-        #:image => true,
-        :header => {
-                      :html => {
-                          :template=> 'pdf/header.pdf.erb'
-                          },
+        :header => {  :html => { :template=> 'pdf/header.pdf.erb'},
                       :spacing => -35
                    },
-        :footer =>  {
-                      :html =>  {
-                                  :template => 'pdf/footer.pdf.erb'
-                                },
+        :footer =>  { :html =>  {:template => 'pdf/footer.pdf.erb'},
                       :spacing => -40
                     }
     }
