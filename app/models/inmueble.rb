@@ -4,7 +4,10 @@ class Inmueble < ActiveRecord::Base
   
   has_many :propietarios
   belongs_to :ciudad
-  
+
+  has_many :documentos
+  accepts_nested_attributes_for :documentos, :reject_if => lambda { |a| a[:documento].blank? }
+
   accepts_nested_attributes_for :propietarios
   
   attr_accessible :id, :codigo_inmueble, :clase_inmueble, :ciudad_id, :zona, :tipo_negocio,
@@ -17,7 +20,7 @@ class Inmueble < ActiveRecord::Base
                   :valor_inmueble, :altura, :fecha_captado, :transporte, 
                   :nro_pisos_permitidos, :created_at, :updated_at,
                   :nombre_interesado, :telefono_interesado, :celular_interesado, :email_interesado,
-                  :observaciones_interesado
+                  :observaciones_interesado, :documentos_attributes
 
   validates :codigo_inmueble, :presence => true 
 end

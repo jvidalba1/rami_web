@@ -31,6 +31,7 @@ class InmueblesController < ApplicationController
   # GET /inmuebles/new.json
   def new
     @inmueble = Inmueble.new
+    @inmueble.documentos.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -46,6 +47,7 @@ class InmueblesController < ApplicationController
   # POST /inmuebles
   # POST /inmuebles.json
   def create
+    #raise "fiu"
     @inmueble = Inmueble.new(params[:inmueble])
     if @inmueble.propietario_id.nil?
       @propietario = @inmueble.propietarios.build(params[:propietario])
@@ -56,6 +58,8 @@ class InmueblesController < ApplicationController
         @inmueble.propietario_id = @propietario.id
 
         if @inmueble.save
+          #raise "fiu"
+          @inmueble.documentos.map {|documento| documento.inmueble_id = @inmueble.id }
           @paso << true
           @propietario.update_attributes(:inmueble_id => @inmueble.id)
         else

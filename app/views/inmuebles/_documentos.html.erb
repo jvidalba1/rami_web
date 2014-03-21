@@ -1,0 +1,12 @@
+<tr>
+  <%= f.fields_for :documentos do |f| %>
+      <td><%= f.label :documento, "Seleccione el archivo" %></td>
+      <td>
+        <%= f.file_field :documento, :class => :upload,  :accept=> "image/*"%>
+        <%# f.hidden_field :documento_cache %>
+      </td>
+      <td><%= f.label :documento, "Descripción" %></td>
+      <td><%= f.text_field :descripcion %></td>
+      <td><%# image_tag "remove.png", :class => "remove_file" %></td>
+  <% end %>
+</tr>

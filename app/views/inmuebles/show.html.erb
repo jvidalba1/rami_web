@@ -206,6 +206,14 @@
 						      		<tr>
 						      			<td><%= @inmueble.observaciones_interesado %></td>
 						      		</tr>
+                                    <tr>
+                                      <td>Imagen</td>
+                                      <td>
+                                        <%= @inmueble.documentos.each do |image| %>
+                                            <%= image_tag image.documento %>
+                                        <% end %>
+                                            </td>
+                                    </tr>
 						      	</tbody>
 					  		</table>
 					  	</div>
