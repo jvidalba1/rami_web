@@ -1,6 +1,11 @@
 RamiWeb::Application.routes.draw do
 
-  resources :inmuebles
+  resources :inmuebles do
+    collection do
+      get 'documentos'
+    end
+  end
+
   resources :propietarios
   resources :usuarios
   get "pages/home"

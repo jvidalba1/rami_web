@@ -2,6 +2,18 @@ class InmueblesController < ApplicationController
 
   before_filter :authenticate_user!
 
+  def documentos
+    @inmueble = Inmueble.new
+    @inmueble.documentos.build
+
+    #@estudio = Estudio.new()
+    #@estudio.documentos.build(:id => rand, :descripcion => "oeoe")
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   # GET /inmuebles
   # GET /inmuebles.json
   def index
@@ -47,7 +59,7 @@ class InmueblesController < ApplicationController
   # POST /inmuebles
   # POST /inmuebles.json
   def create
-    #raise "fiu"
+
     @inmueble = Inmueble.new(params[:inmueble])
     if @inmueble.propietario_id.nil?
       @propietario = @inmueble.propietarios.build(params[:propietario])
