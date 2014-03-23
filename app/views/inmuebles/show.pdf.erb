@@ -1,1 +1,48 @@
-<h2>Mateo Vidal Prueba</h2>
+<table>
+  <tr>
+    <td><h1> #<%=@inmueble.codigo_inmueble %> - <%= get_tipo_negocio @inmueble.tipo_negocio %></h1></td>
+    <td><%= get_clase_inmueble @inmueble.clase_inmueble %> - <%= @inmueble.ciudad.nombre %> </td>
+  </tr>
+  <tr>
+    <td> <u>Zona:</u> <%= @inmueble.zona %></td>
+  </tr>
+  <tr>
+    <td><u>Dirección:</u> <%= @inmueble.direccion %></td>
+  </tr>
+</table>
+<hr>
+<table>
+  <tr>
+    <td><h3>Información</h3></td>
+  </tr>
+  <tr>
+    <td><b>Área disponible</b></td>
+    <td><%= @inmueble.area_disponible %></td>
+
+    <td><b>Valor mt2</b></td>
+    <td><%= @inmueble.valor_mt2 %></td>
+
+    <td><b>Valor total</b></td>
+    <td><%= @inmueble.valor_total %></td>
+  </tr>
+  <tr>
+    <td><b>Valor admin</b></td>
+    <td><%= @inmueble.valor_admin %></td>
+
+    <td><b>Predial</b></td>
+    <td><%= @inmueble.predial %></td>
+
+    <td><b>Frente</b></td>
+    <td><%= @inmueble.frente %></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%=  %></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%=  %></td>
+  </tr>
+
+
+</table>
