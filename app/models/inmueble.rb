@@ -23,27 +23,27 @@ class Inmueble < ActiveRecord::Base
                   :valor_total,                         # ya
                   :planos,
                   :valor_admin,                         # ya
-                  :predial,
-                  :frente,
+                  :predial,                             # ya
+                  :frente,                              # ya
                   :fondo,
                   :otras_caracteristicas,     # texto
                   :entorno,                   # texto
-                  :info_adicional,
-                  :fecha_disponibilidad,
-                  :fecha_salida_inventario,
-                  :anio_construccion,
+                  :info_adicional,            # no esta en formulario
+                  :fecha_disponibilidad,                # ya
+                  :fecha_salida_inventario,             # ya
+                  :anio_construccion,                   # ya
                   :normas_de_uso,             # texto
-                  :indice_ocupacion,
-                  :indice_construccion,
-                  :nro_pisos,
-                  :parqueadores,
-                  :densidad,
-                  :nombre_agente,
-                  :quien_refiere,
-                  :telefono,
-                  :celular,
-                  :email,
-                  :propietario_id,
+                  :indice_ocupacion,                    # ya
+                  :indice_construccion,                 # ya
+                  :nro_pisos,                           # ya
+                  :parqueadores,                        # ya
+                  :densidad,                            # ya
+                  :nombre_agente,                       # ya
+                  :quien_refiere,                       # ya
+                  :telefono,                            # ya
+                  :celular,                             # ya
+                  :email,                               # ya
+                  :propietario_id,                      # ya
                   :porcentaje_comision,
                   :valor_inmueble,
                   :altura,

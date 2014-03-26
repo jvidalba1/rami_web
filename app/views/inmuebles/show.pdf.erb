@@ -1,17 +1,9 @@
-<table>
-  <tr>
-    <td><h1> #<%=@inmueble.codigo_inmueble %> - <%= get_tipo_negocio @inmueble.tipo_negocio %></h1></td>
-    <td><%= get_clase_inmueble @inmueble.clase_inmueble %> - <%= @inmueble.ciudad.nombre %> </td>
-  </tr>
-  <tr>
-    <td> <u>Zona:</u> <%= @inmueble.zona %></td>
-  </tr>
-  <tr>
-    <td><u>Dirección:</u> <%= @inmueble.direccion %></td>
-  </tr>
-</table>
+<h1> #<%=@inmueble.codigo_inmueble %> - <%= get_tipo_negocio @inmueble.tipo_negocio %></h1>
+<%= get_clase_inmueble @inmueble.clase_inmueble %> - <%= @inmueble.ciudad.nombre %> |
+<b>Zona:</b> <%= @inmueble.zona %> |
+<b>Dirección:</b> <%= @inmueble.direccion %>
 <hr>
-<table>
+<table style="margin-top: -40px;">
   <tr>
     <td><h3>Información</h3></td>
   </tr>
@@ -25,6 +17,7 @@
     <td><b>Valor total</b></td>
     <td><%= @inmueble.valor_total %></td>
   </tr>
+
   <tr>
     <td><b>Valor admin</b></td>
     <td><%= @inmueble.valor_admin %></td>
@@ -35,14 +28,120 @@
     <td><b>Frente</b></td>
     <td><%= @inmueble.frente %></td>
   </tr>
+
   <tr>
-    <td></td>
-    <td><%=  %></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td><%=  %></td>
+    <td><b>Fondo</b></td>
+    <td><%= @inmueble.fondo %></td>
+
+    <td><b>Índice ocupación</b></td>
+    <td><%= @inmueble.indice_ocupacion %></td>
+
+    <td><b>Índice construcción</b></td>
+    <td><%= @inmueble.indice_construccion %></td>
   </tr>
 
+  <tr>
+    <td><b>Fecha disponibilidad</b></td>
+    <td><%= @inmueble.fecha_disponibilidad %></td>
 
+    <td><b>Fecha salida inv</b></td>
+    <td><%= @inmueble.fecha_salida_inventario %></td>
+
+    <td><b>Año construcción</b></td>
+    <td><%= @inmueble.anio_construccion %></td>
+  </tr>
+
+  <tr>
+    <td><b># pisos</b></td>
+    <td><%= @inmueble.nro_pisos %></td>
+
+    <td><b>Parqueaderos</b></td>
+    <td><%= @inmueble.parqueadores %></td>
+
+    <td><b>Densidad</b></td>
+    <td><%= @inmueble.densidad %></td>
+  </tr>
+
+</table>
+<hr>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h3>Agente y quién refiere</h3>
+<table>
+  <tr>
+    <td><b>Nombre agente</b></td>
+    <td><%= @inmueble.nombre_agente %></td>
+
+    <td><b>Quién refiere</b></td>
+    <td><%= @inmueble.quien_refiere %></td>
+  </tr>
+
+  <tr>
+    <td><b>Teléfono</b></td>
+    <td><%= @inmueble.telefono %></td>
+
+    <td><b>Celular</b></td>
+    <td><%= @inmueble.celular  %></td>
+
+    <td><b>Email</b></td>
+    <td><%= @inmueble.email %></td>
+  </tr>
+</table>
+<hr>
+<h3>Propietario</h3>
+<table>
+  <tr>
+    <td><b>Nombre</b></td>
+    <td><%= @inmueble.propietarios.first.try(:nombre) %></td>
+
+    <td><b>Dirección</b></td>
+    <td><%= @inmueble.propietarios.first.try(:direccion) %></td>
+  </tr>
+
+  <tr>
+    <td><b>Teléfono</b></td>
+    <td><%= @inmueble.propietarios.first.try(:telefono) %></td>
+
+    <td><b>Celular</b></td>
+    <td><%= @inmueble.propietarios.first.try(:celular) %></td>
+
+    <td><b>Email</b></td>
+    <td><%= @inmueble.propietarios.first.try(:email) %></td>
+  </tr>
+</table>
+<hr>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<table>
+  <% @inmueble.documentos.each do |image| %>
+      <tbody>
+
+      <tr>
+        <b>Descripción del área</b><td><%= @inmueble.area_disponible_desc %></td>
+      </tr>
+      <tr>
+        <td>
+          <%= wicked_pdf_image_tag image.documento %>
+        </td>
+      </tr>
+      </tbody>
+  <% end %>
 </table>
