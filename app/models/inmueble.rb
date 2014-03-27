@@ -59,5 +59,6 @@ class Inmueble < ActiveRecord::Base
                   :observaciones_interesado,  # texto
                   :documentos_attributes
 
-  validates :codigo_inmueble, :presence => true 
+  validates :codigo_inmueble, :presence => true
+
 end
