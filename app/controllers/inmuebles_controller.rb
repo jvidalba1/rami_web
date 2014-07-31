@@ -29,7 +29,6 @@ class InmueblesController < ApplicationController
   # GET /inmuebles/1.json
   def show
     @inmueble = Inmueble.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @inmueble }
@@ -89,7 +88,7 @@ class InmueblesController < ApplicationController
       else
         @paso << false
       end
-      
+
       if (@paso[0].eql? true) && (@paso[1].eql? true)
         flash[:notice] = "Inmueble y propietario creados exitosamente"
         redirect_to inmuebles_path
@@ -109,18 +108,18 @@ class InmueblesController < ApplicationController
       else
         flash[:alert] = "Error creando inmueble, por favor verifique los datos de ingreso"
         render 'new'
-      end    
+      end
     end
-    
+
   end
 
   # PUT /inmuebles/1
   # PUT /inmuebles/1.json
   def update
     @inmueble = Inmueble.find(params[:id])
-    
+
     if params[:inmueble][:propietario_id].nil?
-      
+
       @propietario = @inmueble.propietarios.build(params[:propietario])
       @paso = []
       if @propietario.save
@@ -137,7 +136,7 @@ class InmueblesController < ApplicationController
       else
         @paso << false
       end
-      
+
       if (@paso[0].eql? true) && (@paso[1].eql? true)
         flash[:notice] = "Inmueble y propietario actualizados exitosamente"
         redirect_to inmuebles_path
@@ -168,7 +167,7 @@ class InmueblesController < ApplicationController
   def destroy
     @inmueble = Inmueble.find(params[:id])
     @inmueble.destroy
-    
+
     respond_to do |format|
       flash[:notice] = "Inmueble eliminado exitosamente"
       format.html { redirect_to inmuebles_url }

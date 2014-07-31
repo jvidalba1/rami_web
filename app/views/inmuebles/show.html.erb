@@ -20,28 +20,28 @@
                     <li class="">
                       <a href="#documentos" id="tab_documentos" data-toggle="tab">Documentos</a>
                     </li>
-				  </ul>		  
+				  </ul>
 				  <div id="myTabContent" class="tab-content">
 				    <div class="tab-pane fade active in" id="datos">
 				      <table>
 				      	<tr>
 				      		<td><strong>Código producto</strong></td>
 				      		<td><%= @inmueble.codigo_inmueble %></td>
-				      		
+
 				      		<td><strong>Clase de inmueble</strong></td>
 				      		<td><%= get_clase_inmueble @inmueble.clase_inmueble%></td>
-				      		
+
 				      		<td><strong>Tipo de negocio</strong></td>
 				      		<td><%= get_tipo_negocio @inmueble.tipo_negocio %></td>
-				      		
+
 				      	</tr>
 				      	<tr>
 				      		<td><strong>Ciudad</strong></td>
 				      		<td><%= @inmueble.ciudad.nombre %></td>
-				      		
+
 				      		<td><strong>Zona</strong></td>
 				      		<td><%= @inmueble.zona %></td>
-				      		
+
 				      		<td><strong>Dirección</strong></td>
 				      		<td><%= @inmueble.direccion %></td>
 				      	</tr>
@@ -53,70 +53,70 @@
 				      		<td><strong>Descripción área disponible</strong></td>
 				      		<td colspan="6"><%= @inmueble.area_disponible_desc %></td>
 				      	</tr>
-				      	<tr>	
+				      	<tr>
 				      		<td><strong>Planos</strong></td>
 				      		<td><%= @inmueble.planos %></td>
-				      		
+
 				      		<td><strong>Valor mt2</strong></td>
 				      		<td><%= @inmueble.valor_mt2 %></td>
-				      		
+
 				      		<td><strong>Valor total</strong></td>
 				      		<td><%= @inmueble.valor_total %></td>
 				      	</tr>
 				      	<tr>
 				      		<td><strong>Valor administración</strong></td>
 				      		<td><%= @inmueble.valor_admin %></td>
-				      		
+
 				      		<td><strong>Predial</strong></td>
 				      		<td><%= @inmueble.predial %></td>
-				      		
+
 				      		<td><strong>Frente</strong></td>
 				      		<td><%= @inmueble.frente %></td>
 				      	</tr>
 				      	<tr>
 				      		<td><strong>Fondo</strong></td>
 				      		<td><%= @inmueble.fondo %></td>
-				      		
+
 				      		<td><strong>Fecha disponibilidad</strong></td>
 				      		<td><%= @inmueble.fecha_disponibilidad %></td>
-				      		
+
 				      		<td><strong>Fecha salida inventario</strong></td>
 				      		<td><%= @inmueble.fecha_salida_inventario %></td>
 				      	</tr>
 				      	<tr>
 				      		<td><strong>Año construcción</strong></td>
 				      		<td><%= @inmueble.anio_construccion %></td>
-				      		
+
 				      		<td><strong>Número de pisos</strong></td>
 				      		<td><%= @inmueble.nro_pisos %></td>
-				      		
+
 				      		<td><strong>Parqueaderos</strong></td>
 				      		<td><%= @inmueble.parqueadores %></td>
 				      	</tr>
 				      	<tr>
 				      		<td><strong>Densidad</strong></td>
 				      		<td><%= @inmueble.densidad %></td>
-				      		
+
 				      		<td><strong>Porcentaje comisión</strong></td>
 				      		<td><%= @inmueble.porcentaje_comision%></td>
-				      		
+
 				      		<td><strong>Valor inmueble</strong></td>
 				      		<td><%= @inmueble.valor_inmueble %></td>
 				      	</tr>
 				      	<tr>
 				      		<td><strong>Altura</strong></td>
 				      		<td><%= @inmueble.altura %></td>
-				      		
+
 				      		<td><strong>Número pisos permitidos</strong></td>
 				      		<td><%= @inmueble.nro_pisos_permitidos %></td>
-				      		
+
 				      		<td><strong>Índice ocupación</strong></td>
 				      		<td><%= @inmueble.indice_ocupacion %></td>
 				      	</tr>
 				      	<tr>
 				      		<td><strong>Índice construcción</strong></td>
 				      		<td><%= @inmueble.indice_construccion %></td>
-				      		
+
 				      		<td><strong>Fecha captado</strong></td>
 				      		<td><%= @inmueble.fecha_captado %></td>
 				      	</tr>
@@ -135,17 +135,17 @@
 				      	<tr>
 				      		<td><strong>Nombre agente</strong></td>
 				      		<td><%= @inmueble.nombre_agente %></td>
-				      		
+
 				      		<td><strong>Quien refiere</strong></td>
 				      		<td><%= @inmueble.quien_refiere %></td>
 				      	</tr>
 				      	<tr>
 				      		<td><strong>Teléfono</strong></td>
 				      		<td><%= @inmueble.telefono %></td>
-				      		
+
 				      		<td><strong>Celular</strong></td>
 				      		<td><%= @inmueble.celular %></td>
-				      		
+
 				      		<td><strong>Email</strong></td>
 				      		<td><%= @inmueble.email %></td>
 				      	</tr>
@@ -201,7 +201,7 @@
 						      			<td><%= @inmueble.nombre_interesado %></td>
 						      			<td><%= @inmueble.telefono_interesado %></td>
 						      			<td><%= @inmueble.celular_interesado %></td>
-						      			<td><%= @inmueble.email_interesado %></td>						      			
+						      			<td><%= @inmueble.email_interesado %></td>
 						      		</tr>
 						      		<tr>
 						      			<th>Observaciones</th>
@@ -213,26 +213,26 @@
 					  		</table>
 					  	</div>
 				    </div>
-                    <div class="tab-pane fade" id="documentos">
-                      <div class="bs-example table-responsive">
-                        <table class="table table-striped table-hover ">
-                            <% @inmueble.documentos.each do |image| %>
-                              <tbody>
-                                <tr>
-                                  <td>
-                                    <%= image.descripcion %>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>
-                                    <%= image_tag image.documento %>
-                                  </td>
-                                </tr>
-                              </tbody>
-                            <% end %>
-                        </table>
-                      </div>
-                    </div>
+              <div class="tab-pane fade" id="documentos">
+                <div class="bs-example table-responsive">
+                  <table class="table table-striped table-hover ">
+                      <%# @inmueble.documentos.each do |image| %>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <%= @inmueble.documentos.first.descripcion %>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <%= link_to "Descargar", @inmueble.documentos.first.documento_url %>
+                            </td>
+                          </tr>
+                        </tbody>
+                      <%# end %>
+                  </table>
+                </div>
+              </div>
 				  </div>
 				</div>
 			</div>
