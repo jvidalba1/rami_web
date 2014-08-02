@@ -1,0 +1,28 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this inmueble from being saved:</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <table>
+    <tr>
+      <td><%= f.label :email%></td>
+      <td><%= f.email_field :email, :class => "form-control"%></td>
+    </tr>
+    <tr>
+      <td><%= f.label :password, "Contraseña" %></td>
+      <td><%= f.password_field :password, :class => "form-control"%></td>
+
+      <td><%= f.label :password_confirmation, "Confirmación de contraseña" %></td>
+      <td><%= f.password_field :password_confirmation, :class => "form-control" %></td>
+    </tr>
+  </table>
+  <div class="actions">
+    <%= f.submit "Aceptar", :class => "btn btn-primary" %>
+  </div>
+<% end %>
