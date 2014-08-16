@@ -5,14 +5,14 @@
 $ ->
   $("#inmueble_propietario_id").change ->
     if $(".propietarios_form").is(":visible")
-      $(".propietarios_form").hide()      
+      $(".propietarios_form").hide()
 
 $ ->
   $(".propietarios_form").hide()
   $(".add_new_propietario").click ->
     $("#inmueble_propietario_id").val("")
     $(".propietarios_form").show()
-    
+
 $ ->
   $(".cancel_propietario_form").click ->
     $(".propietarios_form").hide()
@@ -42,5 +42,5 @@ $ ->
     $(".nav-tabs").find(".active").removeClass("active")
     $(this).parent("li").addClass("active")
     $("#documentos").addClass("active in")
-    
-    
+
+

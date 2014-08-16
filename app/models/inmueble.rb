@@ -2,13 +2,12 @@ class Inmueble < ActiveRecord::Base
   # attr_accessible :title, :body
   self.primary_key = :id
 
-  has_many :propietarios
+  belongs_to :propietario
+
   belongs_to :ciudad
 
   has_many :documentos
   accepts_nested_attributes_for :documentos, :reject_if => lambda { |a| a[:documento].blank? }, :allow_destroy => true
-
-  accepts_nested_attributes_for :propietarios
 
   attr_accessible :id,
                   :codigo_inmueble,                     # ya
@@ -57,7 +56,8 @@ class Inmueble < ActiveRecord::Base
                   :celular_interesado,
                   :email_interesado,
                   :observaciones_interesado,  # texto
-                  :documentos_attributes
+                  :documentos_attributes,
+                  :propietarios_attributes
 
   validates :codigo_inmueble, :presence => true
 

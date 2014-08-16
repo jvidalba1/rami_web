@@ -164,24 +164,22 @@
 						      		<th colspan="2">Opciones</th>
 						      	</tr>
 							</thead>
-					      	<% @inmueble.propietarios.each do |propietario| %>
-						      	<tbody>
-						      		<tr>
-						      			<td><%= propietario.nombre %></td>
-						      			<td><%= propietario.telefono %></td>
-						      			<td><%= propietario.celular %></td>
-						      			<td><%= propietario.email %></td>
-						      			<td><%= propietario.direccion %></td>
-						      			<td>
-								          	<div class="bs-example">
-									          <div class="btn-group" >
-									            <%= link_to 'Editar', "#", :class => "btn btn-default" %>
-									          </div>
-									        </div>
-								        </td>
-						      		</tr>
-						      	</tbody>
-					      	<% end %>
+				      	<tbody>
+				      		<tr>
+				      			<td><%= @inmueble.propietario.nombre %></td>
+				      			<td><%= @inmueble.propietario.telefono %></td>
+				      			<td><%= @inmueble.propietario.celular %></td>
+				      			<td><%= @inmueble.propietario.email %></td>
+				      			<td><%= @inmueble.propietario.direccion %></td>
+				      			<td>
+						          	<div class="bs-example">
+							          <div class="btn-group" >
+							            <%= link_to 'Editar', "#", :class => "btn btn-default" %>
+							          </div>
+							        </div>
+						        </td>
+				      		</tr>
+				      	</tbody>
 					  	</table>
 					  </div>
 				    </div>

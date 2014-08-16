@@ -61,10 +61,11 @@ class InmueblesController < ApplicationController
     # end
   end
 
-    # POST /inmuebles
+  # POST /inmuebles
   # POST /inmuebles.json
   def create
     @inmueble = Inmueble.new(params[:inmueble])
+
     if @inmueble.save
       flash[:notice] = "Inmueble creado exitosamente"
       redirect_to @inmueble

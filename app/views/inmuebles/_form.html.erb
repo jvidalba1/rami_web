@@ -176,13 +176,13 @@
 							 {:class => "form-control"})%>
 				</td>
 				<td>
-				<%= link_to "Crear nuevo", "#", :class => "btn btn-link add_new_propietario", :remote => true %>
+				<%# link_to "Crear nuevo", "#", :class => "btn btn-link add_new_propietario", :remote => true %>
 			</td>
 		</tr>
 
-					<%= fields_for "propietario" do |f| %>
-						<%= render "propietario_fields", :f => f %>
-					<% end %>
+		<%# f.fields_for :propietarios do |f| %>
+			<%# render "propietario_fields", :f => f %>
+		<%# end %>
 
 		<tr>
 			<td colspan="6"><strong><hr></strong></td>
