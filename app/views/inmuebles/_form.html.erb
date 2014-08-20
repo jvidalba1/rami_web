@@ -48,6 +48,14 @@
 		<tr>
 			<td><%= f.label :area_disponible%></td>
 			<td><%= f.text_field :area_disponible, :class => "form-control"%></td>
+
+      <td><%= f.label :status, "Estado" %></td>
+      <td><%= f.select(:status,
+                             options_for_select(select_status, @inmueble.status),
+                             {:prompt => "Seleccione una opción "},
+                             {:class => "form-control" } )%></td>
+
+
 		</tr>
 		<tr>
             <td><%= f.label :area_disponible_desc, "Descripción área disponible" %></td>

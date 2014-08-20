@@ -1,6 +1,12 @@
 class InmueblesController < ApplicationController
 
   before_filter :authenticate_user!
+  before_filter :set_inmueble_by_id, only: [:set_status]
+
+  def set_status
+    @inmueble.update_attributes(status: params[:status].to_i)
+    redirect_to action: 'index'
+  end
 
   def documentos
     @inmueble = Inmueble.new
@@ -194,5 +200,11 @@ class InmueblesController < ApplicationController
       format.html { redirect_to inmuebles_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def set_inmueble_by_id
+    @inmueble = Inmueble.find(params[:id].to_i)
   end
 end

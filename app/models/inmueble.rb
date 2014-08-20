@@ -57,8 +57,16 @@ class Inmueble < ActiveRecord::Base
                   :email_interesado,
                   :observaciones_interesado,  # texto
                   :documentos_attributes,
-                  :propietarios_attributes
+                  :propietarios_attributes,
+                  :status
 
   validates :codigo_inmueble, :presence => true
 
+  def active?
+    if self.status.eql? 1
+      true
+    else
+      false
+    end
+  end
 end

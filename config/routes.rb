@@ -3,6 +3,8 @@ RamiWeb::Application.routes.draw do
   resources :inmuebles do
     collection do
       get 'documentos'
+      # :status is the number to set in inmueble
+      get 'set_status/:id/:status', action: 'set_status', as: 'set_status'
     end
   end
 
