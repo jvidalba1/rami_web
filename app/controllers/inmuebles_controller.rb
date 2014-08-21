@@ -60,14 +60,10 @@ class InmueblesController < ApplicationController
   # GET /inmuebles/new.json
   def new
     @inmueble = Inmueble.new
+    @intermediarios = @inmueble.intermediarios.build
     3.times do
       documentos = @inmueble.documentos.build
     end
-
-    # respond_to do |format|
-    #   format.html # new.html.erb
-    #   format.json { render json: @inmueble }
-    # end
   end
 
   # POST /inmuebles

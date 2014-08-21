@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140820023107) do
+ActiveRecord::Schema.define(:version => 20140821031843) do
 
   create_table "ciudades", :force => true do |t|
     t.string   "nombre"
@@ -84,6 +84,17 @@ ActiveRecord::Schema.define(:version => 20140820023107) do
     t.string   "celular"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "intermediarios", :force => true do |t|
+    t.string   "telefono"
+    t.string   "nombre"
+    t.string   "email"
+    t.date     "ult_fecha_contacto"
+    t.string   "observaciones"
+    t.integer  "inmueble_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "propietarios", :force => true do |t|
