@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20140821031843) do
     t.string   "telefono"
     t.string   "celular"
     t.string   "email"
+    t.integer  "propietario_id"
     t.decimal  "porcentaje_comision",      :precision => 15, :scale => 2
     t.decimal  "valor_inmueble",           :precision => 15, :scale => 2
     t.decimal  "altura",                   :precision => 15, :scale => 2
@@ -74,7 +75,6 @@ ActiveRecord::Schema.define(:version => 20140821031843) do
     t.string   "celular_interesado"
     t.string   "email_interesado"
     t.string   "observaciones_interesado"
-    t.integer  "propietario_id"
     t.integer  "status"
   end
 
