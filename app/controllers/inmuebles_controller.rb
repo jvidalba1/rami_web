@@ -5,7 +5,10 @@ class InmueblesController < ApplicationController
 
   def set_status
     @inmueble.update_attributes(status: params[:status].to_i)
-    redirect_to action: 'index'
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   def documentos
