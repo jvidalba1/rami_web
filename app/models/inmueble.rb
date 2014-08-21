@@ -3,9 +3,9 @@ class Inmueble < ActiveRecord::Base
   self.primary_key = :id
 
   belongs_to :propietario
-
   belongs_to :ciudad
 
+  has_many :intermediarios
   has_many :documentos
   accepts_nested_attributes_for :documentos, :reject_if => lambda { |a| a[:documento].blank? }, :allow_destroy => true
 
