@@ -1,6 +1,51 @@
-<center>
+<!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item active">
+          <%= image_tag "bannerReportes.jpg" %>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Buscador</h1>
+              <p>Zona de reportes donde puedes filtrar la información a mostrar</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Ir  al  buscador</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <%= image_tag "seguridad.jpg" %>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Another example headline.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <%= image_tag "casa.jpg" %>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>One more for good measure.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><</a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">></a>
+    </div><!-- /.carousel -->
+
+<!-- <center>
     <h2>
-        <%= link_to 'Buscador', "#", :class => "btn btn-primary btn-lg btn-block btn-buscador" %>
+        <%# link_to 'Buscador', "#", :class => "btn btn-primary btn-lg btn-block btn-buscador" %>
     </h2>
 </center>
 <div class="bs-docs-section">
@@ -19,7 +64,7 @@
         </div>
         <div class="col-lg-3"></div>
     </div>
-</div>
+</div> -->
 <footer>
     <div class="panel-footer">
       <center>
