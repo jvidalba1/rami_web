@@ -50,7 +50,7 @@
                 <li>
                 	<%= link_to "Propietarios", propietarios_path%>
                 </li>
-                <!-- 
+                <!--
                 <li>
                     <a href="#"> Interesados</a>
                 </li>
@@ -58,8 +58,11 @@
                 <li>
                   <%= link_to "Usuarios", usuarios_path %>
                 </li>
+                <li>
+                  <%= link_to "Buscador", "#" %>
+                </li>
             <% end %>
-            <!-- 
+            <!--
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Download <span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="download">
@@ -84,7 +87,7 @@
            	<% end%>
           </ul>
         </div>
-	</div>	
+	</div>
 </div>
 
 <div class="container">
@@ -96,12 +99,12 @@
 				<% end %>
 				<% if alert %>
 				    <p class="alert alert-error"><%= alert %></p>
-				<% end %>		
+				<% end %>
 			</div>
 		</div>
 	</div>
-	
-	<%= yield %>	
+
+	<%= yield %>
 </div>
 
 </body>
