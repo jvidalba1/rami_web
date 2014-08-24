@@ -1,4 +1,4 @@
-<div class="bs-docs-section">
+	<div class="bs-docs-section">
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="well">
@@ -33,7 +33,6 @@
 
 				      		<td><strong>Tipo de negocio</strong></td>
 				      		<td><%= get_tipo_negocio @inmueble.tipo_negocio %></td>
-
 				      	</tr>
 				      	<tr>
 				      		<td><strong>Ciudad</strong></td>
@@ -48,6 +47,9 @@
 				      	<tr>
 				      		<td><strong>Área disponible</strong></td>
 				      		<td><%= @inmueble.area_disponible %></td>
+
+				      		<td><strong>Estado</strong></td>
+				      		<td><%= get_status(@inmueble.status) unless @inmueble.status.nil? %></td>
 				      	</tr>
 				      	<tr>
 				      		<td><strong>Descripción área disponible</strong></td>
