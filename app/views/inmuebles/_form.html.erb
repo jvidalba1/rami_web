@@ -229,7 +229,6 @@
         <td colspan="6"><strong><hr></strong></td>
       </tr>
       <%= f.fields_for :documentos do |f| %>
-        <!-- <%# render "question_fields", :f => builder %> -->
         <%= render 'documentos', :f => f %>
       <% end %>
 

@@ -17,9 +17,12 @@
 				    <li class="">
 				    	<a href="#interesado" id="tab_interesado" data-toggle="tab">Interesado</a>
 				    </li>
-                    <li class="">
-                      <a href="#documentos" id="tab_documentos" data-toggle="tab">Documentos</a>
-                    </li>
+            <li class="">
+              <a href="#documentos" id="tab_documentos" data-toggle="tab">Documentos</a>
+            </li>
+            <li class="">
+              <a href="#intermediario" id="tab_intermediario" data-toggle="tab">Intermediarios</a>
+            </li>
 				  </ul>
 				  <div id="myTabContent" class="tab-content">
 				    <div class="tab-pane fade active in" id="datos">
@@ -153,6 +156,9 @@
 				      	</tr>
 				      </table>
 				    </div>
+				    <!--
+				    	Tab for propietario
+				  	-->
 				    <div class="tab-pane fade" id="propietario">
 					    <div class="bs-example table-responsive">
 					    	<% if @inmueble.propietario.nil? %>
@@ -189,33 +195,70 @@
 					    	<% end %>
 						  </div>
 				    </div>
+				    <!--
+				    	Tab for interesados
+				  	-->
 				    <div class="tab-pane fade" id="interesado">
+				    	<div class="bs-example table-responsive">
+								<table class="table table-striped table-hover ">
+									<thead>
+								      	<tr>
+								      		<th>Nombre interesado</th>
+								      		<th>Telégono</th>
+								      		<th>Celular</th>
+								      		<th>Email</th>
+								      	</tr>
+									</thead>
+					      	<tbody>
+					      		<tr>
+					      			<td><%= @inmueble.nombre_interesado %></td>
+					      			<td><%= @inmueble.telefono_interesado %></td>
+					      			<td><%= @inmueble.celular_interesado %></td>
+					      			<td><%= @inmueble.email_interesado %></td>
+					      		</tr>
+					      		<tr>
+					      			<th>Observaciones</th>
+					      		</tr>
+					      		<tr>
+					      			<td><%= @inmueble.observaciones_interesado %></td>
+					      		</tr>
+					      	</tbody>
+				  			</table>
+					  	</div>
+				    </div>
+				    <!--
+				    	Tab for intermediarios
+				  	-->
+				    <div class="tab-pane fade" id="intermediario">
 				    	<div class="bs-example table-responsive">
 							<table class="table table-striped table-hover ">
 								<thead>
 							      	<tr>
-							      		<th>Nombre interesado</th>
-							      		<th>Telégono</th>
-							      		<th>Celular</th>
+							      		<th>Nombre</th>
+							      		<th>Teléfono</th>
 							      		<th>Email</th>
+							      		<th>Última fecha de contacto</th>
 							      	</tr>
 								</thead>
-						      	<tbody>
-						      		<tr>
-						      			<td><%= @inmueble.nombre_interesado %></td>
-						      			<td><%= @inmueble.telefono_interesado %></td>
-						      			<td><%= @inmueble.celular_interesado %></td>
-						      			<td><%= @inmueble.email_interesado %></td>
-						      		</tr>
-						      		<tr>
-						      			<th>Observaciones</th>
-						      		</tr>
-						      		<tr>
-						      			<td><%= @inmueble.observaciones_interesado %></td>
-						      		</tr>
-						      	</tbody>
-					  		</table>
-					  	</div>
+				      	<tbody>
+				      		<tr>
+				      			<td><%= @inmueble.intermediarios.first.nombre unless @inmueble.intermediarios.first.nil? %></td>
+				      			<td><%= @inmueble.intermediarios.first.telefono unless @inmueble.intermediarios.first.nil?%></td>
+				      			<td><%= @inmueble.intermediarios.first.email unless @inmueble.intermediarios.first.nil?%></td>
+				      			<td><%= @inmueble.intermediarios.first.ult_fecha_contacto unless @inmueble.intermediarios.first.nil?%></td>
+				      		</tr>
+				      		<tr>
+				      			<th>Observaciones</th>
+				      		</tr>
+				      		<tr>
+				      			<td><%= @inmueble.intermediarios.first.observaciones unless @inmueble.intermediarios.first.nil?%></td>
+				      		</tr>
+				      	</tbody>
+					  	</table>
+					  </div>
+					  <!--
+				    	Tab for documentos
+				  	-->
 				    </div>
               <div class="tab-pane fade" id="documentos">
                 <div class="bs-example table-responsive">

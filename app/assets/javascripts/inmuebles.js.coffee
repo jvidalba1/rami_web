@@ -42,5 +42,10 @@ $ ->
     $(".nav-tabs").find(".active").removeClass("active")
     $(this).parent("li").addClass("active")
     $("#documentos").addClass("active in")
-
+  $("#tab_intermediario").click ->
+    active = $("#myTabContent").find(".active.in")
+    active.removeClass("active in")
+    $(".nav-tabs").find(".active").removeClass("active")
+    $(this).parent("li").addClass("active")
+    $("#intermediario").addClass("active in")
 
