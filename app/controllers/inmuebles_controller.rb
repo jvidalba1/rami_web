@@ -3,6 +3,12 @@ class InmueblesController < ApplicationController
   before_filter :authenticate_user!
   before_filter :set_inmueble_by_id, only: [:set_status]
 
+  def searcher
+    @q = Inmueble.search(params[:q])
+    @inmuebles = @q.result(distinct: true)
+    # raise "d"
+  end
+
   def set_status
     @inmueble.update_attributes(status: params[:status].to_i)
 
