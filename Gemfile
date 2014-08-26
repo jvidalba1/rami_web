@@ -10,6 +10,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'devise'
 gem 'carrierwave'
+gem 'ransack'
 
 group :test, :development do
   gem 'better_errors'
