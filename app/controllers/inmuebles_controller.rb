@@ -6,7 +6,8 @@ class InmueblesController < ApplicationController
   def searcher
     @q = Inmueble.search(params[:q])
     @inmuebles = @q.result(distinct: true)
-    # raise "d"
+    @q.build_condition if @q.conditions.empty?
+    @q.build_sort if @q.sorts.empty?
   end
 
   def set_status
