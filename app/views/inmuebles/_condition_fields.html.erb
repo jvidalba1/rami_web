@@ -1,10 +1,16 @@
 <div class="field">
   <%= f.attribute_fields do |a| %>
-    <%= a.attribute_select %>
+    <table>
+      <tr>
+        <td><%= a.attribute_select({}, {class: "form-control"}) %></td>
+        <td><%= f.predicate_select({}, {class: "form-control"}) %></td>
+        <td>
+          <%= f.value_fields do |v| %>
+            <%= v.text_field :value, class: "form-control" %>
+          <% end %>
+        </td>
+        <td><%= link_to "", '#', class: "remove_fields fi-minus", :style => "text-decoration: none" %></td>
+      </tr>
+    </table>
   <% end %>
-  <%= f.predicate_select %>
-  <%= f.value_fields do |v| %>
-    <%= v.text_field :value %>
-  <% end %>
-  <%= link_to "remove", '#', class: "remove_fields" %>
 </div>

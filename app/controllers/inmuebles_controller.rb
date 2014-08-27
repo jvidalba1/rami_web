@@ -8,6 +8,7 @@ class InmueblesController < ApplicationController
     @inmuebles = @q.result(distinct: true)
     @q.build_condition if @q.conditions.empty?
     @q.build_sort if @q.sorts.empty?
+    # raise "oe"
   end
 
   def set_status
