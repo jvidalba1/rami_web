@@ -98,21 +98,21 @@
 <table>
   <tr>
     <td><b>Nombre</b></td>
-    <td><%= @inmueble.propietarios.first.try(:nombre) %></td>
+    <td><%= @inmueble.propietario.try(:nombre) %></td>
 
     <td><b>Dirección</b></td>
-    <td><%= @inmueble.propietarios.first.try(:direccion) %></td>
+    <td><%= @inmueble.propietario.try(:direccion) %></td>
   </tr>
 
   <tr>
     <td><b>Teléfono</b></td>
-    <td><%= @inmueble.propietarios.first.try(:telefono) %></td>
+    <td><%= @inmueble.propietario.try(:telefono) %></td>
 
     <td><b>Celular</b></td>
-    <td><%= @inmueble.propietarios.first.try(:celular) %></td>
+    <td><%= @inmueble.propietario.try(:celular) %></td>
 
     <td><b>Email</b></td>
-    <td><%= @inmueble.propietarios.first.try(:email) %></td>
+    <td><%= @inmueble.propietario.try(:email) %></td>
   </tr>
 </table>
 <hr>
