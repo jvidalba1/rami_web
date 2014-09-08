@@ -198,9 +198,11 @@
     <tr>
       <td colspan="6"><span class="lead">Intermediarios</span></td>
     </tr>
+
     <%= f.fields_for :intermediarios do |f| %>
       <%= render 'intermediarios', :f => f %>
     <% end %>
+
 		<tr>
 			<td colspan="6"><strong><hr></strong></td>
 		</tr>
