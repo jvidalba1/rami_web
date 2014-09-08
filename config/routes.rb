@@ -10,6 +10,7 @@ RamiWeb::Application.routes.draw do
   end
 
   resources :propietarios
+  resources :intermediarios
   resources :usuarios
   get "pages/home"
 
