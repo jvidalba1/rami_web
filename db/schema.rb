@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140821031843) do
+ActiveRecord::Schema.define(:version => 20140909223958) do
 
   create_table "ciudades", :force => true do |t|
     t.string   "nombre"
@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(:version => 20140821031843) do
   end
 
   create_table "inmuebles", :force => true do |t|
-    t.integer  "codigo_inmueble"
     t.integer  "clase_inmueble"
     t.integer  "ciudad_id"
     t.string   "zona"
@@ -61,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20140821031843) do
     t.string   "telefono"
     t.string   "celular"
     t.string   "email"
+    t.integer  "propietario_id"
     t.decimal  "porcentaje_comision",      :precision => 15, :scale => 2
     t.decimal  "valor_inmueble",           :precision => 15, :scale => 2
     t.decimal  "altura",                   :precision => 15, :scale => 2
@@ -74,8 +74,8 @@ ActiveRecord::Schema.define(:version => 20140821031843) do
     t.string   "celular_interesado"
     t.string   "email_interesado"
     t.string   "observaciones_interesado"
-    t.integer  "propietario_id"
     t.integer  "status"
+    t.string   "nombre_inmueble"
   end
 
   create_table "interesados", :force => true do |t|

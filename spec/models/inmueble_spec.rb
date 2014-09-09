@@ -3,7 +3,6 @@
 # Table name: inmuebles
 #
 #  id                       :integer          not null, primary key
-#  codigo_inmueble          :integer
 #  clase_inmueble           :integer
 #  ciudad_id                :integer
 #  zona                     :string(255)
@@ -35,6 +34,7 @@
 #  telefono                 :string(255)
 #  celular                  :string(255)
 #  email                    :string(255)
+#  propietario_id           :integer
 #  porcentaje_comision      :decimal(15, 2)
 #  valor_inmueble           :decimal(15, 2)
 #  altura                   :decimal(15, 2)
@@ -48,8 +48,8 @@
 #  celular_interesado       :string(255)
 #  email_interesado         :string(255)
 #  observaciones_interesado :string(255)
-#  propietario_id           :integer
 #  status                   :integer
+#  nombre_inmueble          :string(255)
 #
 
 require 'spec_helper'

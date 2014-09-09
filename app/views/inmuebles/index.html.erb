@@ -8,10 +8,10 @@
     			<table class="table table-striped table-hover ">
     				<thead>
               <tr>
+                <th>Nombre</th>
               	<th>Ciudad</th>
               	<th>Dirección</th>
               	<th>Zona</th>
-                <th>Código</th>
                 <th>Clase</th>
                 <th>Negocio</th>
                 <th colspan="2">Opciones</th>
@@ -20,10 +20,10 @@
   		      <% @inmuebles.each do |inmueble| %>
     	        <tbody>
     	        	<tr>
+                  <td><%= inmueble.nombre_inmueble %></td>
     	          	<td><%= inmueble.ciudad.nombre %></td>
     	          	<td><%= inmueble.direccion %></td>
               		<td><%= inmueble.zona %></td>
-    	          	<td><%= inmueble.codigo_inmueble %></td>
     	          	<td><%= get_clase_inmueble inmueble.clase_inmueble %></td>
     	          	<td><%= get_tipo_negocio inmueble.tipo_negocio %></td>
                   <td>
