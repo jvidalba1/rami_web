@@ -12,5 +12,8 @@
 
 class Interesado < ActiveRecord::Base
   self.primary_key = :id
-  attr_accessible :id, :nombre, :telefono, :celular  
+
+  has_and_belongs_to_many :inmuebles
+
+  attr_accessible :id, :nombre, :telefono, :celular, :email, :observaciones
 end
