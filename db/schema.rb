@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140910144049) do
+ActiveRecord::Schema.define(:version => 20140910145322) do
 
   create_table "ciudades", :force => true do |t|
     t.string   "nombre"
@@ -77,8 +77,10 @@ ActiveRecord::Schema.define(:version => 20140910144049) do
     t.string   "nombre"
     t.string   "telefono"
     t.string   "celular"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "email"
+    t.text     "observaciones"
   end
 
   create_table "intermediarios", :force => true do |t|
