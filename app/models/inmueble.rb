@@ -55,9 +55,11 @@ class Inmueble < ActiveRecord::Base
   belongs_to :ciudad
 
   has_and_belongs_to_many :interesados
+  accepts_nested_attributes_for :interesados
 
   has_many :intermediarios
   accepts_nested_attributes_for :intermediarios
+
   has_many :documentos
   accepts_nested_attributes_for :documentos, :reject_if => lambda { |a| a[:documento].blank? }
 
@@ -113,6 +115,7 @@ class Inmueble < ActiveRecord::Base
                   :documentos_attributes,
                   :propietarios_attributes,
                   :intermediarios_attributes,
+                  :interesados_attributes,
                   :status
 
   validates :nombre_inmueble, :presence => true
