@@ -206,39 +206,26 @@
 		<tr>
 			<td colspan="6"><strong><hr></strong></td>
 		</tr>
-        <tr>
-            <td colspan="6"><span class="lead">Interesados</span></td>
-        </tr>
-        <tr>
-            <td><%= f.label :nombre_interesado, "Nombre" %></td>
-            <td><%= f.text_field :nombre_interesado , :class => "form-control"%></td>
+    <tr>
+        <td colspan="6"><span class="lead">Interesados</span></td>
+    </tr>
 
-            <td><%= f.label :telefono_interesado, "Teléfono" %></td>
-            <td><%= f.text_field :telefono_interesado , :class => "form-control"%></td>
-        </tr>
-        <tr>
-            <td><%= f.label :celular_interesado, "Celular" %></td>
-            <td><%= f.text_field :celular_interesado , :class => "form-control"%></td>
+    <%= f.fields_for :interesados do |f| %>
+      <%= render 'interesados', :f => f %>
+    <% end %>
 
-            <td><%= f.label :email_interesado, "Email" %></td>
-            <td><%= f.text_field :email_interesado , :class => "form-control"%></td>
-        </tr>
-        <tr>
-        	<td><%= f.label :observaciones_interesado, "Observaciones" %></td>
-            <td colspan="3"><%= f.text_area :observaciones_interesado ,:rows => "10", :class => "form-control"%></td>
-        </tr>
-      <tr>
-        <td colspan="6"><strong><hr></strong></td>
-      </tr>
-      <%= f.fields_for :documentos do |f| %>
-        <%= render 'documentos', :f => f %>
-      <% end %>
+    <tr>
+      <td colspan="6"><strong><hr></strong></td>
+    </tr>
+    <%= f.fields_for :documentos do |f| %>
+      <%= render 'documentos', :f => f %>
+    <% end %>
 
-        <!--
-        <tr>
-            <td><%# link_to image_tag("add.png", :border => 0, :width => 35), documentos_inmuebles_path, :remote => true, :class => "add_file" %></td>
-        </tr>
-        -->
+    <!--
+    <tr>
+        <td><%# link_to image_tag("add.png", :border => 0, :width => 35), documentos_inmuebles_path, :remote => true, :class => "add_file" %></td>
+    </tr>
+    -->
 	</table>
 	<div class="actions">
 		<%= f.submit "Guardar datos", :class => "btn btn-primary" %>
