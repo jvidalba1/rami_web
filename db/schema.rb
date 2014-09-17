@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(:version => 20140910152540) do
     t.string   "telefono"
     t.string   "celular"
     t.string   "email"
-    t.integer  "propietario_id"
     t.decimal  "porcentaje_comision",     :precision => 15, :scale => 2
     t.decimal  "valor_inmueble",          :precision => 15, :scale => 2
     t.decimal  "altura",                  :precision => 15, :scale => 2
@@ -69,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20140910152540) do
     t.integer  "nro_pisos_permitidos"
     t.datetime "created_at",                                             :null => false
     t.datetime "updated_at",                                             :null => false
+    t.integer  "propietario_id"
     t.integer  "status"
     t.string   "nombre_inmueble"
   end
