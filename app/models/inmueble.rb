@@ -58,7 +58,7 @@ class Inmueble < ActiveRecord::Base
   has_and_belongs_to_many :interesados
   accepts_nested_attributes_for :interesados
 
-  has_many :intermediarios
+  has_and_belongs_to_many :intermediarios
   accepts_nested_attributes_for :intermediarios
 
   has_many :documentos

@@ -16,7 +16,8 @@
 class Intermediario < ActiveRecord::Base
   self.primary_key = :id
 
+  has_and_belongs_to_many :inmuebles
+
   attr_accessible :id, :telefono, :nombre, :email, :ult_fecha_contacto, :observaciones
-  belongs_to :inmueble
 
 end
