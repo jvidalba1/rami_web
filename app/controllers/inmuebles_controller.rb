@@ -69,9 +69,9 @@ class InmueblesController < ApplicationController
   def new
     @inmueble = Inmueble.new
     intermediarios = @inmueble.intermediarios.build
-    interesados = @inmueble.interesados.build
 
     3.times do
+      interesados = @inmueble.interesados.build
       documentos = @inmueble.documentos.build
     end
   end

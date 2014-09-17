@@ -4,8 +4,8 @@
       <td>
         <%= f.label :documento, "Archivo" %>
       </td>
-      <td>
-        <%= f.file_field :documento, :class => :upload, :accept=> "*", :style => "width: 150px;"%>
+      <td colspan="3">
+        <%= f.file_field :documento, :class => :upload, :accept=> "*"%>
       </td>
       <td>
         <%= f.label :documento, "Descripción" %>
@@ -13,12 +13,6 @@
       <td>
         <%= f.text_field :descripcion, :class => "form-control" %>
       </td>
-      <td>
-        <%= f.label :_destroy, "Borrar documento" %>
-      </td>
-      <td>
-        <%= f.check_box :_destroy%>
-      </td>
-      <td><%# link_to image_tag("remove.png", :border => 0), "#", :class => "remove_file" %></td>
+      <!--<td><%# link_to image_tag("remove.png", :border => 0), "#", :class => "remove_file" %></td>-->
   <%# end %>
 </tr>

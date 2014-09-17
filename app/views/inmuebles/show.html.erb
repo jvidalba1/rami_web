@@ -15,7 +15,7 @@
 				    	<a href="#propietario" id="tab_propietario" data-toggle="tab">Propietario</a>
 				    </li>
 				    <li class="">
-				    	<a href="#interesado" id="tab_interesado" data-toggle="tab">Interesado</a>
+				    	<a href="#interesado" id="tab_interesado" data-toggle="tab">Interesados</a>
 				    </li>
             <li class="">
               <a href="#documentos" id="tab_documentos" data-toggle="tab">Documentos</a>
@@ -200,28 +200,33 @@
 				  	-->
 				    <div class="tab-pane fade" id="interesado">
 				    	<div class="bs-example table-responsive">
-								<table class="table table-striped table-hover ">
-									<thead>
-								      	<tr>
-								      		<th>Nombre interesado</th>
-								      		<th>Telégono</th>
-								      		<th>Celular</th>
-								      		<th>Email</th>
-								      	</tr>
-									</thead>
-					      	<tbody>
-					      		<tr>
-					      			<td><%# @inmueble.interesado.nombre %></td>
-					      			<td><%# @inmueble.interesado.telefono %></td>
-					      		</tr>
-					      		<tr>
-					      			<th>Observaciones</th>
-					      		</tr>
-					      		<tr>
-					      			<td><%# @inmueble.interesado.observaciones %></td>
-					      		</tr>
-					      	</tbody>
-				  			</table>
+				    		<h1>Interesados </h1>
+				    		<% unless @inmueble.interesados.empty? %>
+									<table class="table table-striped table-hover ">
+										<thead>
+							      	<tr>
+							      		<th>Nombre</th>
+							      		<th>Teléfono</th>
+							      		<th>Celular</th>
+							      		<th>Email</th>
+							      	</tr>
+										</thead>
+										<% @inmueble.interesados.each do |interesado| %>
+											<% unless interesado.nombre.eql? "" %>
+								      	<tbody>
+								      		<tr>
+								      			<td><%= interesado.nombre %></td>
+								      			<td><%= interesado.telefono %></td>
+								      			<td><%= interesado.celular %></td>
+								      			<td><%= interesado.email %></td>
+								      		</tr>
+								      	</tbody>
+								      <% end %>
+							      <% end %>
+					  			</table>
+					  		<% else %>
+					  			<h4>No hay interesados</h4>
+					  		<% end %>
 					  	</div>
 				    </div>
 				    <!--
@@ -262,16 +267,18 @@
                 <div class="bs-example table-responsive">
                   <table class="table table-striped table-hover ">
                       <% @inmueble.documentos.each do |doc| %>
-                        <tbody>
-                          <tr>
-                            <td>
-                              <%= doc.descripcion %>
-                            </td>
-                            <td>
-                              <%= link_to "Descargar", doc.documento_url %>
-                            </td>
-                          </tr>
-                        </tbody>
+                      	<% if doc.documento_url %>
+	                        <tbody>
+	                          <tr>
+	                            <td>
+	                              <%= doc.descripcion %>
+	                            </td>
+	                            <td>
+	                              <%= link_to "Descargar", doc.documento_url %>
+	                            </td>
+	                          </tr>
+	                        </tbody>
+	                    	<% end %>
                       <% end %>
                   </table>
                 </div>
