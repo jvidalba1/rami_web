@@ -49,6 +49,7 @@
 
 class Inmueble < ActiveRecord::Base
   # attr_accessible :title, :body
+  default_scope order("nombre_inmueble ASC")
   self.primary_key = :id
 
   belongs_to :propietario
