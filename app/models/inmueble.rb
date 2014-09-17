@@ -92,11 +92,6 @@ class Inmueble < ActiveRecord::Base
                   :nro_pisos,                           # ya
                   :parqueadores,                        # ya
                   :densidad,                            # ya
-                  :nombre_agente,                       # ya
-                  :quien_refiere,                       # ya
-                  :telefono,                            # ya
-                  :celular,                             # ya
-                  :email,                               # ya
                   :propietario_id,                      # ya
                   :porcentaje_comision,
                   :valor_inmueble,
