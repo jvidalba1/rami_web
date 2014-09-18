@@ -11,13 +11,13 @@
 <div class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-header">
-          <a href="../" class="navbar-brand">Inicio</a>
-          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
+      <a href="../" class="navbar-brand">Inicio</a>
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
 		<div class="navbar-collapse collapse" id="navbar-main">
           <ul class="nav navbar-nav">
             <!--
@@ -76,10 +76,7 @@
 
           <ul class="nav navbar-nav navbar-right">
           	<% if user_signed_in? %>
-            	<li><p>Inicio de sesión como: <strong><%= current_user.email %></strong></p></li>
-            	<li><%= link_to 'Editar datos', edit_user_registration_path, :class => 'navbar-link' %> </li>
             	<li><%= link_to "Salir", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
-                <li><%# link_to "Crear usuario", new_user_registration_path, :class => 'navbar-link'  %></li>
            	<% else %>
            		<li><%= link_to "Iniciar sesión", new_user_session_path, :class => 'navbar-link'  %></li>
            	<% end%>
@@ -104,6 +101,37 @@
 
 	<%= yield %>
 </div>
+<footer>
+  <div class="panel-footer">
+      <div class="navbar" >
+          <ul class="nav">
+            <% if user_signed_in? %>
+              <li><center><p>Inicio de sesión como: <strong><%= current_user.email %></strong></p></center></li>
+              <li>
+                <center>
+                  <%= link_to 'Configuración', "#", :class => 'navbar-link' %> |
+                  <%= link_to 'Editar datos', edit_user_registration_path, :class => 'navbar-link' %> |
+                  <%= link_to "Salir", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+                </center>
+              </li>
+            <% else %>
+              <li><center><p>No has iniciado sesión</p></center></li>
+              <li><center><%= link_to "Iniciar sesión", new_user_session_path, :class => 'navbar-link' %></center></li>
+            <% end%>
+            <li><br></li>
+            <li>
+              <center>
+                <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <img alt="Licencia Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+                </a>
+                <br />
+                Este obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Licencia Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional</a>.
+              </center>
+            </li>
+          </ul>
+      </div>
+  </div>
+</footer>
 
 </body>
 </html>
