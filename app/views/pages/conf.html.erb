@@ -1,0 +1,72 @@
+<div class="bs-docs-section">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="well">
+        <h2>Configuración</h2>
+        <br>
+        <div class="row">
+
+          <div class="col-lg-6">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">Importar datos</h3>
+              </div>
+              <div class="panel-body">
+                <table>
+                  <%= form_tag import_pages_path, :multipart => true do -%>
+                    <tr>
+                      <td><%= file_field_tag "file", :class => "upload form-control", :accept => "text/csv"%></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <%= submit_tag 'Save', :class => "btn btn-primary" %>
+                      </td>
+                    </tr>
+                  <% end -%>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">Exportar datos</h3>
+              </div>
+              <div class="panel-body">
+                Panel content
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-6">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">Panel primary</h3>
+              </div>
+              <div class="panel-body">
+                Panel content
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">Panel primary</h3>
+              </div>
+              <div class="panel-body">
+                Panel content
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

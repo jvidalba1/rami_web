@@ -11,6 +11,7 @@ gem 'omniauth-twitter'
 gem 'devise'
 gem 'carrierwave'
 gem 'ransack'
+gem 'thin'
 
 group :test, :development do
   gem 'better_errors'

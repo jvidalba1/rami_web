@@ -109,7 +109,7 @@
               <li><center><p>Inicio de sesión como: <strong><%= current_user.email %></strong></p></center></li>
               <li>
                 <center>
-                  <%= link_to 'Configuración', "#", :class => 'navbar-link' %> |
+                  <%= link_to 'Configuración', conf_pages_path, :class => 'navbar-link' %> |
                   <%= link_to 'Editar datos', edit_user_registration_path, :class => 'navbar-link' %> |
                   <%= link_to "Salir", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
                 </center>

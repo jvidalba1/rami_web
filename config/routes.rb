@@ -9,10 +9,18 @@ RamiWeb::Application.routes.draw do
     end
   end
 
+  resources :pages, only: [] do
+    collection do
+      get "home"
+      get "conf"
+      post "import"
+    end
+  end
+
   resources :propietarios
   resources :intermediarios
   resources :usuarios
-  get "pages/home"
+
 
   devise_for :users
   resources :users
