@@ -1,3 +1,4 @@
+require 'csv'
 # == Schema Information
 #
 # Table name: inmuebles
@@ -43,6 +44,7 @@
 #
 
 class Inmueble < ActiveRecord::Base
+
   # attr_accessible :title, :body
   default_scope order("nombre_inmueble ASC")
   self.primary_key = :id
@@ -116,4 +118,14 @@ class Inmueble < ActiveRecord::Base
       false
     end
   end
+
+  def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << ["nombre_inmueble", "ciudad_id"]
+      # all.each do |product|
+      #   csv << product.attributes.values_at(*column_names)
+      # end
+    end
+  end
+
 end

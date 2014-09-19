@@ -6,7 +6,7 @@
         <br>
         <div class="row">
 
-          <div class="col-lg-6">
+          <div class="col-lg-12">
             <div class="panel panel-primary">
               <div class="panel-heading">
                 <h3 class="panel-title">Importar datos</h3>
@@ -25,14 +25,18 @@
                     </tr>
                   <% end -%>
                 </table>
+                <span class="help-block">
+                  <%= link_to "Descargar formato de archivo para migración", export_format_csv_pages_path(format: "csv"), :class => "btn btn-link"%>
+                </span>
               </div>
             </div>
           </div>
-
+        </div>
+          <!--
           <div class="col-lg-6">
             <div class="panel panel-primary">
               <div class="panel-heading">
-                <h3 class="panel-title">Exportar datos</h3>
+                <h3 class="panel-title">Panel primary</h3>
               </div>
               <div class="panel-body">
                 Panel content
@@ -40,7 +44,7 @@
             </div>
           </div>
 
-        </div>
+
 
         <div class="row">
 
@@ -67,6 +71,7 @@
           </div>
 
         </div>
+        -->
       </div>
     </div>
   </div>

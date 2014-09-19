@@ -72,27 +72,6 @@
 <br>
 <br>
 <br>
-<h3>Agente y quién refiere</h3>
-<table>
-  <tr>
-    <td><b>Nombre agente</b></td>
-    <td><%= @inmueble.nombre_agente %></td>
-
-    <td><b>Quién refiere</b></td>
-    <td><%= @inmueble.quien_refiere %></td>
-  </tr>
-
-  <tr>
-    <td><b>Teléfono</b></td>
-    <td><%= @inmueble.telefono %></td>
-
-    <td><b>Celular</b></td>
-    <td><%= @inmueble.celular  %></td>
-
-    <td><b>Email</b></td>
-    <td><%= @inmueble.email %></td>
-  </tr>
-</table>
 <hr>
 <h3>Propietario</h3>
 <table>
@@ -130,18 +109,3 @@
 <br>
 <br>
 <br>
-<table>
-  <% @inmueble.documentos.each do |image| %>
-      <tbody>
-
-      <tr>
-        <b>Descripción del área</b><td><%= @inmueble.area_disponible_desc %></td>
-      </tr>
-      <tr>
-        <td>
-          <%= wicked_pdf_image_tag image.documento %>
-        </td>
-      </tr>
-      </tbody>
-  <% end %>
-</table>

@@ -14,6 +14,7 @@ RamiWeb::Application.routes.draw do
       get "home"
       get "conf"
       post "import"
+      get "export_format_csv"
     end
   end
 

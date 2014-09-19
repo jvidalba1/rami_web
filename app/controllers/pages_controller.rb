@@ -3,11 +3,18 @@ require 'csv'
 class PagesController < ApplicationController
 
   before_filter :authenticate_user!, only: [:conf]
+  # before_filter :headers, only: [:export_format_csv]
 
   def home
   end
 
   def conf
+  end
+
+  def export_format_csv
+     respond_to do |format|
+       format.cv { send_data(Inmueble.to_csv) }
+     end
   end
 
   def import
