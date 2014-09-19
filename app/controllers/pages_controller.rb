@@ -15,14 +15,13 @@ class PagesController < ApplicationController
       @result = []
 
       begin
-        @result << csv_archivo(params[:file])
+        @result = csv_archivo(params[:file])
       rescue
+        @result = @errores
         redirect_to :back, :alert => "Ocurrió un error, revise los datos por favor" and return
       end
-
       if @result.any?
         flash.now[:alert] = "Por favor revise los datos"
-        redirect_to conf_pages_path
       else
         flash[:notice] = "Se importaron todos los datos exitosamente"
         redirect_to conf_pages_path
@@ -50,12 +49,14 @@ class PagesController < ApplicationController
   end
 
   def csv_archivo(file)
-    @errores = []
-    CSV.foreach(file.path, :headers => true) do |row|
-      @errores << Inmueble.create(row.to_hash)
+    Inmueble.transaction do
+      @errores = []
+      CSV.foreach(file.path, :headers => true) do |row|
+        @errores << Inmueble.create(row.to_hash)
+      end
+      @errores.each { |x| raise ActiveRecord::Rollback if x.errors.any? }
     end
-    @errores.each { |x| ActiveRecord::Rollback if x.errors.any? }
-    @errores.reject! { |x| x.errors.empty? }
+    # @errores.reject! { |x| x.errors.empty? }
     @errores
   end
 

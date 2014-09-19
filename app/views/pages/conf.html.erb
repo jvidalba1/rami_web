@@ -15,11 +15,12 @@
                 <table>
                   <%= form_tag import_pages_path, :multipart => true do -%>
                     <tr>
+                      <td><%= label :file_label,  "Archivo"%></td>
                       <td><%= file_field_tag "file", :class => "upload form-control", :accept => "text/csv"%></td>
                     </tr>
                     <tr>
                       <td>
-                        <%= submit_tag 'Save', :class => "btn btn-primary" %>
+                        <%= submit_tag 'Aceptar', :class => "btn btn-primary" %>
                       </td>
                     </tr>
                   <% end -%>
