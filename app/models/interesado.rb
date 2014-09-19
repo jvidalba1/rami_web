@@ -2,12 +2,14 @@
 #
 # Table name: interesados
 #
-#  id         :integer          not null, primary key
-#  nombre     :string(255)
-#  telefono   :string(255)
-#  celular    :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id            :integer          not null, primary key
+#  nombre        :string(255)
+#  telefono      :string(255)
+#  celular       :string(255)
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  email         :string(255)
+#  observaciones :text
 #
 
 class Interesado < ActiveRecord::Base

@@ -29,12 +29,6 @@
 #  nro_pisos               :integer
 #  parqueadores            :integer
 #  densidad                :decimal(15, 2)
-#  nombre_agente           :string(255)
-#  quien_refiere           :string(255)
-#  telefono                :string(255)
-#  celular                 :string(255)
-#  email                   :string(255)
-#  propietario_id          :integer
 #  porcentaje_comision     :decimal(15, 2)
 #  valor_inmueble          :decimal(15, 2)
 #  altura                  :decimal(15, 2)
@@ -43,6 +37,7 @@
 #  nro_pisos_permitidos    :integer
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null
+#  propietario_id          :integer
 #  status                  :integer
 #  nombre_inmueble         :string(255)
 #

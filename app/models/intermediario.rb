@@ -8,7 +8,6 @@
 #  email              :string(255)
 #  ult_fecha_contacto :date
 #  observaciones      :string(255)
-#  inmueble_id        :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #
