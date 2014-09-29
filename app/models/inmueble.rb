@@ -72,7 +72,6 @@ class Inmueble < ActiveRecord::Base
                   :area_disponible_desc,      # texto
                   :valor_mt2,                           # ya
                   :valor_total,                         # ya
-                  :planos,
                   :valor_admin,                         # ya
                   :predial,                             # ya
                   :frente,                              # ya
@@ -83,7 +82,6 @@ class Inmueble < ActiveRecord::Base
                   :fecha_disponibilidad,                # ya
                   :fecha_salida_inventario,             # ya
                   :anio_construccion,                   # ya
-                  :normas_de_uso,             # texto
                   :indice_ocupacion,                    # ya
                   :indice_construccion,                 # ya
                   :nro_pisos,                           # ya

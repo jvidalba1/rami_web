@@ -63,10 +63,6 @@
             <td colspan="3"><%= f.text_area :area_disponible_desc, :rows => "10", :class => "form-control"%></td>
 		</tr>
 		<tr>
-			<td><%= f.label :planos %></td>
-			<td><%= f.text_field :planos , :class => "form-control"%></td>
-		</tr>
-		<tr>
 			<td><%= f.label :valor_mt2 %></td>
 			<td><%= f.text_field :valor_mt2, :class => "form-control" %></td>
 
@@ -134,17 +130,13 @@
             <td><%= f.label :entorno %></td>
             <td colspan="3"><%= f.text_area :entorno, :cols => "20", :rows => "10", :class => "form-control"%></td>
 		</tr>
-        <tr>
-            <td><%= f.label :otras_caracteristicas %></td>
-            <td colspan="3"><%= f.text_area :otras_caracteristicas, :cols => "10", :rows => "10", :class => "form-control"%></td>
-        </tr>
-        <tr>
-            <td><%= f.label :normas_de_uso %></td>
-            <td colspan="3"><%= f.text_area :normas_de_uso ,:rows => "10", :class => "form-control"%></td>
-        </tr>
+      <tr>
+          <td><%= f.label :otras_caracteristicas %></td>
+          <td colspan="3"><%= f.text_area :otras_caracteristicas, :cols => "10", :rows => "10", :class => "form-control"%></td>
+      </tr>
 		<tr>
-            <td><%= f.label :transporte %></td>
-            <td colspan="3"><%= f.text_area :transporte, :rows => "10", :class => "form-control"%></td>
+      <td><%= f.label :transporte %></td>
+      <td colspan="3"><%= f.text_area :transporte, :rows => "10", :class => "form-control"%></td>
 		</tr>
 
 		<tr>
