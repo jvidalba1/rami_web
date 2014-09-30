@@ -1,0 +1,112 @@
+<%= wicked_pdf_image_tag @inmueble.logo_url(:thumb).to_s %>
+<h1> #<%=@inmueble.nombre_inmueble %> - <%= get_tipo_negocio @inmueble.tipo_negocio %></h1>
+<%= get_clase_inmueble @inmueble.clase_inmueble %> - <%= @inmueble.ciudad.nombre %> |
+<b>Zona:</b> <%= @inmueble.zona %> |
+<b>Dirección:</b> <%= @inmueble.direccion %>
+<hr>
+<table style="margin-top: -40px;">
+  <tr>
+    <td><h3>Información</h3></td>
+  </tr>
+  <tr>
+    <td><b>Área disponible</b></td>
+    <td><%= @inmueble.area_disponible %></td>
+
+    <td><b>Valor mt2</b></td>
+    <td><%= @inmueble.valor_mt2 %></td>
+
+    <td><b>Valor total</b></td>
+    <td><%= @inmueble.valor_total %></td>
+  </tr>
+
+  <tr>
+    <td><b>Valor admin</b></td>
+    <td><%= @inmueble.valor_admin %></td>
+
+    <td><b>Predial</b></td>
+    <td><%= @inmueble.predial %></td>
+
+    <td><b>Frente</b></td>
+    <td><%= @inmueble.frente %></td>
+  </tr>
+
+  <tr>
+    <td><b>Fondo</b></td>
+    <td><%= @inmueble.fondo %></td>
+
+    <td><b>Índice ocupación</b></td>
+    <td><%= @inmueble.indice_ocupacion %></td>
+
+    <td><b>Índice construcción</b></td>
+    <td><%= @inmueble.indice_construccion %></td>
+  </tr>
+
+  <tr>
+    <td><b>Fecha disponibilidad</b></td>
+    <td><%= @inmueble.fecha_disponibilidad %></td>
+
+    <td><b>Fecha salida inv</b></td>
+    <td><%= @inmueble.fecha_salida_inventario %></td>
+
+    <td><b>Año construcción</b></td>
+    <td><%= @inmueble.anio_construccion %></td>
+  </tr>
+
+  <tr>
+    <td><b># pisos</b></td>
+    <td><%= @inmueble.nro_pisos %></td>
+
+    <td><b>Parqueaderos</b></td>
+    <td><%= @inmueble.parqueadores %></td>
+
+    <td><b>Densidad</b></td>
+    <td><%= @inmueble.densidad %></td>
+  </tr>
+
+</table>
+<hr>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<h3>Propietario</h3>
+<table>
+  <tr>
+    <td><b>Nombre</b></td>
+    <td><%= @inmueble.propietario.try(:nombre) %></td>
+
+    <td><b>Dirección</b></td>
+    <td><%= @inmueble.propietario.try(:direccion) %></td>
+  </tr>
+
+  <tr>
+    <td><b>Teléfono</b></td>
+    <td><%= @inmueble.propietario.try(:telefono) %></td>
+
+    <td><b>Celular</b></td>
+    <td><%= @inmueble.propietario.try(:celular) %></td>
+
+    <td><b>Email</b></td>
+    <td><%= @inmueble.propietario.try(:email) %></td>
+  </tr>
+</table>
+<hr>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
