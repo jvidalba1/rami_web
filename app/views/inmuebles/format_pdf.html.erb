@@ -1,3 +1,26 @@
-<%= form_for @inmueble, :multipart => true  do |f| %>
-
-<% end %>
+<div class="bs-docs-section">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="well">
+        <%= form_for @inmueble, url: generate_pdf_inmuebles_path(@inmueble.id, format: 'pdf'), :multipart => true  do |f| %>
+          <table class="table response">
+            <tr>
+              <tr>
+                  <td colspan="6">
+                    <span class="lead">Escoja un logo de la empresa a enviar el reporte</span>
+                    <span class="help-block">Si el reporte va sin logo, solo dar clic en Continuar</span>
+                  </td>
+              </tr>
+              <td colspan="3">
+                <%= f.file_field :logo, :class => :upload, :accept=> "*"%>
+              </td>
+            </tr>
+          </table>
+          <div class="actions">
+            <%= f.submit "Continuar", :class => "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
