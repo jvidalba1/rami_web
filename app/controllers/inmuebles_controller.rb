@@ -48,7 +48,12 @@ class InmueblesController < ApplicationController
 
   def generate_pdf
     @inmueble = Inmueble.find(params[:id])
-    @inmueble.update_attributes(params[:inmueble])
+    if params[:inmueble]
+      @inmueble.update_attributes(params[:inmueble])
+    else
+      @inmueble.remove_logo!
+      @inmueble.save
+    end
     respond_to do |format|
       format.pdf do
         render :pdf => "file"

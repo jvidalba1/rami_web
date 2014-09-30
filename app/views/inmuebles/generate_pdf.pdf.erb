@@ -1,4 +1,4 @@
-<%= wicked_pdf_image_tag @inmueble.logo_url(:thumb).to_s %>
+<%= wicked_pdf_image_tag @inmueble.logo_url(:thumb).to_s unless @inmueble.logo_url.nil? %>
 <h1> #<%=@inmueble.nombre_inmueble %> - <%= get_tipo_negocio @inmueble.tipo_negocio %></h1>
 <%= get_clase_inmueble @inmueble.clase_inmueble %> - <%= @inmueble.ciudad.nombre %> |
 <b>Zona:</b> <%= @inmueble.zona %> |
