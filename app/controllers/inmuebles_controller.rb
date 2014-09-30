@@ -46,6 +46,16 @@ class InmueblesController < ApplicationController
     @inmueble = Inmueble.find(params[:id])
   end
 
+  def generate_pdf
+    @inmueble = Inmueble.find(params[:id])
+    @inmueble.update_attributes(params[:inmueble])
+    respond_to do |format|
+      format.pdf do
+        render :pdf => "file"
+      end
+    end
+  end
+
   # GET /inmuebles/1
   # GET /inmuebles/1.json
   def show
@@ -54,14 +64,7 @@ class InmueblesController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @inmueble }
       format.pdf do
-        render :pdf => "file"#,
-               #:header => {  :html => { :template => "pdf/header.pdf.erb" },
-               #              :layout   => 'pdf.html'
-               #           },
-               #:margin => {:top                => 50,                     # default 10 (mm)
-               #            :bottom             => 50,
-               #            :left               => 50,
-               #            :right              => 50}
+        render :pdf => "file"
       end
     end
   end
