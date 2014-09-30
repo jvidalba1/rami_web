@@ -45,6 +45,8 @@ require 'csv'
 
 class Inmueble < ActiveRecord::Base
 
+  mount_uploader :logo, LogoUploader
+
   # attr_accessible :title, :body
   default_scope order("nombre_inmueble ASC")
   self.primary_key = :id
@@ -105,7 +107,9 @@ class Inmueble < ActiveRecord::Base
                   :propietarios_attributes,
                   :intermediarios_attributes,
                   :interesados_attributes,
-                  :status
+                  :status,
+                  :logo, :logo_cache
+
 
   validates :nombre_inmueble, :presence => true
 

@@ -6,6 +6,7 @@ RamiWeb::Application.routes.draw do
       get 'documentos'
       # :status is the number to set in inmueble
       get 'set_status/:id/:status', action: 'set_status', as: 'set_status'
+      get 'format_pdf/:id', action: 'format_pdf', as: 'format_pdf'
     end
   end
 

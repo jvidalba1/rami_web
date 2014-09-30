@@ -10,6 +10,8 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'devise'
 gem 'carrierwave'
+gem 'rmagick'
+gem 'mini_magick'
 gem 'ransack'
 gem 'thin'
 

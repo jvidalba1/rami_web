@@ -42,6 +42,10 @@ class InmueblesController < ApplicationController
     end
   end
 
+  def format_pdf
+    @inmueble = Inmueble.find(params[:id])
+  end
+
   # GET /inmuebles/1
   # GET /inmuebles/1.json
   def show
@@ -58,8 +62,6 @@ class InmueblesController < ApplicationController
                #            :bottom             => 50,
                #            :left               => 50,
                #            :right              => 50}
-
-
       end
     end
   end
