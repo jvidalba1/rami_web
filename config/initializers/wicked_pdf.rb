@@ -24,6 +24,7 @@ module WickedPdfHelper
   WickedPdf.config = {
     wkhtmltopdf: "/usr/local/bin/wkhtmltopdf",
     header: { html: { template: 'pdf/header.pdf.erb'}, spacing: 0 },
+    # footer: { html: { template: 'pdf/footer.pdf.erb'}, spacing: 0 },
     page_page_size: 'Legal',
     layout: 'layout.pdf.erb',
     orientation: 'Landscape',
