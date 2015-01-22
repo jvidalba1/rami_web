@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'wicked_pdf'
 gem 'seedbank', '0.3.0'
 gem 'colorize', '~> 0.6.0'
-gem 'rails', '3.2.16'
+gem 'rails', '3.2.21'
 gem 'jquery-ui-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -13,7 +13,6 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'mini_magick'
 gem 'ransack'
-gem 'thin'
 
 group :test, :development do
   gem 'better_errors'
@@ -38,11 +37,9 @@ gem 'bootstrap-will_paginate', '0.0.6'
 gem 'annotate', '2.5.0'
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails'
+  gem 'coffee-rails'
   gem 'uglifier', '>= 1.0.3'
   gem 'foundation-icons-sass-rails'
 end
-
-gem 'jquery-rails'
 #ruby "2.0.0"
