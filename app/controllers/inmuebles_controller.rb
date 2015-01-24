@@ -56,7 +56,10 @@ class InmueblesController < ApplicationController
     end
     respond_to do |format|
       format.pdf do
-        render :pdf => "file"
+        render  pdf: "file",
+                layout: 'layouts/layout.pdf.erb',
+                disposition: 'attachment'
+                #:show_as_html => true
       end
     end
   end
@@ -69,7 +72,9 @@ class InmueblesController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @inmueble }
       format.pdf do
-        render :pdf => "file"
+        render  pdf: "file",
+                layout: 'layouts/layout.pdf.erb',
+                show_as_html: params[:debug].present?
       end
     end
   end

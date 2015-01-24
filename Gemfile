@@ -13,6 +13,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'mini_magick'
 gem 'ransack'
+gem 'jquery-rails'
 
 group :test, :development do
   gem 'better_errors'

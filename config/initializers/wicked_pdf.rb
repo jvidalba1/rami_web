@@ -1,4 +1,8 @@
 module WickedPdfHelper
+  WickedPdf.config = {
+    wkhtmltopdf: "/usr/local/bin/wkhtmltopdf"
+  }
+
   def wicked_pdf_stylesheet_link_tag(*sources)
     sources.collect { |source|
       "<style type='text/css'>#{Rails.application.assets.find_asset("#{source}.css")}</style>"
@@ -6,7 +10,7 @@ module WickedPdfHelper
   end
 
   def wicked_pdf_image_tag(img, options={})
-    image_tag wicked_pdf_image_location(img), options
+    image_tag wicked_pdf_image_location(asset_data_base64(img)), options
   end
 
   def wicked_pdf_image_location(img)
@@ -21,15 +25,10 @@ module WickedPdfHelper
     sources.collect{ |source| wicked_pdf_javascript_src_tag(source) }.join("\n").html_safe
   end
 
-  WickedPdf.config = {
-    wkhtmltopdf: "/usr/local/bin/wkhtmltopdf",
-    header: { html: { template: 'pdf/header.pdf.erb'}, spacing: 0 },
-    # footer: { html: { template: 'pdf/footer.pdf.erb'}, spacing: 0 },
-    page_page_size: 'Legal',
-    layout: 'layout.pdf.erb',
-    orientation: 'Landscape',
-    margin: {
-      top: 2
-    }
-  }
+  def asset_data_base64(path)
+    asset = Rails.application.assets.find_asset(path)
+    throw "Could not find asset '#{path}'" if asset.nil?
+    base64 = Base64.encode64(asset.to_s).gsub(/\s+/, "")
+    "data:#{asset.content_type};base64,#{Rack::Utils.escape(base64)}"
+  end
 end
