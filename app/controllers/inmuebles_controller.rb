@@ -58,7 +58,9 @@ class InmueblesController < ApplicationController
       format.pdf do
         render  pdf: "file",
                 layout: 'layouts/layout.pdf.erb',
-                disposition: 'attachment'
+                header: { html: { template: "layouts/pdfs/header.pdf.erb" } },
+                margin: { top: 33 },
+                footer: { center: "----------------------------------FOOTER----------------------------------" }
                 #:show_as_html => true
       end
     end
