@@ -1,6 +1,6 @@
 <div class="first_page">
   <div class="logo_wbr">
-    <%= wicked_pdf_image_tag 'wbr_logo.png', width: 350, height: 100 %>
+    <%= wicked_pdf_image_tag 'wbr_logo.png', width: 450, height: 200 %>
   </div>
   <div class="info_target">
     <p class="name_target">Dr. Jose Mateo Vidal Barrera</p>
@@ -8,6 +8,24 @@
     <p class="logo_target">
       <%= wicked_pdf_image_tag @inmueble.logo_url(:thumb).to_s unless @inmueble.logo_url.nil? %>
     </p>
+  </div>
+</div>
+<div class="second_page">
+  <div class="header">
+    <%= wicked_pdf_image_tag 'top_wbr.png', width: 1000 %>
+  </div>
+  <div class="page_content">
+    <div class="summary_list">
+      <ol>
+        <li>Descripción del inmueble, fotos y normas de uso.</li>
+        <li>Localización y georeferenciación del inmueble.</li>
+        <li>Características e información complementaria.</li>
+        <li>Gráficos complementarios.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="footer">
+    <%= wicked_pdf_image_tag "bottom_wbr.png", width: 1000 %>
   </div>
 </div>
 <!--

@@ -58,9 +58,9 @@ class InmueblesController < ApplicationController
       format.pdf do
         render  pdf: "file",
                 layout: 'layouts/layout.pdf.erb',
-                header: { html: { template: "layouts/pdfs/header.pdf.erb" } },
-                margin: { top: 55, bottom: 52 },
-                footer: { html: { template: "layouts/pdfs/footer.pdf.erb" } },
+                # header: { html: { template: "layouts/pdfs/header.pdf.erb" } },
+                # margin: { top: 55, bottom: 52 },
+                # footer: { html: { template: "layouts/pdfs/footer.pdf.erb" } },
                 :orientation => 'Landscape'#,
                 # :show_as_html => true
       end
