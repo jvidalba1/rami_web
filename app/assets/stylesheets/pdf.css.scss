@@ -1,36 +1,13 @@
 .pdf_report {
   // background-color: red;
-  .page_content {
-    // background-color: yellow;
-    width: 100%;
-    height: 360;
-  }
-
-  .info_incharge {
-    text-align: center;
-    font-size: 10;
-
-    // traslapar imagen del header
-    position: absolute;
-    z-index:1;
-
-    margin-top: 150px;
-    margin-left: 400px;
-
-    p {
-      margin: 0px;
-    }
-  }
-
-  .bottom_img {
-    // traslapar imagen del header
-    position:absolute;
-    z-index:0;
-  }
+  // .page_content {
+  //   // background-color: yellow;
+  //   width: 100%;
+  //   height: 360;
+  // }
 
   .first_page {
     width: 100%;
-    height: 700;
     // background-color: red;
 
     .logo_wbr {
@@ -46,13 +23,82 @@
 
   .second_page {
     width: 100%;
-    height: 700;
     // background-color: blue;
 
+    .header {
+      margin-top: 150px;
+    }
+
+    .footer {
+      margin-top: 175px;
+
+      .info_incharge {
+        // traslapar imagen del header
+        position: absolute;
+        z-index:1;
+        margin-top: 145px;
+        margin-left: 450px;
+
+        p {
+          margin: 0;
+        }
+      }
+
+      .bottom_img {
+        // traslapar imagen del header
+        // position: absolute;
+        // z-index:1;
+      }
+    }
+
     .summary_list {
-      padding-top: 5%;
-      padding-left: 20%;
+      margin-left: 150;
+      margin-top: 50;
       font-size: 25;
     }
+
+  }
+
+  .third_page {
+    width: 100%;
+    // background-color: blue;
+
+    .header {
+      margin-top: 0px;
+
+      .info_header {
+        position: absolute;
+        z-index:1;
+        font-size: 25;
+        margin-top: 25px;
+        margin-left: 50px;
+
+        p {
+            display: inline;
+            padding-right: 80px;
+            padding-left: 80px;
+        }
+      }
+    }
+
+    .footer {
+      margin-top: 368px;
+    }
+
+    .page_content {
+      position: absolute;
+      z-index:1;
+
+      margin-left: 10%;
+      margin-top: -50px;
+
+      table tr td {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
+    }
+
   }
 }

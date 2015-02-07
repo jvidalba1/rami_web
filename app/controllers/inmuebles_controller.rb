@@ -62,7 +62,7 @@ class InmueblesController < ApplicationController
                 margin: { top: 0, bottom: 0, left: 0, right: 0},
                 # footer: { html: { template: "layouts/pdfs/footer.pdf.erb" } },
                 :orientation => 'Landscape'#,
-                # :show_as_html => true
+                #:show_as_html => true
       end
     end
   end

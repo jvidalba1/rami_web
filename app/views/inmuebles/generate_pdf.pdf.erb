@@ -35,6 +35,88 @@
     </div>
   </div>
 </div>
+
+
+<div class="third_page">
+  <div class="header">
+    <div class="info_header">
+      <p>Oficina</p><p>Arriendo</p><p>Valor total: $123'123.000</p>
+    </div>
+    <div class="header_img">
+      <%= wicked_pdf_image_tag 'top_wbr.png', width: 1100 %>
+    </div>
+  </div>
+  <div class="page_content">
+    <table>
+      <tr>
+        <td colspan=2><%= wicked_pdf_image_tag 'wbr_logo.png', width: 400, height: 350 %></td>
+        <td colspan=2><%= wicked_pdf_image_tag 'wbr_logo.png', width: 400, height: 350 %></td>
+      </tr>
+      <tr>
+        <td>Ciudad</td>
+        <td>Medellin</td>
+
+        <td>Pisos permitidos</td>
+        <td>234</td>
+      </tr>
+      <tr>
+        <td>Zona</td>
+        <td>Velodromo</td>
+
+        <td>Índice construcción</td>
+        <td>10</td>
+      </tr>
+      <tr>
+        <td>Dirección</td>
+        <td>Crr 77 AA N. 45 G - 80 (801)</td>
+
+        <td>Índice ocupación</td>
+        <td>65%</td>
+      </tr>
+      <tr>
+        <td>Área disponible</td>
+        <td>600.000 m2</td>
+
+        <td>Densidad de construcción</td>
+        <td>2 viviendas / hectareas </td>
+      </tr>
+      <tr>
+        <td>Frente</td>
+        <td>1000000000 m </td>
+
+        <td>Valor administración</td>
+        <td>$123.123</td>
+      </tr>
+      <tr>
+        <td>Fondo</td>
+        <td>1000000000 m</td>
+
+        <td>Predial</td>
+        <td>$3'123.000</td>
+      </tr>
+      <tr>
+        <td>Altura</td>
+        <td>1.000 m</td>
+
+        <td>Valor metro cuadrado</td>
+        <td>$123.123</td>
+      </tr>
+      <tr>
+        <td>Número pisos</td>
+        <td>16</td>
+      </tr>
+      <tr>
+        <td>Parqueaderos</td>
+        <td>32</td>
+      </tr>
+    </table>
+  </div>
+  <div class="footer">
+    <div class="bottom_img">
+      <%= wicked_pdf_image_tag "bottom_wbr.png", width: 1100 %>
+    </div>
+  </div>
+</div>
 <!--
 <h1> #<%#@inmueble.nombre_inmueble %> - <%# get_tipo_negocio @inmueble.tipo_negocio %></h1>
 <%# get_clase_inmueble @inmueble.clase_inmueble %> - <%# @inmueble.ciudad.nombre %> |
