@@ -101,4 +101,26 @@
     }
 
   }
+
+  .fourth_page {
+    width: 100%;
+    // background-color: blue;
+
+    .header {
+      margin-top: 0px;
+    }
+
+    .footer {
+      margin-top: 368px;
+    }
+
+    .page_content {
+      position: absolute;
+      z-index:1;
+
+      margin-left: 20%;
+      margin-top: -50px;
+    }
+
+  }
 }
