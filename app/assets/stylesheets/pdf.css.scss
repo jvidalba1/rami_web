@@ -123,4 +123,60 @@
     }
 
   }
+
+  .fiveth_page {
+    width: 100%;
+    // background-color: blue;
+
+    .header {
+      margin-top: 0px;
+    }
+
+    .footer {
+      margin-top: 368px;
+    }
+
+    .page_content {
+      position: absolute;
+      z-index:1;
+
+      margin-top: -40px;
+      margin-left: 5%;
+      margin-right: 5%;
+
+      table tr {
+        .title {
+          font-size: 25;
+          color: black;
+        }
+        td {
+          padding: 3px;
+          text-align: justify;
+          text-justify: inter-word;
+        }
+      }
+    }
+  }
+
+  .sixth_page {
+    width: 100%;
+    // background-color: blue;
+
+    .header {
+      margin-top: 0px;
+    }
+
+    .footer {
+      margin-top: 368px;
+    }
+
+    .page_content {
+      position: absolute;
+      z-index:1;
+
+      margin-left: 2%;
+      margin-right: 2%;
+      margin-top: -40px;
+    }
+  }
 }
