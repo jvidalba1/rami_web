@@ -39,6 +39,12 @@
 #  status                  :integer
 #  nombre_inmueble         :string(255)
 #  logo                    :string(255)
+#  nombre_encargado        :string(255)
+#  celular_encargado       :string(255)
+#  email_encargado         :string(255)
+#  trato_destino_reporte   :integer
+#  nombre_destino_reporte  :string(255)
+#  cargo_destino_reporte   :string(255)
 #
 
 require 'spec_helper'
