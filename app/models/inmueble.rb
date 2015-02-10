@@ -39,6 +39,12 @@
 #  status                  :integer
 #  nombre_inmueble         :string(255)
 #  logo                    :string(255)
+#  nombre_encargado        :string(255)
+#  celular_encargado       :string(255)
+#  email_encargado         :string(255)
+#  trato_destino_reporte   :integer
+#  nombre_destino_reporte  :string(255)
+#  cargo_destino_reporte   :string(255)
 #
 
 require 'csv'
@@ -107,8 +113,9 @@ class Inmueble < ActiveRecord::Base
                   :intermediarios_attributes,
                   :interesados_attributes,
                   :status,
-                  :logo, :logo_cache
-
+                  :logo, :logo_cache,
+                  :nombre_encargado, :celular_encargado, :email_encargado,
+                  :trato_destino_reporte, :nombre_destino_reporte, :cargo_destino_reporte
 
   validates :nombre_inmueble, :presence => true
 
