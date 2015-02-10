@@ -3,8 +3,8 @@
     <%= wicked_pdf_image_tag 'wbr_logo.png', width: 450, height: 200 %>
   </div>
   <div class="info_target">
-    <p class="name_target">Dr. Jose Mateo Vidal Barrera</p>
-    <p class="charge_target">Ingeniero de Sistemas</p>
+    <p class="name_target"><%= "#{ get_trato_destino_reporte(@inmueble.try(:trato_destino_reporte))} "+"#{@inmueble.try(:nombre_destino_reporte)}" %></p>
+    <p class="charge_target"><%= @inmueble.try(:cargo_destino_reporte) %></p>
     <p class="logo_target">
       <%= wicked_pdf_image_tag @inmueble.logo_url(:thumb).to_s unless @inmueble.logo_url.nil? %>
     </p>
@@ -26,9 +26,9 @@
   </div>
   <div class="footer">
     <div class="info_incharge">
-      <p class="incharge_name">Jose Mateo Vidal Barrera</p>
-      <p class="incharge_cellphone">+57 3008518308</p>
-      <p class="incharge_email">jvidalba@gmail.com</p>
+      <p class="incharge_name"><%= @inmueble.try(:nombre_encargado) %></p>
+      <p class="incharge_cellphone">+57 <%= @inmueble.try(:celular_encargado) %></p>
+      <p class="incharge_email"><%= @inmueble.try(:email_encargado) %></p>
     </div>
     <div class="bottom_img">
       <%= wicked_pdf_image_tag "bottom_wbr.png", width: 1100 %>
@@ -113,9 +113,9 @@
   </div>
   <div class="footer">
     <div class="info_incharge">
-      <p class="incharge_name">Jose Mateo Vidal Barrera</p>
-      <p class="incharge_cellphone">+57 3008518308</p>
-      <p class="incharge_email">jvidalba@gmail.com</p>
+      <p class="incharge_name"><%= @inmueble.try(:nombre_encargado) %></p>
+      <p class="incharge_cellphone">+57 <%= @inmueble.try(:celular_encargado) %></p>
+      <p class="incharge_email"><%= @inmueble.try(:email_encargado) %></p>
     </div>
     <div class="bottom_img">
       <%= wicked_pdf_image_tag "bottom_wbr.png", width: 1100 %>
@@ -137,9 +137,9 @@
   </div>
   <div class="footer">
     <div class="info_incharge">
-      <p class="incharge_name">Jose Mateo Vidal Barrera</p>
-      <p class="incharge_cellphone">+57 3008518308</p>
-      <p class="incharge_email">jvidalba@gmail.com</p>
+      <p class="incharge_name"><%= @inmueble.try(:nombre_encargado) %></p>
+      <p class="incharge_cellphone">+57 <%= @inmueble.try(:celular_encargado) %></p>
+      <p class="incharge_email"><%= @inmueble.try(:email_encargado) %></p>
     </div>
     <div class="bottom_img">
       <%= wicked_pdf_image_tag "bottom_wbr.png", width: 1100 %>
@@ -190,9 +190,9 @@
   </div>
   <div class="footer">
     <div class="info_incharge">
-      <p class="incharge_name">Jose Mateo Vidal Barrera</p>
-      <p class="incharge_cellphone">+57 3008518308</p>
-      <p class="incharge_email">jvidalba@gmail.com</p>
+      <p class="incharge_name"><%= @inmueble.try(:nombre_encargado) %></p>
+      <p class="incharge_cellphone">+57 <%= @inmueble.try(:celular_encargado) %></p>
+      <p class="incharge_email"><%= @inmueble.try(:email_encargado) %></p>
     </div>
     <div class="bottom_img">
       <%= wicked_pdf_image_tag "bottom_wbr.png", width: 1100 %>
@@ -218,9 +218,9 @@
   </div>
   <div class="footer">
     <div class="info_incharge">
-      <p class="incharge_name">Jose Mateo Vidal Barrera</p>
-      <p class="incharge_cellphone">+57 3008518308</p>
-      <p class="incharge_email">jvidalba@gmail.com</p>
+      <p class="incharge_name"><%= @inmueble.try(:nombre_encargado) %></p>
+      <p class="incharge_cellphone">+57 <%= @inmueble.try(:celular_encargado) %></p>
+      <p class="incharge_email"><%= @inmueble.try(:email_encargado) %></p>
     </div>
     <div class="bottom_img">
       <%= wicked_pdf_image_tag "bottom_wbr.png", width: 1100 %>
