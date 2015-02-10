@@ -1,5 +1,16 @@
 module InmueblesHelper
 
+  def trato_destino_reporte
+    [
+      ["Sr.",       1],
+      ["Sra.",      2],
+      ["Sres.",     3],
+      ["Srta.",     4],
+      ["Doctor",    5],
+      ["Ingeniero", 6]
+    ]
+  end
+
   def select_clase_inmueble
     [
         ["Bodega",  1],
@@ -22,6 +33,12 @@ module InmueblesHelper
         ["Activo",    1],
         ["Inactivo",  0]
     ]
+  end
+
+  def get_trato_destino_reporte(code)
+    trato_destino_reporte.each do |trato, id|
+      return trato if id.eql? code
+    end
   end
 
   def get_status(code)
