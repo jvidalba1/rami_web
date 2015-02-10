@@ -5,14 +5,49 @@
         <%= form_for @inmueble, url: generate_pdf_inmuebles_path(@inmueble.id, format: 'pdf'), :multipart => true  do |f| %>
           <table class="table response">
             <tr>
-              <tr>
-                  <td colspan="6">
-                    <span class="lead">Escoja un logo de la empresa a enviar el reporte</span>
-                    <span class="help-block">Si el reporte va sin logo, solo dar clic en Continuar</span>
-                  </td>
-              </tr>
-              <td colspan="3">
+              <td colspan="4"><span class="lead">Encargado del reporte</span></td>
+            </tr>
+            <tr>
+              <td><%= f.label :nombre_encargado, "Nombre" %></td>
+              <td><%= f.text_field :nombre_encargado, :class => "form-control" %></td>
+
+              <td><%= f.label :celular_encargado, "Celular" %></td>
+              <td><%= f.text_field :celular_encargado, :class => "form-control" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :email_encargado, "Email" %></td>
+              <td><%= f.text_field :email_encargado, :class => "form-control" %></td>
+            </tr>
+
+            <tr>
+              <td colspan="4"><span class="lead">Destino del reporte</span></td>
+            </tr>
+            <tr>
+              <td><%= f.label :trato_destino_reporte, "Trato" %></td>
+              <td>
+                <%= f.select( :trato_destino_reporte,
+                              options_for_select(
+                                trato_destino_reporte,
+                                @inmueble.trato_destino_reporte
+                              ),
+                              { :prompt => "Seleccione una opción" },
+                              { :class => "form-control" }
+                            )
+                %>
+              </td>
+
+              <td><%= f.label :nombre_destino_reporte, "Nombre" %></td>
+              <td><%= f.text_field :nombre_destino_reporte, :class => "form-control" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :cargo_destino_reporte, "Cargo" %></td>
+              <td><%= f.text_field :cargo_destino_reporte, :class => "form-control" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :logo, "Logo" %></td>
+              <td colspan="4">
                 <%= f.file_field :logo, :class => :upload, :accept=> "*"%>
+                <span class="help-block">Si el reporte va sin logo, omitir este campo.
               </td>
             </tr>
           </table>
