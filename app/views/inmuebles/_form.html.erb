@@ -194,8 +194,21 @@
       <td colspan="8"><strong><hr></strong></td>
     </tr>
 
+    <%
+      doc_types = [
+                    "Imagen inmueble 1",
+                    "Imagen inmueble 2",
+                    "Imagen mapa",
+                    "Imagen planos",
+                    "Imagen adicional"
+                  ]
+    %>
+    <% pos = 0 %>
     <%= f.fields_for :documentos do |f| %>
-      <%= render 'documentos', :f => f %>
+      <tr>
+        <%= render 'documentos', :f => f, :doc_type => doc_types[pos] %>
+      </tr>
+      <% pos = pos + 1 %>
     <% end %>
 
     <!--

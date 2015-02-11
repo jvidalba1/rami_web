@@ -86,10 +86,10 @@ class InmueblesController < ApplicationController
   # GET /inmuebles/new.json
   def new
     @inmueble = Inmueble.new
-
-    3.times do
+    @documentos = []
+    5.times do
       interesados = @inmueble.interesados.build
-      documentos = @inmueble.documentos.build
+      @documentos << @inmueble.documentos.build
       intermediarios = @inmueble.intermediarios.build
     end
   end
