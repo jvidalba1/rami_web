@@ -54,6 +54,11 @@ class InmueblesController < ApplicationController
       @inmueble.remove_logo!
       @inmueble.save
     end
+    @img_inmueble_1 = Documento.find_by_inmueble_id_and_descripcion(@inmueble.id, "Imagen inmueble 1").documento.to_s
+    @img_inmueble_2 = Documento.find_by_inmueble_id_and_descripcion(@inmueble.id, "Imagen inmueble 2").documento.to_s
+    @img_mapa       = Documento.find_by_inmueble_id_and_descripcion(@inmueble.id, "Imagen mapa").documento.to_s
+    @img_planos     = Documento.find_by_inmueble_id_and_descripcion(@inmueble.id, "Imagen planos").documento.to_s
+    @img_adicional  = Documento.find_by_inmueble_id_and_descripcion(@inmueble.id, "Imagen adicional").documento.to_s
     respond_to do |format|
       format.pdf do
         render  pdf: "file",
