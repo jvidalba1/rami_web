@@ -1,5 +1,9 @@
 module InmueblesHelper
 
+  def documents_types
+    %w(Imagen_inmueble_1 Imagen_inmueble_2 Imagen_mapa Imagen_planos Imagen_adicional)
+  end
+
   def trato_destino_reporte
     [
       ["Sr.",       1],
