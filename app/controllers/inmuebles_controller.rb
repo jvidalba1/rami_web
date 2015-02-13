@@ -8,7 +8,6 @@ class InmueblesController < ApplicationController
     @inmuebles = @q.result(distinct: true)
     @q.build_condition if @q.conditions.empty?
     @q.build_sort if @q.sorts.empty?
-    # raise "oe"
   end
 
   def set_status
@@ -23,21 +22,16 @@ class InmueblesController < ApplicationController
     @inmueble = Inmueble.new
     @inmueble.documentos.build
 
-    #@estudio = Estudio.new()
-    #@estudio.documentos.build(:id => rand, :descripcion => "oeoe")
-
     respond_to do |format|
       format.js
     end
   end
 
-  # GET /inmuebles
-  # GET /inmuebles.json
   def index
     @inmuebles = Inmueble.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render json: @inmuebles }
     end
   end
@@ -54,11 +48,13 @@ class InmueblesController < ApplicationController
       @inmueble.remove_logo!
       @inmueble.save
     end
-    @img_inmueble_1 = Documento.find_by_inmueble_id_and_descripcion(@inmueble.id, "Imagen inmueble 1").documento.to_s
-    @img_inmueble_2 = Documento.find_by_inmueble_id_and_descripcion(@inmueble.id, "Imagen inmueble 2").documento.to_s
-    @img_mapa       = Documento.find_by_inmueble_id_and_descripcion(@inmueble.id, "Imagen mapa").documento.to_s
-    @img_planos     = Documento.find_by_inmueble_id_and_descripcion(@inmueble.id, "Imagen planos").documento.to_s
-    @img_adicional  = Documento.find_by_inmueble_id_and_descripcion(@inmueble.id, "Imagen adicional").documento.to_s
+    # Documents for pdf report
+    @img_inmueble_1 = Documento.find_by_inmueble_id_and_descripcion(@inmueble.id, "imagen_inmueble_1").try(:documento).to_s
+    @img_inmueble_2 = Documento.find_by_inmueble_id_and_descripcion(@inmueble.id, "imagen_inmueble_2").try(:documento).to_s
+    @img_mapa       = Documento.find_by_inmueble_id_and_descripcion(@inmueble.id, "imagen_mapa").try(:documento).to_s
+    @img_planos     = Documento.find_by_inmueble_id_and_descripcion(@inmueble.id, "imagen_planos").try(:documento).to_s
+    @img_adicional  = Documento.find_by_inmueble_id_and_descripcion(@inmueble.id, "imagen_adicional").try(:documento).to_s
+
     respond_to do |format|
       format.pdf do
         render  pdf: "file",
@@ -72,12 +68,10 @@ class InmueblesController < ApplicationController
     end
   end
 
-  # GET /inmuebles/1
-  # GET /inmuebles/1.json
   def show
     @inmueble = Inmueble.find(params[:id])
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.json { render json: @inmueble }
       format.pdf do
         render  pdf: "file",
@@ -87,8 +81,6 @@ class InmueblesController < ApplicationController
     end
   end
 
-  # GET /inmuebles/new
-  # GET /inmuebles/new.json
   def new
     @inmueble = Inmueble.new
     @documentos = []
@@ -99,8 +91,6 @@ class InmueblesController < ApplicationController
     end
   end
 
-  # POST /inmuebles
-  # POST /inmuebles.json
   def create
     @inmueble = Inmueble.new(params[:inmueble])
 
@@ -112,60 +102,10 @@ class InmueblesController < ApplicationController
     end
   end
 
-  # GET /inmuebles/1/edit
   def edit
     @inmueble = Inmueble.find(params[:id])
   end
 
-  # def create
-
-  #   @inmueble = Inmueble.new(params[:inmueble])
-  #   if @inmueble.propietario_id.nil?
-  #     @propietario = @inmueble.propietarios.build(params[:propietario])
-  #     @paso = []
-
-  #     if @propietario.save
-  #       @paso << true
-  #       @inmueble.propietario_id = @propietario.id
-
-  #       if @inmueble.save
-  #         #raise "fiu"
-  #         @inmueble.documentos.map {|documento| documento.inmueble_id = @inmueble.id }
-  #         @paso << true
-  #         @propietario.update_attributes(:inmueble_id => @inmueble.id)
-  #       else
-  #         @paso << false
-  #       end
-  #     else
-  #       @paso << false
-  #     end
-
-  #     if (@paso[0].eql? true) && (@paso[1].eql? true)
-  #       flash[:notice] = "Inmueble y propietario creados exitosamente"
-  #       redirect_to inmuebles_path
-  #     elsif (@paso[0].eql? true) && (@paso[1].eql? false)
-  #       flash[:alert] = "Error creando inmueble, por favor verifique los datos de ingreso"
-  #       render 'new'
-  #     elsif (@paso[0].eql? false)
-  #       flash[:alert] = "Error creando propietario, por favor verifique los datos de ingreso"
-  #       render 'new'
-  #     end
-  #   else
-  #     if @inmueble.save
-  #       @propietario = Propietario.find(@inmueble.propietario_id)
-  #       @propietario.update_attributes(:inmueble_id => @inmueble.id)
-  #       flash[:notice] = "Inmueble creado exitosamente"
-  #       redirect_to inmuebles_path
-  #     else
-  #       flash[:alert] = "Error creando inmueble, por favor verifique los datos de ingreso"
-  #       render 'new'
-  #     end
-  #   end
-
-  # end
-
-  # PUT /inmuebles/1
-  # PUT /inmuebles/1.json
   def update
     @inmueble = Inmueble.find(params[:id])
 
@@ -176,53 +116,8 @@ class InmueblesController < ApplicationController
       flash[:alert] = "Error en los datos"
       render :action => 'edit'
     end
-
-    # if params[:inmueble][:propietario_id].nil?
-
-    #   @propietario = @inmueble.propietarios.build(params[:propietario])
-    #   @paso = []
-    #   if @propietario.save
-    #     @paso << true
-    #     @last_propietario = Propietario.find(@inmueble.propietario_id)
-    #     params[:inmueble][:propietario_id] = @propietario.id
-    #     if @inmueble.update_attributes(params[:inmueble])
-    #       @paso << true
-    #       @last_propietario.update_attributes(:inmueble_id => -1)
-    #       @propietario.update_attributes(:inmueble_id => @inmueble.id)
-    #     else
-    #       @paso << false
-    #     end
-    #   else
-    #     @paso << false
-    #   end
-
-    #   if (@paso[0].eql? true) && (@paso[1].eql? true)
-    #     flash[:notice] = "Inmueble y propietario actualizados exitosamente"
-    #     redirect_to inmuebles_path
-    #   elsif (@paso[0].eql? true) && (@paso[1].eql? false)
-    #     flash[:alert] = "Error actualizando inmueble, por favor verifique los datos de ingreso"
-    #     render 'new'
-    #   elsif (@paso[0].eql? false)
-    #     flash[:alert] = "Error actualizando propietario, por favor verifique los datos de ingreso"
-    #     render 'new'
-    #   end
-    # else
-    #   @last_propietario = Propietario.find(@inmueble.propietario_id)
-    #   if @inmueble.update_attributes(params[:inmueble])
-    #     @propietario = Propietario.find(@inmueble.propietario_id)
-    #     @propietario.update_attributes(:inmueble_id => @inmueble.id)
-    #     @last_propietario.update_attributes(:inmueble_id => -1)
-    #     flash[:notice] = "Inmueble fue actualizado exitosamente."
-    #     redirect_to @inmueble
-    #   else
-    #     flash[:alert] = "Error en los datos"
-    #     render 'edit'
-    #   end
-    # end
   end
 
-  # DELETE /inmuebles/1
-  # DELETE /inmuebles/1.json
   def destroy
     @inmueble = Inmueble.find(params[:id])
     @inmueble.destroy

@@ -1,9 +1,12 @@
+<!--
+  Firt page of PDF report
+-->
 <div class="first_page">
   <div class="logo_wbr">
     <%= wicked_pdf_image_tag 'wbr_logo.png', width: 450, height: 200 %>
   </div>
   <div class="info_target">
-    <p class="name_target"><%= "#{ get_trato_destino_reporte(@inmueble.try(:trato_destino_reporte))} "+"#{@inmueble.try(:nombre_destino_reporte)}" %></p>
+    <p class="name_target"><%= "#{ get_trato_destino_reporte(@inmueble.try(:trato_destino_reporte))} "+"#{@inmueble.try(:nombre_destino_reporte) }" %></p>
     <p class="charge_target"><%= @inmueble.try(:cargo_destino_reporte) %></p>
     <p class="logo_target">
       <%= wicked_pdf_image_tag @inmueble.logo_url(:thumb).to_s unless @inmueble.logo_url.nil? %>
@@ -35,8 +38,12 @@
     </div>
   </div>
 </div>
-
-
+<!--
+  End firt page of PDF report
+-->
+<!--
+  Second page of PDF report
+-->
 <div class="third_page">
   <div class="header">
     <div class="info_header">
@@ -49,7 +56,7 @@
   <div class="page_content">
     <table>
       <tr>
-        <td colspan=2><%= wicked_pdf_image_tag @img_inmueble_1, width: 400, height: 350 %></td>
+        <td colspan=2><%= wicked_pdf_image_tag @img_adicional, width: 400, height: 350 %></td>
         <td colspan=2><%= wicked_pdf_image_tag @img_inmueble_2, width: 400, height: 350 %></td>
       </tr>
       <tr>
@@ -122,32 +129,42 @@
     </div>
   </div>
 </div>
-
-
-<div class="fourth_page">
-  <div class="header">
-    <div class="header_img">
-      <%= wicked_pdf_image_tag 'top_wbr.png', width: 1100 %>
+<!--
+  End second page of PDF report
+-->
+<!--
+  Third page of PDF report
+-->
+<% unless @img_mapa.empty? %>
+  <div class="fourth_page">
+    <div class="header">
+      <div class="header_img">
+        <%= wicked_pdf_image_tag 'top_wbr.png', width: 1100 %>
+      </div>
+    </div>
+    <div class="page_content">
+      <div class="google_maps_img">
+        <%= wicked_pdf_image_tag @img_mapa, width: 600, height: 540 %>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="info_incharge">
+        <p class="incharge_name"><%= @inmueble.try(:nombre_encargado) %></p>
+        <p class="incharge_cellphone">+57 <%= @inmueble.try(:celular_encargado) %></p>
+        <p class="incharge_email"><%= @inmueble.try(:email_encargado) %></p>
+      </div>
+      <div class="bottom_img">
+        <%= wicked_pdf_image_tag "bottom_wbr.png", width: 1100 %>
+      </div>
     </div>
   </div>
-  <div class="page_content">
-    <div class="google_maps_img">
-      <%= wicked_pdf_image_tag @img_mapa, width: 600, height: 540 %>
-    </div>
-  </div>
-  <div class="footer">
-    <div class="info_incharge">
-      <p class="incharge_name"><%= @inmueble.try(:nombre_encargado) %></p>
-      <p class="incharge_cellphone">+57 <%= @inmueble.try(:celular_encargado) %></p>
-      <p class="incharge_email"><%= @inmueble.try(:email_encargado) %></p>
-    </div>
-    <div class="bottom_img">
-      <%= wicked_pdf_image_tag "bottom_wbr.png", width: 1100 %>
-    </div>
-  </div>
-</div>
-
-
+<% end %>
+<!--
+  End third page of PDF report
+-->
+<!--
+  Fourth page of PDF report
+-->
 <div class="fiveth_page">
   <div class="header">
     <div class="header_img">
@@ -181,12 +198,6 @@
         </td>
       </tr>
     </table>
-    <div class="environment">
-    </div>
-    <div class="transport">
-    </div>
-    <div class="other_characteristics">
-    </div>
   </div>
   <div class="footer">
     <div class="info_incharge">
@@ -199,9 +210,12 @@
     </div>
   </div>
 </div>
-
-
-
+<!--
+  End fourth page of PDF report
+-->
+<!--
+  Fiveth page of PDF report
+-->
 <div class="sixth_page">
   <div class="header">
     <div class="header_img">
@@ -227,6 +241,6 @@
     </div>
   </div>
 </div>
-
-<!-- <div class="page-break"></div> -->
-
+<!--
+  End fiveth page of PDF report
+-->
