@@ -6,13 +6,27 @@
     <%= wicked_pdf_image_tag 'wbr_logo.png', width: 450, height: 200 %>
   </div>
   <div class="info_target">
-    <p class="name_target"><%= "#{ get_trato_destino_reporte(@inmueble.try(:trato_destino_reporte))} "+"#{@inmueble.try(:nombre_destino_reporte) }" %></p>
-    <p class="charge_target"><%= @inmueble.try(:cargo_destino_reporte) %></p>
+    <p class="name_target">
+      <h1>
+        <%= "#{ get_trato_destino_reporte(@inmueble.try(:trato_destino_reporte))} "+"#{@inmueble.try(:nombre_destino_reporte) }" %>
+      </h1>
+    </p>
+    <p class="charge_target">
+      <h2>
+        <%= @inmueble.try(:cargo_destino_reporte) %>
+      </h2>
+    </p>
     <p class="logo_target">
-      <%= wicked_pdf_image_tag @inmueble.logo_url(:thumb).to_s unless @inmueble.logo_url.nil? %>
+      <%= wicked_pdf_image_tag(@inmueble.logo_url.to_s, width: 420, height: 180) unless @inmueble.logo_url.nil? %>
     </p>
   </div>
 </div>
+<!--
+  End firt page of PDF report
+-->
+<!--
+  Second page of PDF report
+-->
 <div class="second_page">
   <div class="header">
     <%= wicked_pdf_image_tag 'top_wbr.png', width: 1100 %>
@@ -39,11 +53,9 @@
   </div>
 </div>
 <!--
-  End firt page of PDF report
+  End second page of PDF report
 -->
-<!--
-  Second page of PDF report
--->
+
 <div class="third_page">
   <div class="header">
     <div class="info_header">
@@ -129,9 +141,7 @@
     </div>
   </div>
 </div>
-<!--
-  End second page of PDF report
--->
+
 <!--
   Third page of PDF report
 -->
