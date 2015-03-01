@@ -1,7 +1,7 @@
 module InmueblesHelper
 
   def documents_types
-    %w(imagen_inmueble_1 imagen_inmueble_2 imagen_mapa imagen_planos imagen_adicional)
+    %w(imagen_inmueble_1 imagen_inmueble_2 localizacion_google_maps imagen_planos imagen_adicional)
   end
 
   def trato_destino_reporte
