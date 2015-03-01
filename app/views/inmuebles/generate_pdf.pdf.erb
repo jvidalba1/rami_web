@@ -67,7 +67,7 @@
 <div class="third_page">
   <div class="header">
     <div class="info_header">
-      <p>Oficina</p><p>Arriendo</p><p>Valor total: $123'123.000</p>
+      <p><%= get_clase_inmueble(@inmueble.try(:clase_inmueble)) %></p><p><%= get_tipo_negocio(@inmueble.try(:tipo_negocio))%></p><p><%= "Valor total: $#{@inmueble.try(:valor_total)}" %></p>
     </div>
     <div class="header_img">
       <%= wicked_pdf_image_tag 'top_wbr.png', width: 1100 %>
@@ -120,7 +120,7 @@
 
         <% unless @inmueble.densidad.nil? %>
           <td>Densidad de construcción</td>
-          <td><%= "#{ @inmueble.densidad viviendas / hectareas}" %></td>
+          <td><%= "#{ @inmueble.densidad} viviendas / hectareas" %></td>
         <% end %>
       </tr>
       <tr>
@@ -267,8 +267,13 @@
     </div>
   </div>
 </div>
+<!--
+  End fiveth page of PDF report
+-->
 
-
+<!--
+  Sixth page of PDF report
+-->
 <div class="sixth_page">
   <div class="header">
     <div class="header_img">
@@ -276,12 +281,30 @@
     </div>
   </div>
   <div class="page_content">
-    <table>
-      <tr>
-        <td colspan=2><%= wicked_pdf_image_tag @img_planos, width: 500, height: 450 %></td>
-        <td colspan=2><%# wicked_pdf_image_tag @img_adicional, width: 500, height: 450 %></td>
-      </tr>
-    </table>
+    <% if !@img_planos.empty? and !@img_adicional.empty? %>
+      <div class="both_images">
+        <table>
+          <tr>
+            <td colspan=2>
+              <%= wicked_pdf_image_tag @img_planos, width: 500, height: 450 %>
+            </td>
+            <td colspan=2>
+              <%= wicked_pdf_image_tag @img_adicional, width: 500, height: 450 %>
+            </td>
+          </tr>
+        </table>
+      </div>
+    <% else %>
+      <% if @img_adicional.empty? %>
+        <div class="uniq_img">
+          <%= wicked_pdf_image_tag @img_planos, width: 500, height: 450 %>
+        </div>
+      <% else %>
+        <div class="uniq_img">
+          <%= wicked_pdf_image_tag @img_adicional, width: 500, height: 450 %>
+        </div>
+      <% end %>
+    <% end %>
   </div>
   <div class="footer">
     <div class="info_incharge">
@@ -295,5 +318,5 @@
   </div>
 </div>
 <!--
-  End fiveth page of PDF report
+  End sixth page of PDF report
 -->

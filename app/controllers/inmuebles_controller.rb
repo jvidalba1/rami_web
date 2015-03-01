@@ -51,9 +51,9 @@ class InmueblesController < ApplicationController
     # Documents for pdf report
     @img_inmueble_1 = Documento.find_by_inmueble_id_and_descripcion(@inmueble.id, "imagen_inmueble_1").try(:documento).to_s
     @img_inmueble_2 = Documento.find_by_inmueble_id_and_descripcion(@inmueble.id, "imagen_inmueble_2").try(:documento).to_s
-    @img_mapa       = Documento.find_by_inmueble_id_and_descripcion(@inmueble.id, "imagen_mapa").try(:documento).to_s
-    @img_planos     = Documento.find_by_inmueble_id_and_descripcion(@inmueble.id, "imagen_planos").try(:documento).to_s
-    @img_adicional  = Documento.find_by_inmueble_id_and_descripcion(@inmueble.id, "imagen_adicional").try(:documento).to_s
+    @img_mapa       = Documento.find_by_inmueble_id_and_descripcion(@inmueble.id, "localizacion_google_maps").try(:documento).to_s
+    @img_planos     = Documento.find_by_inmueble_id_and_descripcion(@inmueble.id, "imagen_adicional_1").try(:documento).to_s
+    @img_adicional  = Documento.find_by_inmueble_id_and_descripcion(@inmueble.id, "imagen_adicional_2").try(:documento).to_s
 
     # raise "Oelo"
     respond_to do |format|
