@@ -19,6 +19,20 @@
 
     .header {
       margin-top: 150px;
+
+      .info_header {
+        position: absolute;
+        z-index:1;
+        font-size: 25;
+        margin-top: 25px;
+        margin-left: 50px;
+
+        p {
+            display: inline;
+            padding-right: 80px;
+            padding-left: 80px;
+        }
+      }
     }
 
     .footer {

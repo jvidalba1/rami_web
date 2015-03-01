@@ -29,7 +29,12 @@
 -->
 <div class="second_page">
   <div class="header">
-    <%= wicked_pdf_image_tag 'top_wbr.png', width: 1100 %>
+    <div class="info_header">
+      <p>Índice</p>
+    </div>
+    <div class="header_img">
+      <%= wicked_pdf_image_tag 'top_wbr.png', width: 1100 %>
+    </div>
   </div>
   <div class="page_content">
     <div class="summary_list">
@@ -56,6 +61,9 @@
   End second page of PDF report
 -->
 
+<!--
+  Third page of PDF report
+-->
 <div class="third_page">
   <div class="header">
     <div class="info_header">
@@ -72,61 +80,93 @@
         <td colspan=2><%= wicked_pdf_image_tag @img_inmueble_2, width: 400, height: 350 %></td>
       </tr>
       <tr>
-        <td>Ciudad</td>
-        <td>Medellin</td>
+        <% unless @inmueble.ciudad.nil? %>
+          <td>Ciudad</td>
+          <td><%= @inmueble.ciudad.nombre %></td>
+        <% end %>
 
-        <td>Pisos permitidos</td>
-        <td>234</td>
+        <% unless @inmueble.nro_pisos_permitidos.nil? %>
+          <td>Pisos permitidos</td>
+          <td><%= @inmueble.nro_pisos_permitidos %></td>
+        <% end %>
       </tr>
       <tr>
-        <td>Zona</td>
-        <td>Velodromo</td>
+        <% unless @inmueble.zona.nil? %>
+          <td>Zona</td>
+          <td><%= @inmueble.zona %></td>
+        <% end %>
 
-        <td>Índice construcción</td>
-        <td>10</td>
+        <% unless @inmueble.indice_construccion.nil? %>
+          <td>Índice construcción</td>
+          <td><%= @inmueble.indice_construccion %></td>
+        <% end %>
       </tr>
       <tr>
-        <td>Dirección</td>
-        <td>Crr 77 AA N. 45 G - 80 (801)</td>
+        <% unless @inmueble.direccion.nil? %>
+          <td>Dirección</td>
+          <td><%= @inmueble.direccion %></td>
+        <% end %>
 
-        <td>Índice ocupación</td>
-        <td>65%</td>
+        <% unless @inmueble.indice_ocupacion.nil? %>
+          <td>Índice ocupación</td>
+          <td><%= "#{ @inmueble.indice_ocupacion } %" %></td>
+        <% end %>
       </tr>
       <tr>
-        <td>Área disponible</td>
-        <td>600.000 m2</td>
+        <% unless @inmueble.area_disponible.nil? %>
+          <td>Área disponible</td>
+          <td><%= "#{ @inmueble.area_disponible } mt2" %></td>
+        <% end %>
 
-        <td>Densidad de construcción</td>
-        <td>2 viviendas / hectareas </td>
+        <% unless @inmueble.densidad.nil? %>
+          <td>Densidad de construcción</td>
+          <td><%= "#{ @inmueble.densidad viviendas / hectareas}" %></td>
+        <% end %>
       </tr>
       <tr>
-        <td>Frente</td>
-        <td>1000000000 m </td>
+        <% unless @inmueble.frente.nil? %>
+          <td>Frente</td>
+          <td><%= "#{ @inmueble.frente } m"%></td>
+        <% end %>
 
-        <td>Valor administración</td>
-        <td>$123.123</td>
+        <% unless @inmueble.valor_admin.nil? %>
+          <td>Valor administración</td>
+          <td><%= "$#{ @inmueble.valor_admin }" %></td>
+        <% end %>
       </tr>
       <tr>
-        <td>Fondo</td>
-        <td>1000000000 m</td>
+        <% unless @inmueble.fondo.nil? %>
+          <td>Fondo</td>
+          <td><%= "#{ @inmueble.fondo } m"%></td>
+        <% end %>
 
-        <td>Predial</td>
-        <td>$3'123.000</td>
+        <% unless @inmueble.predial.nil? %>
+          <td>Predial</td>
+          <td><%= "$#{ @inmueble.predial }"%></td>
+        <% end %>
       </tr>
       <tr>
-        <td>Altura</td>
-        <td>1.000 m</td>
+        <% unless @inmueble.altura.nil? %>
+          <td>Altura</td>
+          <td><%= "#{ @inmueble.altura } m" %></td>
+        <% end %>
 
-        <td>Valor metro cuadrado</td>
-        <td>$123.123</td>
+        <% unless @inmueble.valor_mt2.nil? %>
+          <td>Valor metro cuadrado</td>
+          <td><%= "$#{@inmueble.valor_mt2}"%></td>
+        <% end %>
       </tr>
       <tr>
-        <td>Número pisos</td>
-        <td>16</td>
+        <% unless @inmueble.nro_pisos.nil? %>
+          <td>Número pisos</td>
+          <td><%= @inmueble.nro_pisos %></td>
+        <% end %>
       </tr>
       <tr>
-        <td>Parqueaderos</td>
-        <td>32</td>
+        <% unless @inmueble.parqueadores.nil? %>
+          <td>Parqueaderos</td>
+          <td><%= @inmueble.parqueadores %></td>
+        <% end %>
       </tr>
     </table>
   </div>
@@ -141,9 +181,12 @@
     </div>
   </div>
 </div>
+<!--
+  End third page of PDF report
+-->
 
 <!--
-  Third page of PDF report
+  Fourth page of PDF report
 -->
 <% unless @img_mapa.empty? %>
   <div class="fourth_page">
@@ -170,10 +213,11 @@
   </div>
 <% end %>
 <!--
-  End third page of PDF report
+  End fourth page of PDF report
 -->
+
 <!--
-  Fourth page of PDF report
+  Fiveth page of PDF report
 -->
 <div class="fiveth_page">
   <div class="header">
@@ -220,12 +264,8 @@
     </div>
   </div>
 </div>
-<!--
-  End fourth page of PDF report
--->
-<!--
-  Fiveth page of PDF report
--->
+
+
 <div class="sixth_page">
   <div class="header">
     <div class="header_img">

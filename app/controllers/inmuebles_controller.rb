@@ -55,6 +55,7 @@ class InmueblesController < ApplicationController
     @img_planos     = Documento.find_by_inmueble_id_and_descripcion(@inmueble.id, "imagen_planos").try(:documento).to_s
     @img_adicional  = Documento.find_by_inmueble_id_and_descripcion(@inmueble.id, "imagen_adicional").try(:documento).to_s
 
+    # raise "Oelo"
     respond_to do |format|
       format.pdf do
         render  pdf: "file",
