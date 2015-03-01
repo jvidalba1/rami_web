@@ -15,6 +15,8 @@ gem 'rmagick'
 gem 'mini_magick'
 gem 'ransack'
 gem 'jquery-rails'
+gem 'minitest'
+gem 'test-unit'
 
 group :test, :development do
   gem 'better_errors'
