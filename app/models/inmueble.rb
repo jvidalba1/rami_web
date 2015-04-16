@@ -119,6 +119,24 @@ class Inmueble < ActiveRecord::Base
 
   validates :nombre_inmueble, :presence => true
 
+  def third_page_values
+    { nro_pisos_permitidos: self.nro_pisos_permitidos,
+      densidad: self.densidad,
+      zona: self.zona,
+      indice_construccion: self.indice_construccion,
+      indice_ocupacion: self.indice_ocupacion,
+      direccion: self.direccion,
+      area_disponible: self.area_disponible,
+      frente: self.frente,
+      valor_admin: self.valor_admin,
+      fondo: self.fondo,
+      altura: self.altura,
+      valor_mt2: self.valor_mt2,
+      nro_pisos: self.nro_pisos,
+      parqueadores: self.parqueadores
+    }.delete_if {|k,v| v.nil? }
+  end
+
   def active?
     if self.status.eql? 1
       true

@@ -80,94 +80,18 @@
         <td colspan=2><%= wicked_pdf_image_tag @img_inmueble_2, width: 400, height: 350 %></td>
       </tr>
       <tr>
-        <% unless @inmueble.ciudad.nil? %>
-          <td>Ciudad</td>
-          <td><%= @inmueble.ciudad.nombre %></td>
-        <% end %>
+        <td>Ciudad</td>
+        <td><%= @inmueble.ciudad.nombre %></td>
+      </tr>
+      <% @inmueble.third_page_values.each_slice(2).each do |pair| %>
+        <tr>
+          <td><%=  pair.first.first.to_s.humanize %></td>
+          <td><%=  pair.first.second %></td>
 
-        <% unless @inmueble.nro_pisos_permitidos.nil? %>
-          <td>Pisos permitidos</td>
-          <td><%= @inmueble.nro_pisos_permitidos %></td>
-        <% end %>
-      </tr>
-      <tr>
-        <% unless @inmueble.zona.nil? %>
-          <td>Zona</td>
-          <td><%= @inmueble.zona %></td>
-        <% end %>
-
-        <% unless @inmueble.indice_construccion.nil? %>
-          <td>Índice construcción</td>
-          <td><%= @inmueble.indice_construccion %></td>
-        <% end %>
-      </tr>
-      <tr>
-        <% unless @inmueble.direccion.nil? %>
-          <td>Dirección</td>
-          <td><%= @inmueble.direccion %></td>
-        <% end %>
-
-        <% unless @inmueble.indice_ocupacion.nil? %>
-          <td>Índice ocupación</td>
-          <td><%= "#{ @inmueble.indice_ocupacion } %" %></td>
-        <% end %>
-      </tr>
-      <tr>
-        <% unless @inmueble.area_disponible.nil? %>
-          <td>Área disponible</td>
-          <td><%= "#{ @inmueble.area_disponible } mt2" %></td>
-        <% end %>
-
-        <% unless @inmueble.densidad.nil? %>
-          <td>Densidad de construcción</td>
-          <td><%= "#{ @inmueble.densidad} viviendas / hectareas" %></td>
-        <% end %>
-      </tr>
-      <tr>
-        <% unless @inmueble.frente.nil? %>
-          <td>Frente</td>
-          <td><%= "#{ @inmueble.frente } m"%></td>
-        <% end %>
-
-        <% unless @inmueble.valor_admin.nil? %>
-          <td>Valor administración</td>
-          <td><%= "$#{ @inmueble.valor_admin }" %></td>
-        <% end %>
-      </tr>
-      <tr>
-        <% unless @inmueble.fondo.nil? %>
-          <td>Fondo</td>
-          <td><%= "#{ @inmueble.fondo } m"%></td>
-        <% end %>
-
-        <% unless @inmueble.predial.nil? %>
-          <td>Predial</td>
-          <td><%= "$#{ @inmueble.predial }"%></td>
-        <% end %>
-      </tr>
-      <tr>
-        <% unless @inmueble.altura.nil? %>
-          <td>Altura</td>
-          <td><%= "#{ @inmueble.altura } m" %></td>
-        <% end %>
-
-        <% unless @inmueble.valor_mt2.nil? %>
-          <td>Valor metro cuadrado</td>
-          <td><%= "$#{@inmueble.valor_mt2}"%></td>
-        <% end %>
-      </tr>
-      <tr>
-        <% unless @inmueble.nro_pisos.nil? %>
-          <td>Número pisos</td>
-          <td><%= @inmueble.nro_pisos %></td>
-        <% end %>
-      </tr>
-      <tr>
-        <% unless @inmueble.parqueadores.nil? %>
-          <td>Parqueaderos</td>
-          <td><%= @inmueble.parqueadores %></td>
-        <% end %>
-      </tr>
+          <td><%=  pair.second.first.to_s.humanize %></td>
+          <td><%=  pair.second.second %></td>
+        </tr>
+      <% end %>
     </table>
   </div>
   <div class="footer">
