@@ -3,3 +3,21 @@
 
 en:
   hello: "Hello world"
+
+  pdf_report:
+    third_page:
+      nro_pisos_permitidos: "Número pisos permitidos"
+      densidad: "Densidad"
+      zona: "Zona"
+      indice_construccion: "Índice de contrucción"
+      indice_ocupacion: "Índice de ocupación"
+      direccion: "Dirección"
+      area_disponible: "Área disponible"
+      frente: "Frente"
+      valor_admin: "Valor administración"
+      fondo: "Fondo"
+      altura: "Altura"
+      valor_mt2: "Valor mt2"
+      nro_pisos: "Número pisos"
+      parqueadores: "Parqueaderos"
+
