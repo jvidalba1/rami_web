@@ -5,6 +5,9 @@
         <%= form_for @inmueble, url: generate_pdf_inmuebles_path(@inmueble.id, format: 'pdf'), :multipart => true  do |f| %>
           <table class="table response">
             <tr>
+              <td><span class="help-block"><span class="mandatory"></span>Campos obligatorios</span></td>
+            </tr>
+            <tr>
               <td colspan="4"><span class="lead">Encargado del reporte</span></td>
             </tr>
             <tr>
@@ -20,10 +23,12 @@
             </tr>
 
             <tr>
-              <td colspan="4"><span class="lead">Destino del reporte</span></td>
+              <td colspan="4">
+                <span class="lead">Destino del reporte</span>
+              </td>
             </tr>
             <tr>
-              <td><%= f.label :trato_destino_reporte, "Trato" %></td>
+              <td><%= f.label :trato_destino_reporte, "Trato", class: "mandatory" %></td>
               <td>
                 <%= f.select( :trato_destino_reporte,
                               options_for_select(
@@ -36,18 +41,17 @@
                 %>
               </td>
 
-              <td><%= f.label :nombre_destino_reporte, "Nombre" %></td>
+              <td><%= f.label :nombre_destino_reporte, "Nombre", class: "mandatory" %></td>
               <td><%= f.text_field :nombre_destino_reporte, :class => "form-control" %></td>
             </tr>
             <tr>
-              <td><%= f.label :cargo_destino_reporte, "Cargo" %></td>
+              <td><%= f.label :cargo_destino_reporte, "Cargo", class: "mandatory" %></td>
               <td><%= f.text_field :cargo_destino_reporte, :class => "form-control" %></td>
             </tr>
             <tr>
-              <td><%= f.label :logo, "Logo" %></td>
+              <td><%= f.label :logo, "Logo", class: "mandatory" %></td>
               <td colspan="4">
                 <%= f.file_field :logo, :class => :upload, :accept=> "*"%>
-                <span class="help-block">Si el reporte va sin logo, omitir este campo.
               </td>
             </tr>
           </table>
