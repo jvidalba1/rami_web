@@ -14,3 +14,8 @@ footer{
 hr {
   border-top: 1px solid #3c3b3b
 }
+
+.mandatory:after {
+  content: " * ";
+  color: red;
+}
