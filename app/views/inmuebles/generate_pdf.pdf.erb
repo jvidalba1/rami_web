@@ -85,10 +85,10 @@
       </tr>
       <% @inmueble.third_page_values.each_slice(2).each do |pair| %>
         <tr>
-          <td><%=  pair.first.first.to_s.humanize %></td>
+          <td><%=  I18n.t("pdf_report.third_page.#{pair.first.first.to_s}") %></td>
           <td><%=  pair.first.second %></td>
 
-          <td><%=  pair.second.first.to_s.humanize %></td>
+          <td><%=  I18n.t("pdf_report.third_page.#{pair.second.first.to_s}") %></td>
           <td><%=  pair.second.second %></td>
         </tr>
       <% end %>
@@ -159,7 +159,7 @@
       </tr>
       <tr>
         <td>
-          Apoyo total y entusiastamente (como muchos de ustedes saben) los criterios y el trabajo de CRISIS EDUCATIVA. Sin embargo me gustaría que este colectivo asumiera muchísimo más protagonismo y que “se crean” que pueden y deben liderar e impulsar dinámicas de cambio en el sistema educativo español.
+          <%= @inmueble.try(:entorno) %>
         </td>
       </tr>
       <tr>
@@ -167,7 +167,7 @@
       </tr>
       <tr>
         <td>
-          No creo que, a esos efectos, deban aumentar el número de sus componentes porque eso crearía una enorme dificultad a la hora de consensuar su estrategia y sus pronunciamientos públicos sino simplemente publicitarse más, y convocar (en Madrid si es posible) una rueda de prensa de presentación pública ofreciéndose para su participación en todos los medios informativos a requerimiento de estos y dando a conocer las líneas maestras de sus diagnósticos y propuestas. En definitiva, se trata de concitar apoyos “desde fuera” sin aumentar su estructura interna. Si les fuera posible deberían liberar a uno de los miembros del colecfuvo para que actuara de portavoz ante los medios informativos de toda España (Prensa, radios y teevisiones).
+          <%= @inmueble.try(:transporte) %>
         </td>
       </tr>
       <tr>
@@ -175,7 +175,7 @@
       </tr>
       <tr>
         <td>
-          No creo que, a esos efectos, deban aumentar el número de sus componentes porque eso crearía una enorme dificultad a la hora de consensuar su estrategia y sus pronunciamientos públicos sino simplemente publicitarse más, y convocar (en Madrid si es posible) una rueda de prensa de presentación pública ofreciéndose para su participación en todos los medios informativos a requerimiento de estos y dando a conocer las líneas maestras de sus diagnósticos y propuestas. En definitiva, se trata de concitar apoyos “desde fuera” sin aumentar su estructura interna. Si les fuera posible deberían liberar a uno de los miembros del colecfuvo para que actuara de portavoz ante los medios informativos de toda España (Prensa, radios y teevisiones).
+          <%= @inmueble.try(:otras_caracteristicas) %>
         </td>
       </tr>
     </table>
