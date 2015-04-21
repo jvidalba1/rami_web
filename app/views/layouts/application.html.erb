@@ -7,103 +7,54 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<div class="navbar navbar-default navbar-fixed-top">
-	<div class="container">
-		<div class="navbar-header">
-      <a href="../" class="navbar-brand">Inicio</a>
-      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-		<div class="navbar-collapse collapse" id="navbar-main">
-          <ul class="nav navbar-nav">
-            <!--
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Themes <span class="caret"></span></a>
-              <ul class="dropdown-menu" aria-labelledby="themes">
-                <li><a href="../default/">Default</a></li>
-                <li class="divider"></li>
-                <li><a href="../amelia/">Amelia</a></li>
-                <li><a href="../cerulean/">Cerulean</a></li>
-                <li><a href="../cosmo/">Cosmo</a></li>
-                <li><a href="../cyborg/">Cyborg</a></li>
-                <li><a href="../flatly/">Flatly</a></li>
-                <li><a href="../journal/">Journal</a></li>
-                <li><a href="../lumen/">Lumen</a></li>
-                <li><a href="../readable/">Readable</a></li>
-                <li><a href="../simplex/">Simplex</a></li>
-                <li><a href="../slate/">Slate</a></li>
-                <li><a href="../spacelab/">Spacelab</a></li>
-                <li><a href="../superhero/">Superhero</a></li>
-                <li><a href="../united/">United</a></li>
-                <li><a href="../yeti/">Yeti</a></li>
-              </ul>
-            </li>
-           -->
-            <% if current_user %>
-                <li>
-                  <%= link_to "Inmuebles", inmuebles_path %>
-                </li>
-                <li>
-                	<%= link_to "Propietarios", propietarios_path%>
-                </li>
-                <li>
-                  <%= link_to "Intermediarios", intermediarios_path %>
-                </li>
-                <li>
-                  <%= link_to "Usuarios", usuarios_path %>
-                </li>
-                <li>
-                  <%= link_to "Buscador", searcher_inmuebles_path %>
-                </li>
-            <% end %>
-            <!--
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Download <span class="caret"></span></a>
-              <ul class="dropdown-menu" aria-labelledby="download">
-                <li><a href="./bootstrap.min.css">bootstrap.min.css</a></li>
-                <li><a href="./bootstrap.css">bootstrap.css</a></li>
-                <li class="divider"></li>
-                <li><a href="./variables.less">variables.less</a></li>
-                <li><a href="./bootswatch.less">bootswatch.less</a></li>
-              </ul>
-            </li>
-            -->
-          </ul>
-
-          <ul class="nav navbar-nav navbar-right">
-          	<% if user_signed_in? %>
-            	<li><%= link_to "Salir", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
-           	<% else %>
-           		<li><%= link_to "Iniciar sesión", new_user_session_path, :class => 'navbar-link'  %></li>
-           	<% end%>
-          </ul>
+  <div id="wrapper">
+    <div id="header">
+      <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <a href="../" class="navbar-brand">Inicio</a>
+          </div>
+          <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav">
+              <% if current_user %>
+                <li><%= link_to "Inmuebles", inmuebles_path %></li>
+                <li><%= link_to "Propietarios", propietarios_path%></li>
+                <li><%= link_to "Intermediarios", intermediarios_path %></li>
+                <li><%= link_to "Usuarios", usuarios_path %></li>
+                <li><%= link_to "Buscador", searcher_inmuebles_path %></li>
+              <% end %>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <% if user_signed_in? %>
+                <li><%= link_to "Salir", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+              <% else %>
+                <li><%= link_to "Iniciar sesión", new_user_session_path, :class => 'navbar-link'  %></li>
+              <% end%>
+            </ul>
+          </div>
         </div>
-	</div>
-</div>
-
-<div class="container">
-	<div class="page-header" id="banner">
-		<div class="row">
-			<div class="col-lg-12">
-				<% if notice %>
-				    <p class="alert alert-success"><%= notice %></p>
-				<% end %>
-				<% if alert %>
-				    <p class="alert alert-error"><%= alert %></p>
-				<% end %>
-			</div>
-		</div>
-	</div>
-
-	<%= yield %>
-</div>
-<footer>
-  <div class="panel-footer">
-      <div class="navbar" >
+      </div>
+    </div>
+    <div id="content">
+      <div class="container">
+        <div class="page-header" id="banner">
+          <div class="row">
+            <div class="col-lg-12">
+              <% if notice %>
+                <p class="alert alert-success"><%= notice %></p>
+              <% end %>
+              <% if alert %>
+                <p class="alert alert-error"><%= alert %></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%= yield %>
+    </div>
+    <div id="footer">
+      <div class="panel-footer">
+        <div class="navbar" >
           <ul class="nav">
             <% if user_signed_in? %>
               <li><center><p>Inicio de sesión como: <strong><%= current_user.email %></strong></p></center></li>
@@ -118,20 +69,10 @@
               <li><center><p>No has iniciado sesión</p></center></li>
               <li><center><%= link_to "Iniciar sesión", new_user_session_path, :class => 'navbar-link' %></center></li>
             <% end%>
-            <li><br></li>
-            <li>
-              <center>
-                <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
-                  <img alt="Licencia Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
-                </a>
-                <br />
-                Este obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Licencia Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional</a>.
-              </center>
-            </li>
           </ul>
+        </div>
       </div>
+    </div>
   </div>
-</footer>
-
 </body>
 </html>

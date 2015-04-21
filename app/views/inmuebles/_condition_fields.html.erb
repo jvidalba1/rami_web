@@ -3,6 +3,7 @@
     <table>
       <tr>
         <td><%= a.attribute_select({}, {class: "form-control"}) %></td>
+        <td><%= f.predicate_select only: [:cont, :not_cont, :eq, :not_eq, :blank, :null, :not_null] %></td>
         <td><%= f.predicate_select({}, {class: "form-control"}) %></td>
         <td>
           <%= f.value_fields do |v| %>
