@@ -3,7 +3,15 @@
 
 en:
   hello: "Hello world"
-
+  ransack:
+    asc: "Ascendente"
+    desc: "Descendente"
+    predicates:
+      cont: "Contiene"
+      eq: "Igual"
+      lt: "Menor que"
+      gt: "Mayor que"
+      in: "En"
   pdf_report:
     third_page:
       nro_pisos_permitidos: "Número pisos permitidos"
