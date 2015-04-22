@@ -46,7 +46,7 @@ git config -e
 
 Pushing
 ```bash
-git push staging master
+git push staging staging:master
 heroku ps --remote staging
 ```
 More information in [Heroku Multiple Env](https://devcenter.heroku.com/articles/multiple-environments) 
