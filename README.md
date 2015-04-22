@@ -44,10 +44,14 @@ The configuration file with all remotes for app
 git config -e
 ```
 
-Pushing
+Pushing staging
 ```bash
 git push staging staging:master
 heroku ps --remote staging
+```
+Pushing production
+```bash
+git push heroku master 
 ```
 More information in [Heroku Multiple Env](https://devcenter.heroku.com/articles/multiple-environments) 
 
