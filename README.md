@@ -32,4 +32,24 @@ After this, run migrations executing:
 heroku run rake db:migrate
 ```
 
+###### Environments management
+
+Add new environment or remote channel
+```bash
+heroku create --remote staging
+```
+
+The configuration file with all remotes for app
+```bash
+git config -e
+```
+
+Pushing
+```bash
+git push staging master
+heroku ps --remote staging
+```
+More information in [Heroku Multiple Env](https://devcenter.heroku.com/articles/multiple-environments) 
+
+
 [Heroku Development Center](https://devcenter.heroku.com/articles/git)
