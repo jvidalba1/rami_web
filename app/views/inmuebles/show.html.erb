@@ -33,34 +33,36 @@
 				      <table>
 				      	<tr>
 				      		<td><strong>Nombre producto</strong></td>
-				      		<td><%= @inmueble.nombre_inmueble %></td>
+				      		<td colspan="6"><%= @inmueble.nombre_inmueble %></td>
+				      	</tr>
 
+				      	<tr>
 				      		<td><strong>Clase de inmueble</strong></td>
 				      		<td><%= get_clase_inmueble @inmueble.clase_inmueble%></td>
+				      	</tr>
 
+				      	<tr>
 				      		<td><strong>Tipo de negocio</strong></td>
 				      		<td><%= get_tipo_negocio @inmueble.tipo_negocio %></td>
-				      	</tr>
-				      	<tr>
+
 				      		<td><strong>Ciudad</strong></td>
 				      		<td><%= @inmueble.ciudad.nombre %></td>
+				      	</tr>
 
+				      	<tr>
 				      		<td><strong>Zona</strong></td>
 				      		<td><%= @inmueble.zona %></td>
 
 				      		<td><strong>Dirección</strong></td>
 				      		<td><%= @inmueble.direccion %></td>
 				      	</tr>
+
 				      	<tr>
 				      		<td><strong>Área disponible</strong></td>
 				      		<td><%= @inmueble.area_disponible %></td>
 
 				      		<td><strong>Estado</strong></td>
 				      		<td><%= get_status(@inmueble.status) unless @inmueble.status.nil? %></td>
-				      	</tr>
-				      	<tr>
-				      		<td><strong>Descripción área disponible</strong></td>
-				      		<td colspan="6"><%= @inmueble.area_disponible_desc %></td>
 				      	</tr>
 				      	<tr>
 				      		<td><strong>Valor mt2</strong></td>
@@ -70,70 +72,87 @@
 				      		<td><%= @inmueble.valor_total %></td>
 				      	</tr>
 				      	<tr>
-				      		<td><strong>Valor administración</strong></td>
-				      		<td><%= @inmueble.valor_admin %></td>
-
 				      		<td><strong>Predial</strong></td>
 				      		<td><%= @inmueble.predial %></td>
 
 				      		<td><strong>Frente</strong></td>
 				      		<td><%= @inmueble.frente %></td>
 				      	</tr>
+
 				      	<tr>
+				      		<td><strong>Valor administración</strong></td>
+				      		<td><%= @inmueble.valor_admin %></td>
+
 				      		<td><strong>Fondo</strong></td>
 				      		<td><%= @inmueble.fondo %></td>
+				      	</tr>
 
+				      	<tr>
 				      		<td><strong>Fecha disponibilidad</strong></td>
 				      		<td><%= @inmueble.fecha_disponibilidad %></td>
 
 				      		<td><strong>Fecha salida inventario</strong></td>
 				      		<td><%= @inmueble.fecha_salida_inventario %></td>
 				      	</tr>
+
 				      	<tr>
 				      		<td><strong>Año construcción</strong></td>
 				      		<td><%= @inmueble.anio_construccion %></td>
 
 				      		<td><strong>Número de pisos</strong></td>
 				      		<td><%= @inmueble.nro_pisos %></td>
+				      	</tr>
 
+				      	<tr>
 				      		<td><strong>Parqueaderos</strong></td>
 				      		<td><%= @inmueble.parqueadores %></td>
-				      	</tr>
-				      	<tr>
+
 				      		<td><strong>Densidad</strong></td>
 				      		<td><%= @inmueble.densidad %></td>
+				      	</tr>
 
+				      	<tr>
 				      		<td><strong>Porcentaje comisión</strong></td>
 				      		<td><%= @inmueble.porcentaje_comision%></td>
 
-				      		<td><strong>Valor inmueble</strong></td>
-				      		<td><%= @inmueble.valor_inmueble %></td>
 				      	</tr>
+
 				      	<tr>
 				      		<td><strong>Altura</strong></td>
 				      		<td><%= @inmueble.altura %></td>
 
 				      		<td><strong>Número pisos permitidos</strong></td>
 				      		<td><%= @inmueble.nro_pisos_permitidos %></td>
+				      	</tr>
 
+				      	<tr>
 				      		<td><strong>Índice ocupación</strong></td>
 				      		<td><%= @inmueble.indice_ocupacion %></td>
-				      	</tr>
-				      	<tr>
+
 				      		<td><strong>Índice construcción</strong></td>
 				      		<td><%= @inmueble.indice_construccion %></td>
+				      	</tr>
 
+				      	<tr>
 				      		<td><strong>Fecha captado</strong></td>
 				      		<td><%= @inmueble.fecha_captado %></td>
 				      	</tr>
+
+				      	<tr>
+				      		<td><strong>Descripción área disponible</strong></td>
+				      		<td colspan="6"><%= @inmueble.area_disponible_desc %></td>
+				      	</tr>
+
 				      	<tr>
 				      		<td><strong>Entorno</strong></td>
 				      		<td colspan="6"><%= @inmueble.entorno %></td>
 				      	</tr>
+
 				      	<tr>
 				      		<td><strong>Otras características</strong></td>
 				      		<td colspan="6"><%= @inmueble.otras_caracteristicas %></td>
 				      	</tr>
+
 				      	<tr>
 				      		<td><strong>Transporte</strong></td>
 				      		<td colspan="6"><%= @inmueble.transporte %></td>

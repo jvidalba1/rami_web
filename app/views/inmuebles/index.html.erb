@@ -20,7 +20,7 @@
   		      <% @inmuebles.each do |inmueble| %>
     	        <tbody>
     	        	<tr>
-                  <td><%= inmueble.nombre_inmueble %></td>
+                  <td><%= truncate(inmueble.nombre_inmueble, length: 20) %></td>
     	          	<td><%= inmueble.ciudad.try(:nombre) %></td>
     	          	<td><%= inmueble.direccion %></td>
               		<td><%= inmueble.zona %></td>
