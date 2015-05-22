@@ -11,6 +11,10 @@
 	<% end %>
   <form>
     <div class="form-group">
+      <span class="lead report-field"></span>Campos usados en los reportes
+    </div>
+
+    <div class="form-group">
       <span class="lead">Información general del inmueble</span>
     </div>
 
@@ -21,7 +25,7 @@
           <%= f.text_field :nombre_inmueble, :class => "form-control"%>
         </div>
         <div class="col-xs-6">
-          <%= f.label :direccion, "Dirección" %>
+          <%= f.label :direccion, "Dirección", :class => "report-field" %>
           <%= f.text_field :direccion, :class => "form-control"%>
         </div>
       </div>
@@ -30,14 +34,14 @@
     <div class="form-group">
       <div class="row">
         <div class="col-xs-3">
-          <%= f.label :clase_inmueble %>
+          <%= f.label :clase_inmueble, "Clase de inmueble", :class => "report-field" %>
           <%= f.select(:clase_inmueble,
             options_for_select(select_clase_inmueble, @inmueble.clase_inmueble),
             {:prompt => "Seleccione una opción"},
             { :class => "form-control"}) %>
         </div>
         <div class="col-xs-3">
-          <%= f.label :ciudad_id %>
+          <%= f.label :ciudad_id, :class => "report-field" %>
           <%= f.select(:ciudad_id,
             options_from_collection_for_select(
               Ciudad.where(:departamento => "Antioquia"),
@@ -48,11 +52,11 @@
             {:class => "form-control"}) %>
         </div>
         <div class="col-xs-3">
-          <%= f.label :zona %>
+          <%= f.label :zona, :class => "report-field" %>
           <%= f.text_field :zona, :class => "form-control" %>
         </div>
         <div class="col-xs-3">
-          <%= f.label :tipo_negocio %>
+          <%= f.label :tipo_negocio, :class => "report-field" %>
           <%= f.select(:tipo_negocio,
             options_for_select(select_tipo_negocio, @inmueble.tipo_negocio),
             {:prompt => "Seleccione una opción"},
@@ -64,7 +68,7 @@
     <div class="form-group">
       <div class="row">
         <div class="col-xs-3">
-          <%= f.label :area_disponible%>
+          <%= f.label :area_disponible, :class => "report-field" %>
           <%= f.text_field :area_disponible, :class => "form-control"%>
         </div>
         <div class="col-xs-3">
@@ -74,14 +78,14 @@
             {:class => "form-control" } )%>
         </div>
         <div class="col-xs-3">
-          <%= f.label :valor_mt2 %>
+          <%= f.label :valor_mt2, :class => "report-field" %>
           <div class="input-group">
             <span class="input-group-addon">$</span>
             <%= f.text_field :valor_mt2, :class => "form-control" %>
           </div>
         </div>
         <div class="col-xs-3">
-          <%= f.label :valor_total%>
+          <%= f.label :valor_total, :class => "report-field" %>
           <div class="input-group">
             <span class="input-group-addon">$</span>
             <%= f.text_field :valor_total , :class => "form-control"%>
@@ -98,7 +102,7 @@
     <div class="form-group">
       <div class="row">
         <div class="col-xs-3">
-          <%= f.label :altura %>
+          <%= f.label :altura, :class => "report-field" %>
           <%= f.text_field :altura , :class => "form-control"%>
         </div>
         <div class="col-xs-3">
@@ -109,11 +113,11 @@
           </div>
         </div>
         <div class="col-xs-3">
-          <%= f.label :frente %>
+          <%= f.label :frente, :class => "report-field" %>
           <%= f.text_field :frente, :class => "form-control"%>
         </div>
         <div class="col-xs-3">
-          <%= f.label :fondo %>
+          <%= f.label :fondo, :class => "report-field" %>
           <%= f.text_field :fondo, :class => "form-control"%>
         </div>
       </div>
@@ -140,7 +144,7 @@
           <%= f.text_field :anio_construccion , :class => "form-control"%>
         </div>
         <div class="col-xs-3">
-          <%= f.label :nro_pisos, "Número de pisos" %>
+          <%= f.label :nro_pisos, "Número de pisos", :class => "report-field" %>
           <%= f.text_field :nro_pisos , :class => "form-control"%>
         </div>
       </div>
@@ -149,11 +153,11 @@
     <div class="form-group">
       <div class="row">
         <div class="col-xs-3">
-          <%= f.label :parqueadores, "Parqueaderos" %>
+          <%= f.label :parqueadores, "Parqueaderos", :class => "report-field" %>
           <%= f.text_field :parqueadores , :class => "form-control"%>
         </div>
         <div class="col-xs-3">
-          <%= f.label :densidad %>
+          <%= f.label :densidad, :class => "report-field" %>
           <%= f.text_field :densidad , :class => "form-control"%>
         </div>
         <div class="col-xs-3">
@@ -173,7 +177,7 @@
     <div class="form-group">
       <div class="row">
         <div class="col-xs-3">
-          <%= f.label :valor_admin, "Valor administración" %>
+          <%= f.label :valor_admin, "Valor administración", :class => "report-field" %>
           <div class="input-group">
             <span class="input-group-addon">$</span>
             <%= f.text_field :valor_admin, :class => "form-control"%>
@@ -181,32 +185,32 @@
           </div>
         </div>
         <div class="col-xs-3">
-          <%= f.label :nro_pisos_permitidos, "Número de pisos permitidos" %>
+          <%= f.label :nro_pisos_permitidos, "Número de pisos permitidos", :class => "report-field" %>
           <%= f.text_field :nro_pisos_permitidos , :class => "form-control"%>
         </div>
         <div class="col-xs-3">
-          <%= f.label :indice_ocupacion, "Índice de ocupación" %>
+          <%= f.label :indice_ocupacion, "Índice de ocupación", :class => "report-field" %>
           <%= f.text_field :indice_ocupacion , :class => "form-control"%>
         </div>
         <div class="col-xs-3">
-          <%= f.label :indice_construccion, "Índice de construcción" %>
+          <%= f.label :indice_construccion, "Índice de construcción", :class => "report-field" %>
           <%= f.text_field :indice_construccion , :class => "form-control"%>
         </div>
       </div>
     </div>
 
     <div class="form-group">
-      <%= f.label :entorno %>
+      <%= f.label :entorno, :class => "report-field" %>
       <%= f.text_area :entorno, :rows => "5", :class => "form-control"%>
     </div>
 
     <div class="form-group">
-      <%= f.label :otras_caracteristicas, "Otras características" %>
+      <%= f.label :otras_caracteristicas, "Otras características", :class => "report-field" %>
       <%= f.text_area :otras_caracteristicas, :rows => "5", :class => "form-control"%>
     </div>
 
     <div class="form-group">
-      <%= f.label :transporte %>
+      <%= f.label :transporte, :class => "report-field" %>
       <%= f.text_area :transporte, :rows => "5", :class => "form-control"%>
     </div>
     <hr>
