@@ -17,11 +17,13 @@ module InmueblesHelper
 
   def select_clase_inmueble
     [
-        ["Bodega",  1],
-        ["Local",   2],
-        ["Oficina", 3],
-        ["Casa",    4],
-        ["Lote",    5]
+        ["Bodega",      1],
+        ["Local",       2],
+        ["Oficina",     3],
+        ["Casa",        4],
+        ["Lote",        5],
+        ["Lote/Local",  6],
+        ["Lote/Bodega", 7]
     ]
   end
 
