@@ -46,7 +46,7 @@
 				      		<td><%= get_tipo_negocio @inmueble.tipo_negocio %></td>
 
 				      		<td><strong>Ciudad</strong></td>
-				      		<td><%= @inmueble.ciudad.nombre %></td>
+				      		<td><%= @inmueble.ciudad.try(:nombre) %></td>
 				      	</tr>
 
 				      	<tr>

@@ -270,9 +270,7 @@
 
     <div class="form-group">
       <div class="row">
-        <%= f.fields_for :interesados do |f| %>
-          <%= render 'interesados', :f => f %>
-        <% end %>
+        <%= render 'interesados', :f => f %>
       </div>
     </div>
 
