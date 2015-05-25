@@ -60,7 +60,6 @@ class Inmueble < ActiveRecord::Base
   belongs_to :ciudad
 
   has_and_belongs_to_many :interesados
-  accepts_nested_attributes_for :interesados
 
   has_and_belongs_to_many :intermediarios
   accepts_nested_attributes_for :intermediarios
@@ -118,6 +117,13 @@ class Inmueble < ActiveRecord::Base
                   :trato_destino_reporte, :nombre_destino_reporte, :cargo_destino_reporte
 
   validates :nombre_inmueble, :presence => true
+  # validate :at_least_one_interesado
+
+  # def at_least_one_interesado
+  #   if self.interesados.count == 0
+  #     errors.add(:escoger, " al menos un interesado")
+  #   end
+  # end
 
   def third_page_values
     { nro_pisos_permitidos: self.nro_pisos_permitidos,
