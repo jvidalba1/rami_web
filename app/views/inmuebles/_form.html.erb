@@ -1,7 +1,7 @@
 <%= form_for @inmueble, :multipart => true  do |f| %>
 	<% if @inmueble.errors.any? %>
 		<div id="error_explanation">
-			<h2><%= pluralize(@inmueble.errors.count, "error") %> prohibited this inmueble from being saved:</h2>
+			<h2><%= pluralize(@inmueble.errors.count, "error") %> en el formulario, por favor revisar los datos.</h2>
 			<ul>
 				<% @inmueble.errors.full_messages.each do |msg| %>
         	<li><%= msg %></li>
@@ -11,9 +11,36 @@
 	<% end %>
   <form>
     <div class="form-group">
-      <span class="lead report-field"></span>Campos usados en los reportes
+      <span class="lead">Propietario</span>
     </div>
 
+    <div class="form-group">
+      <div class="row">
+        <div class="col-xs-6">
+          <%= f.label :propietario_id, "Nombre del propietario" %>
+          <%= f.select(:propietario_id,
+            options_from_collection_for_select(Propietario.all, "id", "nombre", @inmueble.propietario_id),
+            {:prompt => "Seleccione una opción"},
+            {:class => "form-control"})%>
+
+          <%# link_to "Crear nuevo", "#", :class => "btn btn-link add_new_propietario", :remote => true %>
+          <%# f.fields_for :propietarios do |f| %>
+            <%# render "propietario_fields", :f => f %>
+          <%# end %>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="form-group">
+      <span class="lead">Inversionitas y/o interesados</span>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <%= render 'interesados', :f => f %>
+      </div>
+    </div>
+    <hr>
     <div class="form-group">
       <span class="lead">Información general del inmueble</span>
     </div>
@@ -214,28 +241,7 @@
       <%= f.text_area :transporte, :rows => "5", :class => "form-control"%>
     </div>
     <hr>
-    <div class="form-group">
-      <span class="lead">Propietario</span>
-    </div>
 
-    <div class="form-group">
-      <div class="row">
-        <div class="col-xs-6">
-          <%= f.label :propietario_id, "Nombre del propietario" %>
-          <%= f.select(:propietario_id,
-            options_from_collection_for_select(Propietario.all, "id", "nombre", @inmueble.propietario_id),
-            {:prompt => "Seleccione una opción"},
-            {:class => "form-control"})%>
-
-          <%# link_to "Crear nuevo", "#", :class => "btn btn-link add_new_propietario", :remote => true %>
-          <%# f.fields_for :propietarios do |f| %>
-            <%# render "propietario_fields", :f => f %>
-          <%# end %>
-        </div>
-      </div>
-    </div>
-
-    <hr>
     <div class="form-group">
       <span class="lead">Intermediarios</span>
     </div>
@@ -245,32 +251,6 @@
         <%= f.fields_for :intermediarios do |f| %>
           <%= render 'intermediarios', :f => f %>
         <% end %>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <div class="row">
-        <div class="col-xs-3">
-
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <div class="row">
-        <div class="col-xs-3">
-        </div>
-      </div>
-    </div>
-
-    <hr>
-    <div class="form-group">
-      <span class="lead">Inversionitas y/o interesados</span>
-    </div>
-
-    <div class="form-group">
-      <div class="row">
-        <%= render 'interesados', :f => f %>
       </div>
     </div>
 
