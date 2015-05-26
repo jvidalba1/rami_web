@@ -13,7 +13,7 @@
 class Documento < ActiveRecord::Base
 
   mount_uploader :documento, DocumentoUploader
-  attr_accessible :file_name, :documento_cache, :descripcion
+  attr_accessible :documento, :documento_cache, :descripcion
 
   belongs_to :inmueble
 end

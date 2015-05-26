@@ -50,7 +50,7 @@
               <tbody>
                 <tr>
                   <td><%= inmueble.nombre_inmueble %></td>
-                  <td><%= inmueble.ciudad.nombre %></td>
+                  <td><%= inmueble.ciudad.try(:nombre) %></td>
                   <td><%= inmueble.direccion %></td>
                   <td><%= inmueble.zona %></td>
                   <td><%= get_clase_inmueble inmueble.clase_inmueble %></td>
