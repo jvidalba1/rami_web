@@ -91,7 +91,7 @@
       </tr>
       <tr>
         <td>Ciudad</td>
-        <td><%= @inmueble.ciudad.nombre %></td>
+        <td><%= @inmueble.ciudad.try(:nombre) %></td>
       </tr>
       <% @inmueble.third_page_values.each_slice(2).each do |pair| %>
         <tr>
