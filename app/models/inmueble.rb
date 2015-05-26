@@ -117,8 +117,9 @@ class Inmueble < ActiveRecord::Base
                   :trato_destino_reporte, :nombre_destino_reporte, :cargo_destino_reporte
 
   validates :nombre_inmueble, :presence => true
-  # validate :at_least_one_interesado
 
+  ## Validation for at least one interesed for each property ##
+  # validate :at_least_one_interesado
   # def at_least_one_interesado
   #   if self.interesados.count == 0
   #     errors.add(:escoger, " al menos un interesado")
