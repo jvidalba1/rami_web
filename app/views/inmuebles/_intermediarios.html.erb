@@ -1,13 +1,19 @@
-<tr>
-  <td><%= f.label :nombre %></td>
-  <td><%= f.text_field :nombre, :class => "form-control" %></td>
-
-  <td><%= f.label :telefono, "Teléfono" %></td>
-  <td><%= f.text_field :telefono, :class => "form-control"%></td>
-
-  <td><%= f.label :email %></td>
-  <td><%= f.text_field :email, :class => "form-control"%></td>
-
-  <td><%= f.label :ult_fecha_contacto, "Última fecha de contacto" %></td>
-  <td><%= f.text_field :ult_fecha_contacto, :class => "form-control datepicker" %></td>
-</tr>
+<div class="col-xs-3">
+  <%= f.label :nombre %>
+  <%= f.text_field :nombre, :class => "form-control" %>
+</div>
+<div class="col-xs-3">
+  <%= f.label :telefono, "Teléfono" %>
+  <%= f.text_field :telefono, :class => "form-control"%>
+</div>
+<div class="col-xs-3">
+  <%= f.label :email %>
+  <%= f.text_field :email, :class => "form-control"%>
+</div>
+<div class="col-xs-3">
+  <%= f.label :ult_fecha_contacto, "Última fecha de contacto" %>
+  <div class="input-group">
+    <span class="input-group-addon"><%= image_tag("calendar.png", size: "20x20")%></span>
+    <%= f.text_field :ult_fecha_contacto, :class => "form-control datepicker" %>
+  </div>
+</div>

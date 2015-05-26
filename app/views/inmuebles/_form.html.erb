@@ -1,219 +1,289 @@
 <%= form_for @inmueble, :multipart => true  do |f| %>
 	<% if @inmueble.errors.any? %>
 		<div id="error_explanation">
-			<h2><%= pluralize(@inmueble.errors.count, "error") %> prohibited this inmueble from being saved:</h2>
+			<h2><%= pluralize(@inmueble.errors.count, "error") %> en el formulario, por favor revisar los datos.</h2>
 			<ul>
 				<% @inmueble.errors.full_messages.each do |msg| %>
-		        	<li><%= msg %></li>
-		      	<% end %>
+        	<li><%= msg %></li>
+      	<% end %>
 			</ul>
 		</div>
 	<% end %>
-	<table class="table response">
-    <tr>
-        <td colspan="6"><span class="lead">Información de inmueble</span></td>
-    </tr>
+  <form>
+    <div class="form-group">
+      <span class="lead">Propietario</span>
+    </div>
 
-    <!--
-    <tr>
-      <td colspan="3">
-        <%# f.file_field :logo, :class => :upload, :accept=> "*"%>
-      </td>
-    </tr>
-    -->
-		<tr>
-			<td><%= f.label :nombre_inmueble %></td>
-			<td><%= f.text_field :nombre_inmueble, :class => "form-control"%></td>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-xs-6">
+          <%= f.label :propietario_id, "Nombre del propietario" %>
+          <%= f.select(:propietario_id,
+            options_from_collection_for_select(Propietario.all, "id", "nombre", @inmueble.propietario_id),
+            {:prompt => "Seleccione una opción"},
+            {:class => "form-control"})%>
 
-			<td><%= f.label :clase_inmueble %></td>
-			<td><%= f.select(:clase_inmueble,
-                             options_for_select(select_clase_inmueble, @inmueble.clase_inmueble),
-                             {:prompt => "Seleccione una opción"},
-                             { :class => "form-control"}) %></td>
+          <%# link_to "Crear nuevo", "#", :class => "btn btn-link add_new_propietario", :remote => true %>
+          <%# f.fields_for :propietarios do |f| %>
+            <%# render "propietario_fields", :f => f %>
+          <%# end %>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="form-group">
+      <span class="lead">Inversionitas y/o interesados</span>
+    </div>
 
-			<td><%= f.label :ciudad_id %></td>
-			<td>
-              <%= f.select(:ciudad_id,
-                           options_from_collection_for_select(Ciudad.where(:departamento => "Antioquia"), "id", "nombre", @inmueble.ciudad_id),
-                           { :prompt => "Seleccione una opción"},
-                           {:class => "form-control"}) %>
-            </td>
-		</tr>
-		<tr>
-			<td><%= f.label :zona %></td>
-			<td><%= f.text_field :zona, :class => "form-control" %></td>
+    <div class="form-group">
+      <div class="row">
+        <%= render 'interesados', :f => f %>
+      </div>
+    </div>
+    <hr>
+    <div class="form-group">
+      <span class="lead">Información general del inmueble</span>
+    </div>
 
-			<td><%= f.label :tipo_negocio %></td>
-			<td><%= f.select(:tipo_negocio,
-                             options_for_select(select_tipo_negocio, @inmueble.tipo_negocio),
-                             {:prompt => "Seleccione una opción"},
-                             {:class => "form-control" } )%></td>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-xs-6">
+          <%= f.label :nombre_inmueble %>
+          <%= f.text_field :nombre_inmueble, :class => "form-control"%>
+        </div>
+        <div class="col-xs-6">
+          <%= f.label :direccion, "Dirección", :class => "report-field" %>
+          <%= f.text_field :direccion, :class => "form-control"%>
+        </div>
+      </div>
+    </div>
 
-			<td><%= f.label :direccion %></td>
-			<td><%= f.text_field :direccion, :class => "form-control"%></td>
-		</tr>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-xs-3">
+          <%= f.label :clase_inmueble, "Clase de inmueble", :class => "report-field" %>
+          <%= f.select(:clase_inmueble,
+            options_for_select(select_clase_inmueble, @inmueble.clase_inmueble),
+            {:prompt => "Seleccione una opción"},
+            { :class => "form-control"}) %>
+        </div>
+        <div class="col-xs-3">
+          <%= f.label :ciudad_id, :class => "report-field" %>
+          <%= f.select(:ciudad_id,
+            options_from_collection_for_select(
+              Ciudad.where(:departamento => "Antioquia"),
+              "id",
+              "nombre",
+              @inmueble.ciudad_id),
+            { :prompt => "Seleccione una opción"},
+            {:class => "form-control"}) %>
+        </div>
+        <div class="col-xs-3">
+          <%= f.label :zona, :class => "report-field" %>
+          <%= f.text_field :zona, :class => "form-control" %>
+        </div>
+        <div class="col-xs-3">
+          <%= f.label :tipo_negocio, :class => "report-field" %>
+          <%= f.select(:tipo_negocio,
+            options_for_select(select_tipo_negocio, @inmueble.tipo_negocio),
+            {:prompt => "Seleccione una opción"},
+            {:class => "form-control" } )%>
+        </div>
+      </div>
+    </div>
 
-		<tr>
-			<td><%= f.label :area_disponible%></td>
-			<td><%= f.text_field :area_disponible, :class => "form-control"%></td>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-xs-3">
+          <%= f.label :area_disponible, :class => "report-field" %>
+          <%= f.text_field :area_disponible, :class => "form-control"%>
+        </div>
+        <div class="col-xs-3">
+          <%= f.label :status, "Estado" %>
+          <%= f.select(:status, options_for_select(select_status, @inmueble.status),
+            {:prompt => "Seleccione una opción "},
+            {:class => "form-control" } )%>
+        </div>
+        <div class="col-xs-3">
+          <%= f.label :valor_mt2, :class => "report-field" %>
+          <div class="input-group">
+            <span class="input-group-addon">$</span>
+            <%= f.text_field :valor_mt2, :class => "form-control" %>
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <%= f.label :valor_total, :class => "report-field" %>
+          <div class="input-group">
+            <span class="input-group-addon">$</span>
+            <%= f.text_field :valor_total , :class => "form-control"%>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      <td><%= f.label :status, "Estado" %></td>
-      <td>
-        <%= f.select(:status, options_for_select(select_status, @inmueble.status),
-                              {:prompt => "Seleccione una opción "},
-                              {:class => "form-control" } )%>
-      </td>
+    <div class="form-group">
+      <%= f.label :area_disponible_desc, "Descripción área disponible" %>
+      <%= f.text_area :area_disponible_desc, :rows => "5", :class => "form-control"%>
+    </div>
 
+    <div class="form-group">
+      <div class="row">
+        <div class="col-xs-3">
+          <%= f.label :altura, :class => "report-field" %>
+          <%= f.text_field :altura , :class => "form-control"%>
+        </div>
+        <div class="col-xs-3">
+          <%= f.label :predial %>
+          <div class="input-group">
+            <span class="input-group-addon">$</span>
+            <%= f.text_field :predial, :class => "form-control"%>
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <%= f.label :frente, :class => "report-field" %>
+          <%= f.text_field :frente, :class => "form-control"%>
+        </div>
+        <div class="col-xs-3">
+          <%= f.label :fondo, :class => "report-field" %>
+          <%= f.text_field :fondo, :class => "form-control"%>
+        </div>
+      </div>
+    </div>
 
-		</tr>
-		<tr>
-            <td><%= f.label :area_disponible_desc, "Descripción área disponible" %></td>
-            <td colspan="3"><%= f.text_area :area_disponible_desc, :rows => "10", :class => "form-control"%></td>
-		</tr>
-		<tr>
-			<td><%= f.label :valor_mt2 %></td>
-			<td><%= f.text_field :valor_mt2, :class => "form-control" %></td>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-xs-3">
+          <%= f.label :fecha_disponibilidad %>
+          <div class="input-group">
+            <span class="input-group-addon"><%= image_tag("calendar.png", size: "20x20")%></span>
+            <%= f.text_field :fecha_disponibilidad , :class => "form-control datepicker" %>
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <%= f.label :fecha_salida_inventario %>
+          <div class="input-group">
+            <span class="input-group-addon"><%= image_tag("calendar.png", size: "20x20")%></span>
+            <%= f.text_field :fecha_salida_inventario , :class => "form-control datepicker"%>
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <%= f.label :anio_construccion, "Año de construcción" %>
+          <%= f.text_field :anio_construccion , :class => "form-control"%>
+        </div>
+        <div class="col-xs-3">
+          <%= f.label :nro_pisos, "Número de pisos", :class => "report-field" %>
+          <%= f.text_field :nro_pisos , :class => "form-control"%>
+        </div>
+      </div>
+    </div>
 
-			<td><%= f.label :valor_total%></td>
-			<td><%= f.text_field :valor_total , :class => "form-control"%></td>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-xs-3">
+          <%= f.label :parqueadores, "Parqueaderos", :class => "report-field" %>
+          <%= f.text_field :parqueadores , :class => "form-control"%>
+        </div>
+        <div class="col-xs-3">
+          <%= f.label :densidad, :class => "report-field" %>
+          <%= f.text_field :densidad , :class => "form-control"%>
+        </div>
+        <div class="col-xs-3">
+          <%= f.label :porcentaje_comision %>
+          <%= f.text_field :porcentaje_comision , :class => "form-control"%>
+        </div>
+        <div class="col-xs-3">
+          <%= f.label :fecha_captado %>
+          <div class="input-group">
+            <span class="input-group-addon"><%= image_tag("calendar.png", size: "20x20")%></span>
+            <%= f.text_field :fecha_captado , :class => "form-control datepicker"%>
+          </div>
+        </div>
+      </div>
+    </div>
 
-			<td><%= f.label :valor_admin %></td>
-			<td><%= f.text_field :valor_admin , :class => "form-control"%></td>
-		</tr>
-		<tr>
-			<td><%= f.label :predial %></td>
-			<td><%= f.text_field :predial , :class => "form-control"%></td>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-xs-3">
+          <%= f.label :valor_admin, "Valor administración", :class => "report-field" %>
+          <div class="input-group">
+            <span class="input-group-addon">$</span>
+            <%= f.text_field :valor_admin, :class => "form-control"%>
 
-			<td><%= f.label :frente %></td>
-			<td><%= f.text_field :frente , :class => "form-control"%></td>
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <%= f.label :nro_pisos_permitidos, "Número de pisos permitidos", :class => "report-field" %>
+          <%= f.text_field :nro_pisos_permitidos , :class => "form-control"%>
+        </div>
+        <div class="col-xs-3">
+          <%= f.label :indice_ocupacion, "Índice de ocupación", :class => "report-field" %>
+          <%= f.text_field :indice_ocupacion , :class => "form-control"%>
+        </div>
+        <div class="col-xs-3">
+          <%= f.label :indice_construccion, "Índice de construcción", :class => "report-field" %>
+          <%= f.text_field :indice_construccion , :class => "form-control"%>
+        </div>
+      </div>
+    </div>
 
-			<td><%= f.label :fondo %></td>
-			<td><%= f.text_field :fondo , :class => "form-control"%></td>
-		</tr>
-      <tr>
-        <td><%= f.label :fecha_disponibilidad %></td>
-        <td><%= f.text_field :fecha_disponibilidad , :class => "form-control datepicker" %></td>
+    <div class="form-group">
+      <%= f.label :entorno, :class => "report-field" %>
+      <%= f.text_area :entorno, :rows => "5", :class => "form-control"%>
+    </div>
 
-        <td><%= f.label :fecha_salida_inventario %></td>
-        <td><%= f.text_field :fecha_salida_inventario , :class => "form-control datepicker"%></td>
+    <div class="form-group">
+      <%= f.label :otras_caracteristicas, "Otras características", :class => "report-field" %>
+      <%= f.text_area :otras_caracteristicas, :rows => "5", :class => "form-control"%>
+    </div>
 
-        <td><%= f.label :anio_construccion, "Año construcción" %></td>
-        <td><%= f.text_field :anio_construccion , :class => "form-control"%></td>
-      </tr>
-      <tr>
-        <td><%= f.label :nro_pisos %></td>
-        <td><%= f.text_field :nro_pisos , :class => "form-control"%></td>
+    <div class="form-group">
+      <%= f.label :transporte, :class => "report-field" %>
+      <%= f.text_area :transporte, :rows => "5", :class => "form-control"%>
+    </div>
+    <hr>
 
-        <td><%= f.label :parqueadores, "Parqueaderos" %></td>
-        <td><%= f.text_field :parqueadores , :class => "form-control"%></td>
+    <div class="form-group">
+      <span class="lead">Intermediarios</span>
+    </div>
 
-        <td><%= f.label :densidad %></td>
-        <td><%= f.text_field :densidad , :class => "form-control"%></td>
-      </tr>
-      <tr>
-        <td><%= f.label :porcentaje_comision %></td>
-        <td><%= f.text_field :porcentaje_comision , :class => "form-control"%></td>
+    <div class="form-group">
+      <div class="row">
+        <%= f.fields_for :intermediarios do |f| %>
+          <%= render 'intermediarios', :f => f %>
+        <% end %>
+      </div>
+    </div>
 
-        <td><%= f.label :valor_inmueble %></td>
-        <td><%= f.text_field :valor_inmueble , :class => "form-control"%></td>
+    <hr>
+    <div class="form-group">
+      <span class="lead">Documentos</span>
+    </div>
 
-        <td><%= f.label :altura %></td>
-        <td><%= f.text_field :altura , :class => "form-control"%></td>
-      </tr>
-      <tr>
-        <td><%= f.label :nro_pisos_permitidos %></td>
-        <td><%= f.text_field :nro_pisos_permitidos , :class => "form-control"%></td>
+    <div class="form-group">
+      <div class="row">
+        <% pos = 0 %>
+        <%= f.fields_for :documentos do |f| %>
+          <tr>
+            <%= render 'documentos', :f => f, :doc_type => documents_types[pos] %>
+          </tr>
+          <% pos = pos + 1 %>
+        <% end %>
 
-        <td><%= f.label :indice_ocupacion %></td>
-        <td><%= f.text_field :indice_ocupacion , :class => "form-control"%></td>
+        <!--
+        <tr>
+            <%# link_to image_tag("add.png", :border => 0, :width => 35), documentos_inmuebles_path, :remote => true, :class => "add_file" %>
+        </tr>
+        -->
+      </div>
+    </div>
 
-        <td><%= f.label :indice_construccion %></td>
-        <td><%= f.text_field :indice_construccion , :class => "form-control"%></td>
-      </tr>
-      <tr>
-        <td><%= f.label :fecha_captado %></td>
-        <td><%= f.text_field :fecha_captado , :class => "form-control datepicker"%></td>
-      </tr>
-		<tr>
-            <td><%= f.label :entorno %></td>
-            <td colspan="3"><%= f.text_area :entorno, :cols => "20", :rows => "10", :class => "form-control"%></td>
-		</tr>
-      <tr>
-          <td><%= f.label :otras_caracteristicas %></td>
-          <td colspan="3"><%= f.text_area :otras_caracteristicas, :cols => "10", :rows => "10", :class => "form-control"%></td>
-      </tr>
-		<tr>
-      <td><%= f.label :transporte %></td>
-      <td colspan="3"><%= f.text_area :transporte, :rows => "10", :class => "form-control"%></td>
-		</tr>
+    <hr>
 
-		<tr>
-			<td colspan="8"><strong><hr></strong></td>
-		</tr>
-		<tr>
-			<td colspan="6"><span class="lead">Propietarios</span></td>
-		</tr>
-		<tr>
-			<td><%= f.label :propietario_id %></td>
-			<td><%= f.select(:propietario_id,
-							 options_from_collection_for_select(Propietario.all, "id", "nombre", @inmueble.propietario_id),
-							 {:prompt => "Seleccione una opción"},
-							 {:class => "form-control"})%>
-				</td>
-				<td>
-				<%# link_to "Crear nuevo", "#", :class => "btn btn-link add_new_propietario", :remote => true %>
-			</td>
-		</tr>
+    <div class="actions">
+      <%= f.submit "Guardar inmueble", :class => "btn btn-primary" %>
+    </div>
 
-		<%# f.fields_for :propietarios do |f| %>
-			<%# render "propietario_fields", :f => f %>
-		<%# end %>
-    <tr>
-      <td colspan="8"><strong><hr></strong></td>
-    </tr>
-    <tr>
-      <td colspan="6"><span class="lead">Intermediarios</span></td>
-    </tr>
-
-    <%= f.fields_for :intermediarios do |f| %>
-      <%= render 'intermediarios', :f => f %>
-    <% end %>
-
-		<tr>
-			<td colspan="8"><strong><hr></strong></td>
-		</tr>
-    <tr>
-        <td colspan="6"><span class="lead">Interesados</span></td>
-    </tr>
-
-    <%= f.fields_for :interesados do |f| %>
-      <%= render 'interesados', :f => f %>
-    <% end %>
-
-    <tr>
-      <td colspan="8"><strong><hr></strong></td>
-    </tr>
-
-    <% pos = 0 %>
-    <%= f.fields_for :documentos do |f| %>
-      <tr>
-        <%= render 'documentos', :f => f, :doc_type => documents_types[pos] %>
-      </tr>
-      <% pos = pos + 1 %>
-    <% end %>
-
-    <!--
-    <tr>
-        <td><%# link_to image_tag("add.png", :border => 0, :width => 35), documentos_inmuebles_path, :remote => true, :class => "add_file" %></td>
-    </tr>
-    -->
-    <tr>
-      <td colspan="8"><strong><hr></strong></td>
-    </tr>
-	</table>
-	<div class="actions">
-		<%= f.submit "Guardar inmueble", :class => "btn btn-primary" %>
-	</div>
+  </form>
 <% end %>
 
 

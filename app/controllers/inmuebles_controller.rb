@@ -87,7 +87,6 @@ class InmueblesController < ApplicationController
     @inmueble = Inmueble.new
     @documentos = []
     5.times do
-      interesados = @inmueble.interesados.build
       @documentos << @inmueble.documentos.build
       intermediarios = @inmueble.intermediarios.build
     end
@@ -95,7 +94,8 @@ class InmueblesController < ApplicationController
 
   def create
     @inmueble = Inmueble.new(params[:inmueble])
-
+    @interesados = Interesado.where(:id => params[:interesados][:ids])
+    @inmueble.interesados << @interesados
     if @inmueble.save
       flash[:notice] = "Inmueble creado exitosamente"
       redirect_to @inmueble
@@ -110,6 +110,9 @@ class InmueblesController < ApplicationController
 
   def update
     @inmueble = Inmueble.find(params[:id])
+    @interesados = Interesado.where(:id => params[:interesados][:ids])
+    @inmueble.interesados.destroy_all
+    @inmueble.interesados << @interesados
 
     if @inmueble.update_attributes(params[:inmueble])
       flash[:notice] = "Inmueble fue actualizado exitosamente."

@@ -1,20 +1,29 @@
-
-<tr>
-
-  <td><%= f.label :nombre %></td>
-  <td><%= f.text_field :nombre, :class => "form-control" %></td>
-
-  <td><%= f.label :telefono, "Teléfono" %></td>
-  <td><%= f.text_field :telefono, :class => "form-control"%></td>
-
-  <td><%= f.label :celular, "Celular" %></td>
-  <td><%= f.text_field :celular, :class => "form-control"%></td>
-
-  <td><%= f.label :email %></td>
-  <td><%= f.text_field :email, :class => "form-control"%></td>
-
-  <!--
-  <td><%# f.label :observaciones %></td>
-  <td colspan="3"><%# f.text_area :observaciones, :cols => "20", :rows => "10", :class => "form-control"%></td>
-  -->
-</tr>
+<div class="col-xs-2">
+  <%= select_tag "interesados[ids][]",
+    options_from_collection_for_select(Interesado.all, "id", "nombre", @inmueble.interesados[0].try(:id)),
+    {:prompt => "Seleccione una opción", :class => "form-control" }%>
+</div>
+<div class="col-xs-2">
+  <%= select_tag "interesados[ids][]",
+    options_from_collection_for_select(Interesado.all, "id", "nombre", @inmueble.interesados[1].try(:id)),
+    {:prompt => "Seleccione una opción", :class => "form-control" }%>
+</div>
+<div class="col-xs-2">
+  <%= select_tag "interesados[ids][]",
+    options_from_collection_for_select(Interesado.all, "id", "nombre", @inmueble.interesados[2].try(:id)),
+    {:prompt => "Seleccione una opción", :class => "form-control" }%>
+</div>
+<div class="col-xs-2">
+  <%= select_tag "interesados[ids][]",
+    options_from_collection_for_select(Interesado.all, "id", "nombre", @inmueble.interesados[3].try(:id)),
+    {:prompt => "Seleccione una opción", :class => "form-control" }%>
+</div>
+<div class="col-xs-2">
+  <%= select_tag "interesados[ids][]",
+    options_from_collection_for_select(Interesado.all, "id", "nombre", @inmueble.interesados[4].try(:id)),
+    {:prompt => "Seleccione una opción", :class => "form-control" }%>
+</div>
+<!--
+<%# f.label :observaciones %>
+<td colspan="3"><%# f.text_area :observaciones, :cols => "20", :rows => "10", :class => "form-control"%>
+-->
