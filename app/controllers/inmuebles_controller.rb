@@ -136,10 +136,6 @@ class InmueblesController < ApplicationController
 
   private
 
-  def inmueble_params
-    params.require("inmueble").permit(:nombre_inmueble, {:interesados_ids => []})
-  end
-
   def set_inmueble_by_id
     @inmueble = Inmueble.find(params[:id].to_i)
   end
