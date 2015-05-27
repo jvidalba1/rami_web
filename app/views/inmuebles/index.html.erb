@@ -5,7 +5,7 @@
         <%= link_to 'Nuevo inmueble', new_inmueble_path, :class => "btn btn-primary" %>
         <h1>Listado de inmuebles(<%= @inmuebles.count %>)</h1>
     		<div class="bs-example table-responsive">
-    			<table class="table table-striped table-hover ">
+    			<table class="table table-striped table-hover">
     				<thead>
               <tr>
                 <th>Nombre</th>
@@ -14,6 +14,7 @@
               	<th>Zona</th>
                 <th>Clase</th>
                 <th>Negocio</th>
+                <th>Estado</th>
                 <th colspan="2">Opciones</th>
               </tr>
     		    </thead>
@@ -26,9 +27,11 @@
               		<td><%= inmueble.zona %></td>
     	          	<td><%= get_clase_inmueble inmueble.clase_inmueble %></td>
     	          	<td><%= get_tipo_negocio inmueble.tipo_negocio %></td>
+                  <td><%= get_status inmueble.status %></td>
                   <td>
       	          	<div class="bs-example" style="margin-bottom: 15px;">
         		          <div class="btn-group">
+                          <%= link_to "Reporte", format_pdf_inmuebles_path(inmueble.id), :class => "btn btn-default", :target => "_blank" %>
           		            <%= link_to 'Ver', inmueble, :class => "btn btn-default" %>
           		            <%= link_to 'Editar', edit_inmueble_path(inmueble), :class => "btn btn-default" %>
                           <div class="status_select_<%= inmueble.id %>">
