@@ -27,7 +27,11 @@
               		<td><%= inmueble.zona %></td>
     	          	<td><%= get_clase_inmueble inmueble.clase_inmueble %></td>
     	          	<td><%= get_tipo_negocio inmueble.tipo_negocio %></td>
-                  <td><%= get_status inmueble.status %></td>
+                  <td>
+                    <div class="status_value_<%= inmueble.id %>">
+                      <%= get_status inmueble.status %>
+                    <div>
+                  </td>
                   <td>
       	          	<div class="bs-example" style="margin-bottom: 15px;">
         		          <div class="btn-group">
