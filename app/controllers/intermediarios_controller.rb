@@ -1,2 +1,0 @@
-class IntermediariosController < ApplicationController
-end
