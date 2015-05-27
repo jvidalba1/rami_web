@@ -1,0 +1,2 @@
+class IntermediariosController < ApplicationController
+end
