@@ -1,3 +1,4 @@
+
 <%= form_for @inmueble, :multipart => true  do |f| %>
 	<% if @inmueble.errors.any? %>
 		<div id="error_explanation">
@@ -276,8 +277,6 @@
         -->
       </div>
     </div>
-
-    <hr>
 
     <div class="actions">
       <%= f.submit "Guardar inmueble", :class => "btn btn-primary" %>
