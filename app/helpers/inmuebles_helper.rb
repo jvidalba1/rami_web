@@ -1,5 +1,21 @@
 module InmueblesHelper
 
+  def number_to_currency(value)
+    if value == 0 or value.blank?
+      raw "&ndash;"
+    else
+      ActionController::Base.helpers.number_to_currency(value)
+    end
+  end
+
+  def number_to_percentage(value)
+    if value == 0 or value.blank?
+      raw "&ndash;"
+    else
+      ActionController::Base.helpers.number_to_percentage(value, precision: 1)
+    end
+  end
+
   def documents_types
     %w(imagen_inmueble_1 imagen_inmueble_2 localizacion_google_maps imagen_adicional_1 imagen_adicional_2)
   end
