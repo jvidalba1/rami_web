@@ -23,7 +23,7 @@ RamiWeb::Application.routes.draw do
   resources :propietarios
   resources :intermediarios
   resources :usuarios
-
+  resources :interesados
 
   devise_for :users
   resources :users
