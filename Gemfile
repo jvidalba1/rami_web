@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
