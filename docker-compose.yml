@@ -1,0 +1,13 @@
+web:  
+  build: .
+  command: rails server
+  volumes:
+    - .:/rami_web
+  links:
+    - db
+  ports:
+    - "3000:3000"
+db:
+  image: postgres
+  ports:
+    - "5432"
