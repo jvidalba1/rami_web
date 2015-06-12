@@ -1,13 +1,21 @@
-web:  
-  build: .
-  command: rails server
-  volumes:
-    - .:/rami_web
-  links:
-    - db
-  ports:
-    - "3000:3000"
 db:
   image: postgres
   ports:
     - "5432"
+web:
+  build: .
+  command: unicorn -p 3000
+  links:
+    - db
+  volumes:
+    - .:/rami_web
+  ports:
+    - "3000:3000"
+nginx:
+  image: nginx
+  ports:
+    - "80:82"
+  volumes:
+    - nginx.conf:/etc/nginx/conf.d/rami.conf
+  links:
+    - web:web 
