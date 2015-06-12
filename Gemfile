@@ -17,6 +17,7 @@ gem 'ransack'
 gem 'jquery-rails'
 gem 'minitest'
 gem 'test-unit'
+gem 'unicorn'
 
 group :test, :development do
   gem 'better_errors'
