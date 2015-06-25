@@ -18,6 +18,7 @@ gem 'jquery-rails'
 gem 'minitest'
 gem 'test-unit'
 gem 'unicorn'
+gem 'capistrano'
 
 group :test, :development do
   gem 'better_errors'
