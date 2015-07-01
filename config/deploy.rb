@@ -1,11 +1,16 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
-set :application, 'rami_web'
+server '104.236.224.161', user: 'root'
+
 set :repo_url, 'git@github.com:jvidalba1/rami_web.git'
+set :application,     'rami_web'
+set :puma_threads,    [4, 16]
+set :puma_workers,    0
+set :branch, "capistrano-deploy"
 
 # Default branch is :master
-set :branch, "docker-integration"
+# ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
 # set :deploy_to, '/var/www/my_app_name'
@@ -23,6 +28,9 @@ set :branch, "docker-integration"
 # set :pty, true
 
 # Default value for :linked_files is []
+# set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
+# set :linked_files, %w{config/database.yml}
+# set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 set :linked_files, fetch(:linked_files, []).push('config/database.yml')
 
 # Default value for linked_dirs is []
@@ -34,17 +42,51 @@ set :linked_files, fetch(:linked_files, []).push('config/database.yml')
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
-namespace :deploy do
-
-  after :finishing, :clear_cache do
+namespace :puma do
+  desc 'Create Directories for Puma Pids and Socket'
+  task :make_dirs do
     on roles(:all) do
-      invoke 'docker:build'
-      invoke 'docker:restart'
-      # Here we can do adocker:upnything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
+      execute "mkdir #{shared_path}/tmp/sockets -p"
+      execute "mkdir #{shared_path}/tmp/pids -p"
     end
   end
 
+  before :start, :make_dirs
 end
+
+namespace :deploy do
+  desc "Make sure local git is in sync with remote."
+  task :check_revision do
+    on roles(:all) do
+      unless `git rev-parse HEAD` == `git rev-parse origin/master`
+        puts "WARNING: HEAD is not the same as origin/master"
+        puts "=>>>>>>>>>>>>>>>>>>>>>>Run `git push` to sync changes."
+        exit
+      end
+    end
+  end
+
+  desc 'Initial Deploy'
+  task :initial do
+    on roles(:all) do
+      before 'deploy:restart', 'puma:start'
+      invoke 'deploy'
+    end
+  end
+
+  desc 'Restart application'
+  task :restart do
+    on roles(:all), in: :sequence do
+      invoke 'puma:restart'
+    end
+  end
+
+  before :starting,     :check_revision
+  after  :finishing,    :compile_assets
+  after  :finishing,    :cleanup
+  after  :finishing,    :restart
+end
+
+# ps aux | grep puma    # Get puma pid
+# kill -s SIGUSR2 pid   # Restart puma
+# kill -s SIGTERM pid   # Stop puma

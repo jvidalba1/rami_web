@@ -19,6 +19,10 @@ gem 'minitest'
 gem 'test-unit'
 gem 'unicorn'
 gem 'capistrano'
+gem 'capistrano-rvm'
+gem 'capistrano-rails'
+gem 'capistrano-bundler'
+gem 'puma'
 
 group :test, :development do
   gem 'better_errors'
