@@ -1,12 +1,13 @@
 # config valid only for current version of Capistrano
+require "bundler/capistrano"
+require "rvm/capistrano"
+
 lock '3.4.0'
 
 server '104.236.224.161', user: 'root'
 
 set :repo_url, 'git@github.com:jvidalba1/rami_web.git'
-set :application,     'rami_web'
-set :puma_threads,    [4, 16]
-set :puma_workers,    0
+set :application, 'rami_web'
 set :branch, "capistrano-deploy"
 
 # Default branch is :master
@@ -42,19 +43,27 @@ set :linked_files, fetch(:linked_files, []).push('config/database.yml')
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
-namespace :puma do
-  desc 'Create Directories for Puma Pids and Socket'
-  task :make_dirs do
-    on roles(:all) do
-      execute "mkdir #{shared_path}/tmp/sockets -p"
-      execute "mkdir #{shared_path}/tmp/pids -p"
+# namespace :puma do
+#   desc 'Create Directories for Puma Pids and Socket'
+#   task :make_dirs do
+#     on roles(:all) do
+#       execute "mkdir #{shared_path}/tmp/sockets -p"
+#       execute "mkdir #{shared_path}/tmp/pids -p"
+#     end
+#   end
+
+#   before :start, :make_dirs
+# end
+
+namespace :deploy do
+
+  %w[start stop restart].each do |command|
+    desc "#{command} unicorn server"
+    task command, roles: :all do
+      run "/etc/init.d/unicorn_#{application} #{command}"
     end
   end
 
-  before :start, :make_dirs
-end
-
-namespace :deploy do
   # desc "Make sure local git is in sync with remote."
   # task :check_revision do
   #   on roles(:all) do
@@ -66,25 +75,31 @@ namespace :deploy do
   #   end
   # end
 
-  desc 'Initial Deploy'
-  task :initial do
-    on roles(:all) do
-      before 'deploy:restart', 'puma:start'
-      invoke 'deploy'
-    end
-  end
+  # desc 'Initial Deploy'
+  # task :initial do
+  #   on roles(:all) do
+  #     before 'deploy:restart', 'puma:start'
+  #     invoke 'deploy'
+  #   end
+  # end
 
-  desc 'Restart application'
-  task :restart do
-    on roles(:all), in: :sequence do
-      invoke 'puma:restart'
-    end
-  end
+  # desc 'Restart application'
+  # task :restart do
+  #   on roles(:all), in: :sequence do
+  #     invoke 'puma:restart'
+  #   end
+  # end
 
-  # before :starting,     :check_revision
-  after  :finishing,    :compile_assets
-  after  :finishing,    :cleanup
-  after  :finishing,    :restart
+
+
+  # # before :starting,     :check_revision
+  # # before "deploy:assets:precompile", "bundle:install"
+  # after :finishing, :precompile_aasets
+  # after :finishing, :cleanup
+  # after :finishing, :restart
+  # # after  :finishing do
+  # #   invoke 'deploy:assets:precompile'
+  # # end
 end
 
 # ps aux | grep puma    # Get puma pid

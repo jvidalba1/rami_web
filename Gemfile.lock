@@ -217,6 +217,8 @@ GEM
       rspec-expectations (~> 2.99.0)
       rspec-mocks (~> 2.99.0)
     rubyzip (1.1.7)
+    rvm-capistrano (1.5.0)
+      capistrano (>= 2.15.4)
     sass (3.4.14)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -301,6 +303,7 @@ DEPENDENCIES
   ransack
   rmagick
   rspec-rails (~> 2.0)
+  rvm-capistrano
   sass-rails
   seedbank (= 0.3.0)
   sqlite3

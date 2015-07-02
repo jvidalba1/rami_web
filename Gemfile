@@ -24,7 +24,7 @@ gem 'capistrano-rails'
 gem 'capistrano-bundler'
 gem 'capistrano3-puma'
 gem 'puma'
-
+gem 'rvm-capistrano'
 
 group :test, :development do
   gem 'better_errors'
