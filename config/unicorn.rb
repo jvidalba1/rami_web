@@ -10,7 +10,7 @@ worker_processes Integer(ENV['WEB_CONCURRENCY'])
 timeout 30
 preload_app true
 
-listen '/tmp/unicorn.spui.sock', backlog: 64
+listen '/var/run/unicorn.rami_web.sock', backlog: 64
 
 before_fork do |server, worker|
   Signal.trap 'TERM' do

@@ -29,7 +29,7 @@ set :branch, "capistrano-deploy"
 # Default value for :linked_files is []
 # set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 # set :linked_files, %w{config/database.yml}
-# set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 set :linked_files, fetch(:linked_files, []).push('config/database.yml')
 
 # Default value for linked_dirs is []
@@ -53,58 +53,26 @@ set :linked_files, fetch(:linked_files, []).push('config/database.yml')
 #   before :start, :make_dirs
 # end
 
-after 'deploy:publishing', 'deploy:restart'
-
 namespace :deploy do
 
-  namespace :deploy do
-    task :restart do
-      invoke 'unicorn:reload'
+  desc 'Restart application'
+  task :restart do
+    on roles(:all), in: :sequence, wait: 5 do
+      invoke 'unicorn:restart'
     end
   end
-  # %w[start stop restart].each do |command|
-  #   desc "#{command} unicorn server"
-  #   task command, roles: :all do
-  #     run "/etc/init.d/unicorn_#{application} #{command}"
-  #   end
-  # end
 
-  # desc "Make sure local git is in sync with remote."
-  # task :check_revision do
-  #   on roles(:all) do
-  #     unless `git rev-parse HEAD` == `git rev-parse origin/master`
-  #       puts "WARNING: HEAD is not the same as origin/master"
-  #       puts "=>>>>>>>>>>>>>>>>>>>>>>Run `git push` to sync changes."
-  #       exit
-  #     end
-  #   end
-  # end
+  after :publishing, :restart
 
-  # desc 'Initial Deploy'
-  # task :initial do
-  #   on roles(:all) do
-  #     before 'deploy:restart', 'puma:start'
-  #     invoke 'deploy'
-  #   end
-  # end
+  after :restart, :clear_cache do
+    on roles(:all), in: :groups, limit: 3, wait: 10 do
+      # Here we can do anything such as:
+      # within release_path do
+      #   execute :rake, 'cache:clear'
+      # end
+    end
+  end
 
-  # desc 'Restart application'
-  # task :restart do
-  #   on roles(:all), in: :sequence do
-  #     invoke 'puma:restart'
-  #   end
-  # end
-
-
-
-  # # before :starting,     :check_revision
-  # # before "deploy:assets:precompile", "bundle:install"
-  # after :finishing, :precompile_aasets
-  # after :finishing, :cleanup
-  # after :finishing, :restart
-  # # after  :finishing do
-  # #   invoke 'deploy:assets:precompile'
-  # # end
 end
 
 # ps aux | grep puma    # Get puma pid
