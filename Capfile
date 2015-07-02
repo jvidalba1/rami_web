@@ -1,6 +1,3 @@
-load 'deploy'
-load 'deploy/assets'
-load 'config/deploy'
 # Load DSL and set up stages
 require 'capistrano/setup'
 
@@ -12,6 +9,7 @@ require 'capistrano/rails'
 require 'capistrano/puma'
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
+require 'capistrano3/unicorn'
 # Include tasks from other gems included in your Gemfile
 #
 # For documentation on these, see for example:

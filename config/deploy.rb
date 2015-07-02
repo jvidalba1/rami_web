@@ -1,6 +1,4 @@
 # config valid only for current version of Capistrano
-require "bundler/capistrano"
-require "rvm/capistrano"
 
 lock '3.4.0'
 
@@ -55,14 +53,21 @@ set :linked_files, fetch(:linked_files, []).push('config/database.yml')
 #   before :start, :make_dirs
 # end
 
+after 'deploy:publishing', 'deploy:restart'
+
 namespace :deploy do
 
-  %w[start stop restart].each do |command|
-    desc "#{command} unicorn server"
-    task command, roles: :all do
-      run "/etc/init.d/unicorn_#{application} #{command}"
+  namespace :deploy do
+    task :restart do
+      invoke 'unicorn:reload'
     end
   end
+  # %w[start stop restart].each do |command|
+  #   desc "#{command} unicorn server"
+  #   task command, roles: :all do
+  #     run "/etc/init.d/unicorn_#{application} #{command}"
+  #   end
+  # end
 
   # desc "Make sure local git is in sync with remote."
   # task :check_revision do
